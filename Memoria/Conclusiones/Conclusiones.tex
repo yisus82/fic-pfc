@@ -1,0 +1,11 @@
+\chapter{Conclusiones y trabajo futuro}
+A continuación se muestran las principales líneas de mejora que podrían llevarse a cabo en un futuro.
+
+\begin{itemize}
+	\item \textbf{Creación de una aplicación de administración:} Se podría crear una sencilla aplicación de administración de la aplicación pueda borrar usuarios o administrar más fácilmente la aplicación. En estos momentos, el usuario ``admin'' puede borrar mapas, WMSs o puntos de información de otros usuarios, pero tiene que hacerlo uno a uno ya que no existe una opción de borrado en masa, que podría ser deseable en un futuro.
+	\item \textbf{Internacionalización de la aplicación:} La aplicación está pensada para que sea fácil su internacionalización, ya que para mostrar los mensajes se hace uso del soporte para la internacionalización de Struts, que utiliza un fichero .properties con el contenido de los mensajes en un determinado idioma. Si se quisiera añadir, por ejemplo, el idioma inglés lo único que debería hacerse es traducir el contenido del fichero \emph{Messages.properties} y grabarlo como \emph{Messages\_en.properties}, así como implementar una manera de escoger el idioma de la aplicación.
+	\item \textbf{Mejora del rendimiento:} Se podría intentar mejorar el rendimiento a la hora de mostrar los mapas, haciendo que, en lugar de dividir la zona a mostrar en nueve subzonas y hacer nueve peticiones en paralelo, podría dividirse en más zonas. También se podría hacer que el renderizado del mapa con las imágenes resultantes sea más efectivo.
+	\item \textbf{Internacionalización de la base de datos:} Se podría hacer que el contenido de la base de datos esté disponible en varios idiomas, para que todo el contenido visual de la aplicación web sea internacionalizable en los
+idiomas soportados.
+	\item \textbf {Añadir nuevas funcionalidades:} Por último, se podrían añadir nuevas funcionalidades, tales como el uso de RSS para obtener los últimos mapas, POIs o WMSs incluidos, o mejorar la interfaz de la aplicación.
+\end{itemize}

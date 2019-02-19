@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<definition name=".Base"
+		page="/commontiles/layouts/DefaultLayout.jspx">
+		<put name="title" value="${title}" />
+		<put name="pageTitle"
+			value="/commontiles/DefaultPageTitle.jspx" />
+		<!-- In derived tiles, define one of the following attributes:
+			<put name="headerSpecificAsTile"  value="${headerSpecificAsTile}" />
+			<put name="headerSpecificAsKey"  value="${headerSpecificAsKey}" />
+		-->
+		<put name="sidebar"
+			value="/commontiles/DefaultSidebar.jspx" />
+		<put name="content" value="${content}" />
+		<put name="footer" value="/commontiles/DefaultFooter.jspx" />
+	</definition>
+	<definition name=".MainPage" extends=".Base">
+		<put name="title" value="MainPage.title" />
+		<put name="headerSpecificAsKey" value="MainPage.headerSpecific" />
+		<put name="content" value="/MainPageContent.jspx" />
+	</definition>
+	<definition name=".InternalError" extends=".Base">
+		<put name="title" value="InternalError.title" />
+		<put name="headerSpecificAsKey"
+			value="InternalError.headerSpecific" />
+		<put name="content" value="/InternalErrorContent.jspx" />
+	</definition>
+	<definition name=".Authentication" extends=".Base">
+		<put name="title" value="Authentication.title" />
+		<put name="headerSpecificAsKey"
+			value="Authentication.headerSpecific" />
+		<put name="content" value="/AuthenticationContent.jspx" />
+	</definition>
+	<definition name=".AddMap" extends=".Base">
+		<put name="title" value="AddMap.title" />
+		<put name="headerSpecificAsKey" value="AddMap.headerSpecific" />
+		<put name="content" value="/AddMapContent.jspx" />
+	</definition>
+	<definition name=".AddPOI" extends=".Base">
+		<put name="title" value="AddPOI.title" />
+		<put name="headerSpecificAsKey" value="AddPOI.headerSpecific" />
+		<put name="content" value="/AddPOIContent.jspx" />
+	</definition>
+	<definition name=".AddWMS" extends=".Base">
+		<put name="title" value="AddWMS.title" />
+		<put name="headerSpecificAsKey" value="AddWMS.headerSpecific" />
+		<put name="content" value="/AddWMSContent.jspx" />
+	</definition>
+	<definition name=".ChangePassword" extends=".Base">
+		<put name="title" value="ChangePassword.title" />
+		<put name="headerSpecificAsKey"
+			value="ChangePassword.headerSpecific" />
+		<put name="content" value="/ChangePasswordContent.jspx" />
+	</definition>
+	<definition name=".ErrorPage" extends=".Base">
+		<put name="title" value="ErrorPage.title" />
+		<put name="headerSpecificAsKey"
+			value="ErrorPage.headerSpecific" />
+		<put name="content" value="/ErrorPageContent.jspx" />
+	</definition>
+	<definition name=".FindInterestingMaps" extends=".Base">
+		<put name="title" value="FindInterestingMapsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindInterestingMapsContent.headerSpecific" />
+		<put name="content" value="/FindInterestingMapsContent.jspx" />
+	</definition>
+	<definition name=".FindInterestingPOIs" extends=".Base">
+		<put name="title" value="FindInterestingPOIsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindInterestingPOIsContent.headerSpecific" />
+		<put name="content" value="/FindInterestingPOIsContent.jspx" />
+	</definition>
+	<definition name=".FindInterestingWMSs" extends=".Base">
+		<put name="title" value="FindInterestingWMSsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindInterestingWMSsContent.headerSpecific" />
+		<put name="content" value="/FindInterestingWMSsContent.jspx" />
+	</definition>
+	<definition name=".FindMaps" extends=".Base">
+		<put name="title" value="FindMapsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindMapsContent.headerSpecific" />
+		<put name="content" value="/FindMapsContent.jspx" />
+	</definition>
+	<definition name=".FindMapsByName" extends=".Base">
+		<put name="title" value="FindMapsByNameContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindMapsByNameContent.headerSpecific" />
+		<put name="content" value="/FindMapsByNameContent.jspx" />
+	</definition>
+	<definition name=".FindMapsByTag" extends=".Base">
+		<put name="title" value="FindMapsByTagContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindMapsByTagContent.headerSpecific" />
+		<put name="content" value="/FindMapsByTagContent.jspx" />
+	</definition>
+	<definition name=".FindMapsByTags" extends=".Base">
+		<put name="title" value="FindMapsByTagsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindMapsByTagsContent.headerSpecific" />
+		<put name="content" value="/FindMapsByTagsContent.jspx" />
+	</definition>
+	<definition name=".FindMapsByUser" extends=".Base">
+		<put name="title" value="FindMapsByUserContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindMapsByUserContent.headerSpecific" />
+		<put name="content" value="/FindMapsByUserContent.jspx" />
+	</definition>
+	<definition name=".FindMapsByZone" extends=".Base">
+		<put name="title" value="FindMapsByZoneContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindMapsByZoneContent.headerSpecific" />
+		<put name="content" value="/FindMapsByZoneContent.jspx" />
+	</definition>
+	<definition name=".FindPOIs" extends=".Base">
+		<put name="title" value="FindPOIsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindPOIsContent.headerSpecific" />
+		<put name="content" value="/FindPOIsContent.jspx" />
+	</definition>
+	<definition name=".FindPOIsByName" extends=".Base">
+		<put name="title" value="FindPOIsByNameContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindPOIsByNameContent.headerSpecific" />
+		<put name="content" value="/FindPOIsByNameContent.jspx" />
+	</definition>
+	<definition name=".FindPOIsByTag" extends=".Base">
+		<put name="title" value="FindPOIsByTagContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindPOIsByTagContent.headerSpecific" />
+		<put name="content" value="/FindPOIsByTagContent.jspx" />
+	</definition>
+	<definition name=".FindPOIsByTags" extends=".Base">
+		<put name="title" value="FindPOIsByTagsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindPOIsByTagsContent.headerSpecific" />
+		<put name="content" value="/FindPOIsByTagsContent.jspx" />
+	</definition>
+	<definition name=".FindPOIsByUser" extends=".Base">
+		<put name="title" value="FindPOIsByUserContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindPOIsByUserContent.headerSpecific" />
+		<put name="content" value="/FindPOIsByUserContent.jspx" />
+	</definition>
+	<definition name=".FindPOIsByZone" extends=".Base">
+		<put name="title" value="FindPOIsByZoneContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindPOIsByZoneContent.headerSpecific" />
+		<put name="content" value="/FindPOIsByZoneContent.jspx" />
+	</definition>
+	<definition name=".FindUsers" extends=".Base">
+		<put name="title" value="FindUsersContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindUsersContent.headerSpecific" />
+		<put name="content" value="/FindUsersContent.jspx" />
+	</definition>
+	<definition name=".FindUsersByUserID" extends=".Base">
+		<put name="title" value="FindUsersByUserIDContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindUsersByUserIDContent.headerSpecific" />
+		<put name="content" value="/FindUsersByUserIDContent.jspx" />
+	</definition>
+	<definition name=".FindWMSs" extends=".Base">
+		<put name="title" value="FindWMSsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindWMSsContent.headerSpecific" />
+		<put name="content" value="/FindWMSsContent.jspx" />
+	</definition>
+	<definition name=".FindWMSsByName" extends=".Base">
+		<put name="title" value="FindWMSsByNameContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindWMSsByNameContent.headerSpecific" />
+		<put name="content" value="/FindWMSsByNameContent.jspx" />
+	</definition>
+	<definition name=".FindWMSsByUser" extends=".Base">
+		<put name="title" value="FindWMSsByUserContent.title" />
+		<put name="headerSpecificAsKey"
+			value="FindWMSsByUserContent.headerSpecific" />
+		<put name="content" value="/FindWMSsByUserContent.jspx" />
+	</definition>
+	<definition name=".RegisterUser" extends=".Base">
+		<put name="title" value="RegisterUser.title" />
+		<put name="headerSpecificAsKey"
+			value="RegisterUser.headerSpecific" />
+		<put name="content" value="/RegisterUserContent.jspx" />
+	</definition>
+	<definition name=".SelectWMS" extends=".Base">
+		<put name="title" value="SelectWMSContent.title" />
+		<put name="headerSpecificAsKey"
+			value="SelectWMSContent.headerSpecific" />
+		<put name="content" value="/SelectWMSContent.jspx" />
+	</definition>
+	<definition name=".SelectLayers" extends=".Base">
+		<put name="title" value="SelectLayersContent.title" />
+		<put name="headerSpecificAsKey"
+			value="SelectLayersContent.headerSpecific" />
+		<put name="content" value="/SelectLayersContent.jspx" />
+	</definition>
+	<definition name=".ShowLayerDetails" extends=".Base">
+		<put name="title" value="ShowLayerDetailsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="ShowLayerDetailsContent.headerSpecific" />
+		<put name="content" value="/ShowLayerDetailsContent.jspx" />
+	</definition>
+	<definition name=".ShowMapDetails" extends=".Base">
+		<put name="title" value="ShowMapDetailsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="ShowMapDetailsContent.headerSpecific" />
+		<put name="content" value="/ShowMapDetailsContent.jspx" />
+	</definition>
+	<definition name=".ShowMyMaps" extends=".Base">
+		<put name="title" value="ShowMyMapsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="ShowMyMapsContent.headerSpecific" />
+		<put name="content" value="/ShowMyMapsContent.jspx" />
+	</definition>
+	<definition name=".ShowMyPOIs" extends=".Base">
+		<put name="title" value="ShowMyPOIsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="ShowMyPOIsContent.headerSpecific" />
+		<put name="content" value="/ShowMyPOIsContent.jspx" />
+	</definition>
+	<definition name=".ShowMyWMSs" extends=".Base">
+		<put name="title" value="ShowMyWMSsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="ShowMyWMSsContent.headerSpecific" />
+		<put name="content" value="/ShowMyWMSsContent.jspx" />
+	</definition>
+	<definition name=".ShowPOIDetails" extends=".Base">
+		<put name="title" value="ShowPOIDetailsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="ShowPOIDetailsContent.headerSpecific" />
+		<put name="content" value="/ShowPOIDetailsContent.jspx" />
+	</definition>
+	<definition name=".ShowUserDetails" extends=".Base">
+		<put name="title" value="ShowUserDetailsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="ShowUserDetailsContent.headerSpecific" />
+		<put name="content" value="/ShowUserDetailsContent.jspx" />
+	</definition>
+	<definition name=".ShowWMSDetails" extends=".Base">
+		<put name="title" value="ShowWMSDetailsContent.title" />
+		<put name="headerSpecificAsKey"
+			value="ShowWMSDetailsContent.headerSpecific" />
+		<put name="content" value="/ShowWMSDetailsContent.jspx" />
+	</definition>
+	<definition name=".UpdateUserProfileDetails" extends=".Base">
+		<put name="title" value="UpdateUserProfileDetails.title" />
+		<put name="headerSpecificAsKey"
+			value="UpdateUserProfileDetails.headerSpecific" />
+		<put name="content"
+			value="/UpdateUserProfileDetailsContent.jspx" />
+	</definition>
+	<definition name=".UpdateMap" extends=".Base">
+		<put name="title" value="UpdateMap.title" />
+		<put name="headerSpecificAsKey" value="UpdateMap.headerSpecific" />
+		<put name="content" value="/UpdateMapContent.jspx" />
+	</definition>
+	<definition name=".UpdatePOI" extends=".Base">
+		<put name="title" value="UpdatePOI.title" />
+		<put name="headerSpecificAsKey" value="UpdatePOI.headerSpecific" />
+		<put name="content" value="/UpdatePOIContent.jspx" />
+	</definition>
+	<definition name=".UpdateWMS" extends=".Base">
+		<put name="title" value="UpdateWMS.title" />
+		<put name="headerSpecificAsKey" value="UpdateWMS.headerSpecific" />
+		<put name="content" value="/UpdateWMSContent.jspx" />
+	</definition>
+</tiles-definitions>

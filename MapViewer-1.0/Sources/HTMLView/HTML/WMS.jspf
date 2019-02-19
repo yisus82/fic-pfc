@@ -1,0 +1,8 @@
+<div class="field"><span class="label"> <fmt:message key="WMS.name" />
+</span> <span class="entry"> <html:text property="name" size="30" maxlength="20" />
+<html:errors property="name" /> </span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="WMS.description" /> </span> <span class="entry"> <html:text
+	property="description" size="30" maxlength="50" /> <html:errors
+	property="description" /> </span></div>

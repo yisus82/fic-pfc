@@ -1,0 +1,24 @@
+\chapter{Introducción}
+
+\section{Motivación}
+Se trata de crear una aplicación web participativa donde los usuarios que estén registrados puedan crear sus mapas personalizados a partir de la información obtenida de servidores WMS ajenos a dicha aplicación. Además debe permitirles añadir a dichos mapas puntos de información que puedan ser visualizados por los demás usuarios que lo deseen. \\
+La aplicación también debe permitir que un usuario que no esté registrado pueda buscar y visualizar los objetos creados por los usuarios registrados, aunque no pueda luego almacenarlos ni crear los suyos propios a no ser que se registre. \\
+Hemos mencionado que la información para crear los mapas es obtenida a partir de servidores WMS, pero ¿qué es un servidor WMS? Es un servicio web que genera cartografía a partir de información geográfica. A través de una petición HTTP se puede indicar las capas a visualizar, los estilos a utilizar, el formato y la resolución de la imagen. Esta definición se ampliará posteriormente en el apartado de \emph{Estándares y tecnologías utilizadas}.
+
+\section{Objetivos del proyecto}
+
+\begin{itemize}
+	\item \textbf{Modelado según el paradigma de la orientación a objetos:} Aunque los diagramas producidos durante la fase de diseño no formen parte del software en el sentido más estricto de la palabra, no dejan de ser una parte importante del proyecto. El presente documento contiene, por tanto, los diagramas de aquellas partes de la aplicación de vital relevancia o especial dificultad. Los diagramas utilizan el lenguaje de modelado unificado UML.
+	\item \textbf{Utilización de patrones de diseño:} El diseño de la aplicación ha de ser flexible y adoptar soluciones que se han utilizado con éxito en el pasado ante los problemas más comunes. La mayor parte de los problemas deben solucionarse empleando patrones de diseño desde la arquitectura global de la aplicación hasta los problemas más puntuales de creación de objetos y de comportamiento de los mismos.
+	\item \textbf{Persistencia:} Las acciones que lleven a cabo los usuarios y aquellas que el sistema realice por cuenta propia han de quedar guardadas de forma que pueda recuperarse el sistema en un estado actual y consistente ante cualquier problema.
+	\item \textbf{Capacidad de funcionamiento distribuido:} La aplicación debe poder distribuir sus responsabilidades en diferentes máquinas. Por ejemplo, se puede instalar el servidor de bases de datos y la parte del modelo de la aplicación en sendas máquinas a las que la aplicación web accederá de forma remota.
+	\item \textbf{Posibilidad de accesos concurrentes y escalabilidad:} No sólo se desea que varios usuarios puedan interactuar a la vez con el sistema, sino que la aplicación ha de funcionar de forma eficaz y eficiente aunque el número de usuarios crezca aumentando el número de accesos concurrentes al mismo.
+\end{itemize}
+
+\section{Estructura de la memoria}
+En el siguiente apartado de la memoria se explican en detalle los estándares y tecnologías utilizadas en la realización del proyecto. \\
+A continuación se detallan los procesos de Análisis, Diseño e Implementación, explicando las decisiones tomadas para
+la elaboración del proyecto, al mismo tiempo que ofrece una visión detallada de las mismas. \\
+Posteriormente se hace una breve descripción de los patrones utilizados en el proyecto, para continuar luego con un manual de usuario que detalla cómo realizar las distintas acciones que puede realizar un usuario (ya esté registrado en la aplicación o no). \\
+Por último se incluye un apartado donde se muestran las líneas de mejora que se pueden seguir en un futuro para mejorar la aplicación. \\
+La memoria también consta de una serie de apéndices que explican como instalar la aplicación (Manual de compilación e instalación), explican el contenido del CD adjunto (Contenido del CD adjunto), hacen mención al código licenciado usado para la realización del proyecto (Uso de código licenciado) y por último muestran un glosario con algunos acrónimos y términos utilizados en esta memoria. \\

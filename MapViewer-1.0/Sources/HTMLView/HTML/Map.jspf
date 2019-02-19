@@ -1,0 +1,35 @@
+<div class="field"><span class="label"> <fmt:message key="Map.name" />
+</span> <span class="entry"> <html:text property="name" size="40" maxlength="20" />
+<html:errors property="name" /></span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="Map.description" /> </span> <span class="entry"> <html:text
+	property="description" size="40" maxlength="50" /> <html:errors
+	property="description" /></span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="Map.minLongitude" /> </span> <![CDATA[ &nbsp; ]]> <span class="entry"> <input
+	type="text" name="minLongitude" id="minLongitude" size="40" maxlength="20"
+	value="${requestScope.minLongitude}" /><html:errors property="minLongitude" /></span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="Map.minLatitude" /> </span> <![CDATA[ &nbsp; ]]> <span class="entry"> <input
+	type="text" name="minLatitude" id="minLatitude" size="40" maxlength="20"
+	value="${requestScope.minLatitude}" /><html:errors property="minLatitude" /></span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="Map.maxLongitude" /> </span> <![CDATA[ &nbsp; ]]> <span class="entry"> <input
+	type="text" name="maxLongitude" id="maxLongitude" size="40" maxlength="20"
+	value="${requestScope.maxLongitude}" /><html:errors property="maxLongitude" /></span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="Map.maxLatitude" /> </span> <![CDATA[ &nbsp; ]]> <span class="entry"> <input
+	type="text" name="maxLatitude" id="maxLatitude" size="40" maxlength="20"
+	value="${requestScope.maxLatitude}" /><html:errors property="maxLatitude" />
+<div><a href="#" onclick="showMap()"><fmt:message
+	key="Map.zoneSelector" /></a></div>
+</span></div>
+
+<div class="field"><span class="label"> <fmt:message key="Map.tags" />
+</span> <span class="entry"> <html:text property="tags" size="40"
+	maxlength="1000" /> <html:errors property="tags" /></span></div>

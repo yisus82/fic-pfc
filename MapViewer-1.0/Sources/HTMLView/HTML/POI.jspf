@@ -1,0 +1,28 @@
+<center>
+<div class="field"><span class="label"> <fmt:message key="POI.name" />
+</span> <span class="entry"> <html:text property="name" size="83" maxlength="20" />
+<html:errors property="name" /> </span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="POI.longitude" /> </span> <span class="entry"> <html:text
+	property="longitude" size="83" maxlength="20" /> <html:errors
+	property="longitude" /> </span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="POI.latitude" /> </span> <span class="entry"> <html:text
+	property="latitude" size="83" maxlength="20" /> <html:errors
+	property="latitude" /> </span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="POI.description" /> </span> <span class="entry"> <html:text
+	property="description" size="83" maxlength="50" /> <html:errors
+	property="description" /> </span></div>
+
+<div class="field"><span class="label"> <fmt:message key="POI.HTML" />
+</span> <span class="entry"> <html:textarea property="HTML" cols="62" rows="10" />
+<html:errors property="HTML" /> </span></div>
+
+<div class="field"><span class="label"> <fmt:message key="POI.tags" />
+</span> <span class="entry"> <html:text property="tags" size="83"
+	maxlength="1000" /> <html:errors property="tags" /> </span></div>
+</center>

@@ -1,0 +1,231 @@
+<html:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:html="http://struts.apache.org/tags-html"
+	xmlns:tiles="http://struts.apache.org/tags-tiles">
+
+<jsp:output doctype-root-element="html"
+	doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+	doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+	omit-xml-declaration="true" />
+
+<jsp:directive.page contentType="text/html; charset=iso-8859-1" />
+
+<!-- HTML header. -->
+
+<tiles:useAttribute name="title" />
+<head>
+<title><fmt:message key="${title}" /></title>
+<c:url var="stylesURL" value="/css/styles.css" />
+<link rel="StyleSheet" href="${stylesURL}" type="text/css" media="all" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<![CDATA[
+<script src="cropper/lib/prototype.js" type="text/javascript"></script>	
+<script src="cropper/lib/scriptaculous.js?load=builder,dragdrop,effects" type="text/javascript"></script>
+<script src="cropper/cropper.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+
+		var cropper;
+		
+		// setup the callback function
+		function onEndCrop( coords, dimensions ) {
+			var gXY = coordsToGeo(coords);
+			$( 'x1' ).value = gXY.x1;
+			$( 'y1' ).value = gXY.y1;
+			$( 'x2' ).value = gXY.x2;
+			$( 'y2' ).value = gXY.y2;
+		}
+		
+		function coordsToGeo(coords) {
+			var gX1 = -180 + 360 * (coords.x1 / 1000);
+			var gY1 = 90 - 180 * (coords.y2 / 400);
+			var gX2 = -180 + 360 * (coords.x2 / 1000);
+			var gY2 = 90 - 180 * (coords.y1 / 400);
+			return {x1: gX1, y1: gY1, x2: gX2, y2:gY2};
+		}
+		
+		function geoToCoords(geo) {
+			var cX1 = (geo.x1 + 180) * 1000 / 360;
+			var cY1 = (geo.y2 - 90) * 400 / -180;
+			var cX2 = (geo.x2 + 180) * 1000 / 360;
+			var cY2 = (geo.y1 - 90) * 400 / -180;
+			return {x1: Math.round(cX1), y1: Math.round(cY1), x2: Math.round(cX2), y2:Math.round(cY2)};
+		}
+		
+		function hideMap(isOK) {
+			$( 'mapDiv' ).style.visibility = 'hidden';
+			if (isOK == true) {
+				$( 'minLongitude' ).value = $( 'x1' ).value;
+				$( 'minLatitude' ).value = $( 'y1' ).value;
+				$( 'maxLongitude' ).value = $( 'x2' ).value;
+				$( 'maxLatitude' ).value = $( 'y2' ).value;
+			}
+		}	
+		
+		function showMap() {
+			cropper.remove();
+			cropper.initialize( 'mapImage', { onEndCrop: onEndCrop });
+			$( 'mapDiv' ).style.visibility = 'visible';
+		}
+		
+		Event.observe(
+			window,
+			'load',
+			function() {
+				cropper = new Cropper.Img( 'mapImage', { onEndCrop: onEndCrop });
+				new Draggable( 'mapDiv' );
+			}
+		);		
+		
+</script>
+<script type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+	tinyMCE.init({
+		theme : 'advanced',
+		mode : 'textareas',
+		language : 'es',
+		content_css : ']]>
+<c:out value="${stylesURL}" />
+<![CDATA[',
+		plugins : 'table,save,advhr,advimage,advlink,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking',
+		theme_advanced_disable : 'formatselect, styleselect',
+		theme_advanced_buttons1_add_before : 'save,newdocument,separator',
+		theme_advanced_buttons1_add : 'visualchars,nonbreaking,separator,media,advhr,separator,print,separator,ltr,rtl,separator,fullscreen,separator,preview',
+		theme_advanced_buttons2_add_before: 'cut,copy,paste,pastetext,pasteword,separator,search,replace,separator',
+		theme_advanced_buttons3_add_before : 'forecolor,backcolor,separator,tablecontrols,separator',
+		theme_advanced_toolbar_location : 'top',
+		theme_advanced_toolbar_align : 'left',
+		extended_valid_elements : 'a[href|target|name],font[face|size|color|style]',
+		nonbreaking_force_tab : true,
+		apply_source_formatting : true,
+		debug : false
+	});
+</script>
+]]>
+</head>
+
+<!-- Start of HTML body. -->
+
+<body>
+
+<!-- Window. -->
+
+<div id="window"><!-- Page title. -->
+
+<div id="pageTitle"><tiles:get name="pageTitle" /></div>
+
+<!-- Menu. -->
+
+<div id="menu"><span id="menuWelcome"> <c:choose>
+	<c:when test="${empty sessionScope.userID}">
+		<fmt:message key="DefaultLayout.welcome" />
+	</c:when>
+	<c:otherwise>
+		<fmt:message key="DefaultLayout.hello" />
+		<![CDATA[&nbsp;]]>
+		<c:out value="${sessionScope.userID}" />
+	</c:otherwise>
+</c:choose> </span> - <tiles:useAttribute name="headerSpecificAsKey" ignore="true" /> <c:if
+	test="${!empty headerSpecificAsKey}">
+	<span id="menuExplanation"> <fmt:message key="${headerSpecificAsKey}" />
+	</span>
+</c:if> <c:set var="mode" value="${requestScope.mode}" />
+<div id="menuButtons"><c:if test="${!empty sessionScope.userID}">
+	<html:button property="userProfile"
+		onclick="location.href='EditUserProfile.do?action=UPDATE'"
+		style="border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #0080ff 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+		<fmt:message key="Buttons.userProfile" />
+	</html:button>
+	<![CDATA[&nbsp;]]>
+</c:if> <c:choose>
+	<c:when test="${mode ne 'maps'}">
+		<html:button property="maps" onclick="location.href='MainPage.do?mode=maps'"
+			style="border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #0080ff 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+			<fmt:message key="Buttons.maps" />
+		</html:button>
+	</c:when>
+	<c:otherwise>
+		<html:button property="maps" onclick="location.href='MainPage.do?mode=maps'"
+			style="background-color: #4aafe0; border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #4aafe0 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+			<fmt:message key="Buttons.maps" />
+		</html:button>
+	</c:otherwise>
+	<![CDATA[&nbsp;]]>
+</c:choose> <c:choose>
+	<c:when test="${mode ne 'POIs'}">
+		<html:button property="POIs" onclick="location.href='MainPage.do?mode=POIs'"
+			style="border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #0080ff 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+			<fmt:message key="Buttons.POIs" />
+		</html:button>
+	</c:when>
+	<c:otherwise>
+		<html:button property="POIs" onclick="location.href='MainPage.do?mode=POIs'"
+			style="background-color: #4aafe0; border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #4aafe0 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+			<fmt:message key="Buttons.POIs" />
+		</html:button>
+	</c:otherwise>
+</c:choose> <![CDATA[&nbsp;]]> <c:choose>
+	<c:when test="${mode ne 'WMSs'}">
+		<html:button property="WMSs" onclick="location.href='MainPage.do?mode=WMSs'"
+			style="border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #0080ff 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+			<fmt:message key="Buttons.WMSs" />
+		</html:button>
+	</c:when>
+	<c:otherwise>
+		<html:button property="WMSs" onclick="location.href='MainPage.do?mode=WMSs'"
+			style="background-color: #4aafe0; border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #4aafe0 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+			<fmt:message key="Buttons.WMSs" />
+		</html:button>
+	</c:otherwise>
+</c:choose> <![CDATA[&nbsp;]]> <c:choose>
+	<c:when test="${mode ne 'users'}">
+		<html:button property="users" onclick="location.href='MainPage.do?mode=users'"
+			style="border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #0080ff 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+			<fmt:message key="Buttons.users" />
+		</html:button>
+	</c:when>
+	<c:otherwise>
+		<html:button property="users" onclick="location.href='MainPage.do?mode=users'"
+			style="background-color: #4aafe0; border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #4aafe0 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+			<fmt:message key="Buttons.users" />
+		</html:button>
+	</c:otherwise>
+</c:choose> <![CDATA[&nbsp;]]> <c:if test="${!empty sessionScope.userID}">
+	<html:button property="logout" onclick="location.href='Logout.do'"
+		style="border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #0080ff 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+		<fmt:message key="Buttons.logout" />
+	</html:button>
+</c:if> <c:if test="${empty sessionScope.userID}">
+	<html:button property="login" onclick="location.href='ShowAuthentication.do'"
+		style="border-left: #000 1px solid; border-right: #000 1px solid; border-top: #000 1px solid; border-bottom: #0080ff 3px solid; -moz-border-radius: 0px 0px 0px 0px;">
+		<fmt:message key="Buttons.login" />
+	</html:button>
+</c:if></div>
+</div>
+
+<!-- Page body. -->
+
+<div id="pageBody"><!-- Sidebar. -->
+
+<div id="sidebar"><tiles:get name="sidebar" /></div>
+
+<!-- Content. -->
+
+<div id="content"><tiles:get name="content" /></div>
+
+<!-- End of "pageBody" id. --></div>
+
+<!-- Body footer. -->
+
+<div id="footer"><tiles:get name="footer" /></div>
+
+<!-- End of "window" id. --></div>
+
+<!-- End of HTML body. -->
+
+</body>
+
+<!-- End of HTML. -->
+
+</html:html>

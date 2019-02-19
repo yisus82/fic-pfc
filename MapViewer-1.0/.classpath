@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Sources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSTL"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JBOSS"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JUNIT"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/TOMCAT"/>
+	<classpathentry kind="lib" path="Jars/Util/StandardUtil.jar" sourcepath="C:/Files/Universidad/Practicas/IS/J2EE-Examples-src-2.0/Subsystems/Util/Sources"/>
+	<classpathentry kind="lib" path="Jars/Util/WebUtil.jar" sourcepath="C:/Files/Universidad/Practicas/IS/J2EE-Examples-src-2.0/Subsystems/Util/Sources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/STRUTS"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JDOM"/>
+	<classpathentry kind="output" path="Build/Eclipse"/>
+</classpath>

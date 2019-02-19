@@ -1,0 +1,51 @@
+<!-- ======================================================================= -->
+<!--                         Common path references                          -->
+<!-- ======================================================================= -->
+
+<!--
+	The following files must be included first (and in this order):
+	
+	- CommonProperties.xml
+-->
+
+<!-- Classpath required by MapViewer -->
+<path id="MapViewer.requiredclasspath">
+	<fileset dir="${jdbcdriver.home}">
+		<include name="${jdbcdriver.jars}" />
+	</fileset>
+	<fileset dir="${jdom.lib}">
+		<include name="${jdom.jars}" />
+	</fileset>
+	<fileset dir="${stdtaglibs.lib}">
+		<include name="${stdtaglibs.jars}" />
+	</fileset>
+	<fileset dir="${struts.lib}">
+		<include name="${struts.jars}" />
+	</fileset>
+	<fileset dir="${tomcat.lib}">
+		<include name="${tomcat.jars}" />
+	</fileset>
+	<!-- The following jar is included to compile EJB classes -->
+	<fileset dir="${jboss.deploy}/ejb3.deployer">
+		<include name="*.jar" />
+	</fileset>
+	<!-- The following jars are included to execute stand-alone clients -->
+	<fileset dir="${jboss.deploy}/jboss-aop-jdk50.deployer">
+		<include name="*.jar" />
+	</fileset>
+	<fileset dir="${jboss.client}">
+		<include name="*.jar" />
+	</fileset>
+	<fileset dir="${utilJars.jars}">
+		<include name="${utilJars.standardjar}" />
+		<include name="${utilJars.webjar}" />
+	</fileset>
+</path>
+
+<!-- MapViewer classpath -->
+<path id="MapViewer.classpath">
+	<path refid="MapViewer.requiredclasspath" />
+	<dirset dir="${MapViewer.home}">
+		<include name="*/Build/Classes" />
+	</dirset>
+</path>

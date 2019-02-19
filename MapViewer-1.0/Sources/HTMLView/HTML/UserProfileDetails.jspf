@@ -1,0 +1,21 @@
+<div class="field"><span class="label"> <fmt:message
+	key="UserProfile.firstName" /> </span> <span class="entry"> <html:text
+	property="firstName" size="30" maxlength="30" /> <html:errors
+	property="firstName" /> </span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="UserProfile.surname" /> </span> <span class="entry"> <html:text
+	property="surname" size="30" maxlength="40" /> <html:errors property="surname" />
+</span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="UserProfile.email" /> </span> <span class="entry"> <html:text
+	property="email" size="30" maxlength="60" /> <html:errors property="email" />
+</span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="UserProfile.localeID" /> </span> <span class="entry"> <html:select
+	property="localeID">
+	<html:options collection="locales" property="property"
+		labelProperty="labelProperty" />
+</html:select> <html:errors property="localeID" /> </span></div>

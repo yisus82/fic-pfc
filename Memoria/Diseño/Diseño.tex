@@ -1,0 +1,251 @@
+\chapter{Diseño e implementación}
+Una vez descompuesto el dominio y analizadas las necesidades del usuario, el siguiente paso es modelar el sistema. Durante la fase de diseño se procede al modelado de la forma del sistema, de manera que proporcione soporte a los requisitos encontrados en la fase anterior. En concreto, se busca crear una entrada apropiada para actividades de implementación subsiguientes, descomponiendo los trabajos de la misma en partes más manejables. \\
+Por su parte, durante la fase de implementación se codifica el sistema en términos de componentes, es decir, ficheros de código, scripts, ejecutables, etc. Además, también se realiza una distribución del sistema asignando componentes ejecutables a nodos en un diagrama de despliegue. \\
+Para llevar a cabo este trabajo se hace uso de una serie de artefactos, denominados patrones. Estos artefactos proporcionan una solución a un problema de diseño no trivial que es efectiva y reusable. Además, para la representación del modelo de diseño se hace uso de los diagramas UML: vista estática de clases y diagramas de secuencia, sobre todo. \\
+La aplicación se ha diseñado en una estructura de subsistemas. Actualmente existe un único subsistema principal llamado MapViewer, pero se ha elegido la mencionada estructura ya que en el futuro el sistema puede ser modificado y ampliado por diversos desarrolladores. Está previsto que puedan aparecer subsistemas que complementen al principal, sean o no aplicaciones web. \\
+Como se podrá apreciar en breve, el subsistema MapViewer está distribuido en capas según los patrones arquitectónicos Layers (Capas) y MVC o Model-View-Controller (Modelo-Vista-Controlador), que se explican en detalle en el apartado de \emph{Patrones utilizados}. De esta manera se logra una independencia entre las mismas, de forma que cualquier cambio en una de ellas no debería afectar a las otras, a no ser que la interfaz que separa a ambas cambie. Ésta es la base para un diseño flexible y desacoplado.
+
+\section{Arquitectura global}
+En la figura~\ref{fig:EstructuraGlobal} se puede ver la estructura global de la aplicación. A continuación se comentarán en detalle cada una de las partes. También se incluyen varios diagramas de clases para acompañar la aplicación. Dado que algunos son demasiados grande y tuvieron que ser reducidos, se pueden ver a tamaño real o bien en formato PDF (aumentando el zoom), en formato MagicDraw (en la carpeta \emph{Diagramas} dentro del código fuente de la aplicación) o bien en formato de imagen PNG (en la carpeta \emph{Imágenes} dentro de la carpeta de la memoria).
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{Imágenes/EstructuraGlobal.png}
+	\caption{Estructura global}
+	\label{fig:EstructuraGlobal}
+\end{figure}
+
+\section{Paquete EJBConfiguration}
+Aquí se encuentran los ficheros de configuración de EJB3 para su correcto funcionamiento bajo JBoss.
+
+\section{Paquete HTMLView}
+Contiene los ficheros necesarios para la interfaz gráfica de la aplicación web. Su estructura se puede observar en la figura~\ref{fig:HTMLView}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{Imágenes/HTMLView.PNG}
+	\caption{HTMLView}
+	\label{fig:HTMLView}
+\end{figure}
+
+\subsection{HTML}
+En este paquete se sitúan todas las páginas jspx usadas para confeccionar la aplicación; los ficheros necesarios para el uso del patrón Tiles, que nos permite repetir una misma estructura en las páginas que se muestran (encabezado, pie de página y barra lateral) de forma que en cada página sólo tengamos que incluir en la parte de contenido la página jspx que queramos mostrar (la carpeta \emph{commontiles} y la subcarpeta \emph{layouts}); una hoja de estilos CSS que nos ayuda a dar el aspecto visual que queramos a la aplicación (bajo la carpeta \emph{css}); las imágenes que usa la aplicación (en la carpeta \emph{img}); y varios ficheros JavaScript con las funcionalidades necesarias para la correcta interacción del usuario con la aplicación web (incluidos los scripts realizados por personas ajenas y que se describen en el apartado \emph{Uso de código licenciado}).
+
+\subsection{WEB-INF}
+Incluye los ficheros de configuración de Struts, Tiles y Validator y el descriptor de la aplicación \emph{web.xml}.
+
+\section{Paquete http.controller}
+Se encarga de modelar la capa controlador de la aplicación web y contiene un conjunto de clases \emph{Action}, que interactúan con el modelo y seleccionan la siguiente vista.
+
+\subsection{Paquete actions}
+Contiene las anteriormente citadas acciones que extienden a la clase \emph{DefaultAction} definiendo para ello el método \emph{doExecute()}. Se implementan las siguientes acciones que se pueden ver en la figura~\ref{fig:DiagramaActions}:
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight]{Imágenes/DiagramaActions.png}
+	\caption{Actions}
+	\label{fig:DiagramaActions}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{AddInterestingMapAction:} añade un mapa a la lista de mapas que le interesan al usuario autenticado.
+	\item \textbf{AddInterestingPOIAction:} añade un POI (punto de interés) a la lista de POIs que le interesan al usuario autenticado.
+	\item \textbf{AddInterestingWMSAction:} añade un servidor WMS a la lista de WMSs que le interesan al usuario autenticado.
+	\item \textbf{AddMapAction:} crea un mapa y lo añade a la base de datos.
+	\item \textbf{AddPOIAction:} crea un POI (punto de interés) y lo añade a la base de datos.
+	\item \textbf{AddWMSAction:} crea un servidor WMS (con todas sus capas y estilos de capas) y lo añade todo a la base de datos.
+	\item \textbf{ChangePasswordAction:} cambia la contraseña del usuario.
+	\item \textbf{DeleteInterestingMapAction:} elimina un mapa de la lista de mapas que le interesan al usuario autenticado.
+	\item \textbf{DeleteInterestingPOIAction:} elimina un POI (punto de interés) de la lista de POIs que le interesan al usuario autenticado.
+	\item \textbf{DeleteInterestingWMSAction:} elimina un servidor WMS de la lista de WMSs que le interesan al usuario autenticado.
+	\item \textbf{DeleteMapAction:} elimina un mapa de la base de datos.
+	\item \textbf{DeletePOIAction:} elimina un POI (punto de interés) de la base de datos.
+	\item \textbf{DeleteWMSAction:} elimina un servidor WMS de la base de datos.
+	\item \textbf{EditMapAction:} prepara los datos para crear o actualizar un mapa en la base de datos según los parámetros que reciba.
+	\item \textbf{EditPOIAction:} prepara los datos para crear o actualizar un POI (punto de interés) en la base de datos según los parámetros que reciba.
+	\item \textbf{EditUserProfileAction:} prepara los datos para crear o actualizar un usuario en la base de datos según los parámetros que reciba.
+	\item \textbf{EditWMSAction:} prepara los datos para crear o actualizar un servidor WMS en la base de datos según los parámetros que reciba.
+	\item \textbf{FindInterestingMapsAction:} muestra una lista con los mapas que le interesan al usuario autenticado.
+	\item \textbf{FindInterestingPOIsAction:} muestra una lista con los POIs (puntos de interés) que le interesan al usuario autenticado.
+	\item \textbf{FindInterestingWMSsAction:} muestra una lista con los servidores WMSs que le interesan al usuario autenticado.
+	\item \textbf{FindMapsAction:} muestra una lista con todos los mapas.
+	\item \textbf{FindMapsByNameAction:} muestra una lista con todos los mapas que tienen un nombre igual a uno dado.
+	\item \textbf{FindMapsByTagAction:} muestra una lista con todos los mapas que tienen, al menos, una etiqueta (tag) dada.
+	\item \textbf{FindMapsByTagsAction:} muestra una lista con todos los mapas que tienen, al menos, las etiquetas (tags) dadas.
+	\item \textbf{FindMapsByUserAction:} muestra una lista con todos los mapas de un usuario dado.
+	\item \textbf{FindMapsByZoneAction:} muestra una lista con todos los mapas de una zona dada.
+	\item \textbf{FindPOIsAction:} muestra una lista con todos los POIs (puntos de interés).
+	\item \textbf{FindPOIsByNameAction:} muestra una lista con todos los POIs (puntos de interés) que tienen un nombre igual a uno dado.
+	\item \textbf{FindPOIsByTagAction:} muestra una lista con todos los POIs (puntos de interés) que tienen, al menos, una etiqueta (tag) dada.
+	\item \textbf{FindPOIsByTagsAction:} muestra una lista con todos los POIs (puntos de interés) que tienen, al menos, las etiquetas (tags) dadas.
+	\item \textbf{FindPOIsByUserAction:} muestra una lista con todos los POIs (puntos de interés) de un usuario dado.
+	\item \textbf{FindPOIsByZoneAction:} muestra una lista con todos los POIs (puntos de interés) de una zona dada.
+	\item \textbf{FindUsersAction:} muestra una lista con todos los usuarios.
+	\item \textbf{FindUsersByUserIDAction:} muestra una lista con todos los usuarios con un identificador dado. En principio, debería devolver uno o ninguno, nunca más de uno.
+	\item \textbf{FindWMSsAction:} muestra una lista con todos los servidores WMS.
+	\item \textbf{FindWMSsByNameAction:} muestra una lista con todos los servidores WMS que tienen un nombre igual a uno dado.
+	\item \textbf{FindWMSsByUserAction:} muestra una lista con todos los servidores WMS de un usuario dado.
+	\item \textbf{LoginAction:} permite a un usuario registrado entrar en la aplicación.
+	\item \textbf{LogoutAction:} permite a un usuario autenticado salir de la aplicación.
+	\item \textbf{MainPageAction:} se usa para establecer las opciones que aparecen el la barra lateral.
+	\item \textbf{RegisterUserAction:} permite a un usuario registrarse en la aplicación.
+	\item \textbf{SelectLayersAction:} permite elegir las capas que se desean incluir en un mapa.
+	\item \textbf{SelectWMSAction:} permite seleccionar un servidor WMS para añadir alguna de sus capas en un mapa.
+	\item \textbf{ShowLayerDetailsAction:} muestra los detalles de una capa dada.
+	\item \textbf{ShowMapAction:} muestra un mapa dado.
+	\item \textbf{ShowMapDetailsAction:} muestra los detalles de un mapa dado.
+	\item \textbf{ShowMyMapsAction:} muestra una lista con todos los mapas del usuario autenticado.
+	\item \textbf{ShowMyPOIsAction:} muestra una lista con todos los POIs (puntos de interés) del usuario autenticado.
+	\item \textbf{ShowMyWMSsAction:} muestra una lista con todos los servidores WMS del usuario autenticado.
+	\item \textbf{ShowPOIDetailsAction:} muestra los detalles de un POI (punto de interés) dado.
+	\item \textbf{ShowSelectWMSAction:} prepara los datos para elegir un servidor WMS para añadir alguna de sus capas en un mapa.
+	\item \textbf{ShowUserDetailsAction:} muestra los detalles de un usuario dado.
+	\item \textbf{ShowWMSDetailsAction:} muestra los detalles de un servidor WMS dado.
+	\item \textbf{UpdateMapAction:} actualiza un mapa en la base de datos.
+	\item \textbf{UpdatePOIAction:} actualiza un POI (punto de interés) en la base de datos.
+	\item \textbf{UpdateUserProfileDetailsAction:} actualiza los detalles de un usuario en la base de datos.
+	\item \textbf{UpdateWMSAction:} actualiza un servidor WMS en la base de datos.
+\end{itemize}
+
+\subsection{Paquete frontcontroller}
+Permite la delegación del procesamiento de peticiones por parte del \emph{Front-Controller} de \emph{Struts}(\textbf{ActionServlet}) en la clase RequestProcessor, de manera que su método principal(\textbf{process()}) actúe como método plantilla que se implementa en términos de otros. \\
+Su implementación siguiendo el patrón \emph{Cadena de Responsabilidad} nos permite asegurar que un usuario tenga en su sesión todo lo que necesita, controlar que tengamos cargado todo el entorno necesario para la aplicación y filtrar aquellas llamadas a actions que precisan que el usuario esté autenticado. Su estructura puede verse en la figura~\ref{fig:DiagramaFrontController}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight]{Imágenes/DiagramaFrontController.png}
+	\caption{Front Controller}
+	\label{fig:DiagramaFrontController}
+\end{figure}
+
+\subsection{Paquete session}
+Fachada que facilita la implementación de las acciones en el controlador, dotándole de operaciones por cada operación que necesite actualizar la sesión y/o las cookies.
+
+\subsection{Paquete util}
+Contiene una clase utilidad para comparar objetos del tipo \emph{(etiqueta, valor)}.
+
+\section{Paquete http.util}
+Contiene una clase utilidad para instanciar objetos del tipo \emph{(etiqueta, valor)}.
+
+\section{Paquete http.view.messages}
+Se incluyen los ficheros de mensajes de los idiomas soportados por la aplicación (por el momento sólo el español). Es importante hacer notar que lo que se internacionaliza en estos ficheros es toda aquella información que no se trae directamente de la base de datos. El fichero de mensajes a utilizar será el del idioma que tenga configurado el navegador que esté usando el propio usuario; en caso de no estar soportado por la aplicación web se utilizará el idioma por defecto (el español). Los mensajes en los ficheros están ordenados por la clave alfabéticamente para facilitar su manejo.
+
+\section{Paquete model}
+En este paquete se encuentra el modelo de datos de la aplicación y todas las funcionalidades del sistema que tengan que relacionarse con los datos que se estén utilizando tendrán que utilizar las operaciones proporcionadas por las clases de este paquete. La estructura del paquete se puede ver en la figura~\ref{fig:Modelo}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{Imágenes/Modelo.png}
+	\caption{Paquete model}
+	\label{fig:Modelo}
+\end{figure}
+
+La aplicación web consta de dos fachadas:
+
+\begin{itemize}
+	\item \textbf{searchFacade:} modela las operaciones relativas a la búsqueda de objetos. Se trata de una fachada sin estado (\emph{Stateless}).
+	\item \textbf{userFacade:} modela el resto de operaciones que puede realizar un usuario. Se trata de una fachada con estado (\emph{Stateful}).
+\end{itemize}
+
+Cada una de estas fachadas tendrá asociados unos \emph{Transfer Object} para el manejo de la información obtenida con sus respectivos \emph{Chunk} en el supuesto de que el caso de uso dé soporte al patrón \emph{Page-by-page}(todos ellos bajo el subpaquete TO de cada fachada). \\
+Por otra parte tendremos las clases persistentes (\emph{entity}) que dan soporte a la aplicación con sus correspondientes Transfer Object.
+
+\subsection{Transfer Object}
+Su finalidad es agrupar un conjunto de atributos que se corresponden con los de un objeto del dominio. Se han definido los siguientes:
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/DiagramaTOs.png}
+	\caption{Transfer Objects}
+	\label{fig:DiagramaTOs}
+\end{figure}
+
+\begin{itemize}
+	\item \textbf{LayerTO:} modela una capa de un servidor WMS.
+	\item \textbf{MapTO:} modela un mapa.
+	\item \textbf{POITO:} modela un POI (punto de interés).
+	\item \textbf{TagTO:} modela una etiqueta (tag) de un mapa o de un POI.
+	\item \textbf{UserProfileTO:} modela los datos no personales de un usuario tales como el login y la contraseña.
+	\item \textbf{UserProfileDetailsTO:} modela los datos personales de un usuario.
+	\item \textbf{WMSTO:} modela un servidor de WMS.
+\end{itemize}
+
+Todos ellos constan de los correspondientes métodos \emph{getXXX()} / \emph{setXXX()} para acceder a los atributos o para modificarlos. También redefinen los métodos \emph{toString()} para facilitar la depuración de la aplicación y \emph{equals()} para realizar correctamente comparaciones entre dos objetos TO.
+
+\subsection{Entities}
+Son las clases persistentes definidas con la anotación \emph{@Entity}. Se ha definido un entity para cada uno de los \emph{Transfer Object} comentados con anterioridad.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight]{Imágenes/DiagramaEntities.png}
+	\caption{Entities}
+	\label{fig:DiagramaEntities}
+\end{figure}
+
+Como clase persistente, ha de cumplir una serie de requisitos:
+
+\begin{itemize}
+	\item Puede extender a otra.
+	\item Puede ser abstracta.
+	\item Puede tener una relación de asociación con otra.
+	\item Estado persistente: definido con atributos de visibilidad no pública (privada, protegida o de paquete) y con métodos públicos get/set para acceder y modificar los valores. La implementación de EJB accede al estado directamente a través de sus atributos (tipo de acceso: campo) o mediante método get/set (tipo de acceso: propiedad).
+	\item Los atributos o propiedades pueden ser principalmente: tipos primitivos y sus contrapartidas objetuales, enumerables (se mapean a una columna) y colecciones de entidades (relaciones) que se mapean a columnas y/o tablas dependiendo de la cardinalidad y direccionalidad de la relación.
+\end{itemize}
+
+Internamente cada \emph{entity} tendrá un constructor público sin argumentos no declarado como \emph{final}, las notaciones \emph{@Table} y \emph{@Column} en caso de que el nombre de la tabla y/o columna en base de datos no se corresponda con el nombre del \emph{entity} que lo referencia y un atributo anotado con la notación \emph{@Id} que lo identifica como clave primaria en la base de datos (y la secuencia utilizada para generar los identificadores, en caso de que sea necesario realizar inserciones en la tabla). Finalmente cada \emph{entity} tendrá definidas una serie de relaciones y direccionalidades con otros entities, que pueden ser de los siguientes tipos:
+
+\begin{itemize}
+	\item OneToOne
+	\item OneToMany
+	\item ManyToOne
+	\item ManyToMany
+\end{itemize}
+
+En la figura que muestra los entities también se pueden observar las distintas relaciones que se definieron entre ellos junto con su cardinalidad. Todas las relaciones se definieron bidireccionales pensando en su uso en futuras mejoras de la aplicación, ya que, en la actualidad, algunas de ellas sólo se navegan en una de las direcciones.
+
+\subsection{UserFacade}
+Es una fachada con estado creada para implementar los casos de uso relativos a las operaciones que puede realizar un usuario autenticado en la aplicación. El esquema seguido para la implementación de las fachadas de la aplicación es el siguiente: por un lado tenemos la implementación del patrón BusinessDelegate (\emph{EJBUserFacadeDelegate}) quien leerá el nombre JNDI de la configuración obteniendo una instancia (en realidad, lo que se obtiene es un Proxy del SessionBean) para luego trabajar contra una interfaz (\emph{UserFacade}), lo que permite usar \emph{EJBUserFacadeDelegate} tanto desde dentro del contenedor J2EE como cliente standalone en caso de ser necesario (por ejemplo para ejecutar pruebas de unidad). \\
+A su vez, la interfaz \emph{UserFacade} anteriormente citada nos permitirá especificar la interfaz del SessionBean (fachada EJB del modelo) que será extendida para ser usada de manera local y remota (\emph{LocalUserFacade} y \emph{RemoteUserFacade} respectivamente). Finalmente, tendremos la clase \emph{UserFacadeEJB} que proporcionará la implementación del SessionBean, implementando tanto la fachada local como la remota. Se ha definido también la clase UserFacadeHelper en la que se encontrarán métodos que facilitan la conversión de entidades a objetos Transfer Object y viceversa, así como funcionalidades que son usadas en distintas acciones de la fachada (como búsquedas por identificador). \\
+Profundizando más, la clase \emph{UserFacadeEJB} ha sido definida con la notación \emph{@Stateful} dado que se trata de una fachada con estado (por tanto es un Stateful Session Bean). Este estado es el login del usuario, que se guarda cuando un usuario se autentica en la aplicación. Este estado será usado en varios de los métodos definidos en esta clase, algunos de los cuales se valdrán de las acciones definidas en el paquete \emph{action} para la implementación de su funcionalidad. \\
+Además, se incluyen una serie de excepciones dentro del subpaquete \emph{exceptions}. Dichas excepciones son lanzadas por los métodos de esta fachada. También se incluyen los ficheros correspondientes al cifrado de la contraseña
+del usuario (en el subpaquete \emph{util}). \\
+Finalmente comentar que se incluyen objetos Custom Transfer Object que son necesarios ya que los objetos TO definidos no contienen toda la información necesaria para realizar algunas operaciones. Estos objetos se encuentran en el subpaquete \emph{to}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/DiagramaUserFacade.png}
+	\caption{User Facade}
+	\label{fig:DiagramaUserFacade}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight]{Imágenes/DiagramaUserFacade2.png}
+	\caption{User Facade (2)}
+	\label{fig:DiagramaUserFacade2}
+\end{figure}
+
+\subsection{SearchFacade}
+Es una fachada sin estado creada para implementar los casos de uso relativos a las búsquedas que puede realizar un usuario no autenticado en la aplicación. En cuanto a su estructura interna, se ha implementado análogamente a lo ya
+explicado en la \emph{UserFacade}, por lo que lo único que las diferencia estructuralmente es que, como se comentó anteriormente, se trata de una fachada sin estado por lo que la clase correspondiente (\emph{SearchFacadeEJB}) ha sido anotada con \emph{@Stateless}, dado que se trata de un Stateless Session Bean. Además, no se tuvieron que definir excepciones propias para los métodos de esta fachada, así como tampoco fue necesaria ninguna clase utilidad como en el caso del cifrado de las contraseñas.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight]{Imágenes/DiagramaSearchFacade.png}
+	\caption{Search Facade}
+	\label{fig:DiagramaSearchFacade}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight]{Imágenes/DiagramaSearchFacade2.png}
+	\caption{Search Facade (2)}
+	\label{fig:DiagramaSearchFacade2}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight]{Imágenes/DiagramaSearchFacade3.png}
+	\caption{Search Facade (3)}
+	\label{fig:DiagramaSearchFacade3}
+\end{figure}

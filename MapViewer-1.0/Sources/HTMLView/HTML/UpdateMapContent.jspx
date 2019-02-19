@@ -1,0 +1,41 @@
+<html:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:html="http://struts.apache.org/tags-html" action="UpdateMap.do"
+	focus="name">
+
+	<jsp:output omit-xml-declaration="true" />
+	<html:xhtml />
+
+	<div id="mapDiv"
+		style="background: #4aafe0; border: 3px blue solid; visibility: hidden; position: absolute; left: 160px; top: 40px; z-index: 10;">
+	<p class="itemsTitle"><fmt:message key="FindMapsByZoneContent.selectZone" /></p>
+	<img src="img/map.png" alt="Mapa" id="mapImage" width="1000" height="400" />
+	<p />
+	<div><label for="x1"><fmt:message key="FindByZone.minLongitude" /></label>
+	<![CDATA[ &nbsp; ]]> <input type="text" name="x1" id="x1" disabled="disabled" /><![CDATA[ &nbsp; ]]>
+	<label for="y1"><fmt:message key="FindByZone.minLatitude" /></label> <![CDATA[ &nbsp; ]]>
+	<input type="text" name="y1" id="y1" disabled="disabled" /><![CDATA[ &nbsp; ]]>
+	<label for="x2"><fmt:message key="FindByZone.maxLongitude" /></label> <![CDATA[ &nbsp; ]]>
+	<input type="text" name="x2" id="x2" disabled="disabled" /><![CDATA[ &nbsp; ]]>
+	<label for="y2"><fmt:message key="FindByZone.maxLatitude" /></label> <![CDATA[ &nbsp; ]]>
+	<input type="text" name="y2" id="y2" disabled="disabled" /></div>
+	<p />
+	<div><html:button onclick="hideMap(true)" property="close">
+		<fmt:message key="Buttons.OK" />
+	</html:button> <![CDATA[ &nbsp; ]]> <html:button onclick="hideMap(false)" property="cancel">
+		<fmt:message key="Buttons.cancel" />
+	</html:button></div>
+	</div>
+
+	<p><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></p>
+
+	<p />
+	<p /><html:hidden property="action" value="UPDATE" /> <html:hidden
+		property="mapID" value="${param.mapID}" /> <jsp:directive.include
+		file="Map.jspf" />
+	<div class="button"><html:submit>
+		<fmt:message key="Buttons.OK" />
+	</html:submit></div>
+
+</html:form>

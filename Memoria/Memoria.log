@@ -1,0 +1,954 @@
+This is pdfTeX, Version 3.141592-1.40.4 (MiKTeX 2.7 Beta 5) (preloaded format=pdflatex 2007.11.20)  5 JAN 2008 17:18
+entering extended mode
+**C:/Files/Universidad/Proyecto/Memoria/Memoria.tex
+(C:/Files/Universidad/Proyecto/Memoria/Memoria.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, spanish, loaded.
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\book.cls"
+Document Class: book 2005/09/16 v1.4f Standard LaTeX document class
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\bk10.clo"
+File: bk10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\generic\babel\babel.sty"
+Package: babel 2005/11/23 v3.8h The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\generic\babel\spanish.ldf"
+Language: spanish.ldf 2005/03/31 v4.2b Spanish support from the babel system
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\generic\babel\babel.def"
+File: babel.def 2005/11/23 v3.8h Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+)
+\es@quottoks=\toks14
+\es@quotdepth=\count89
+Package babel Info: Making . an active character on input line 509.
+Package babel Info: Making " an active character on input line 540.
+Package babel Info: Making < an active character on input line 641.
+Package babel Info: Making > an active character on input line 642.
+))
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\inputenc.sty"
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\latin1.def"
+File: latin1.def 2006/05/05 v1.1b Input encoding file
+))
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen104
+))
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count90
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count91
+\leftroot@=\count92
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count93
+\DOTSCASE@=\count94
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count95
+\c@MaxMatrixCols=\count96
+\dotsspace@=\muskip10
+\c@parentequation=\count97
+\dspbrk@lvl=\count98
+\tag@help=\toks18
+\row@=\count99
+\column@=\count100
+\maxfields@=\count101
+\andhelp@=\toks19
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks20
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amscls\amsthm.sty"
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks22
+\thm@bodyfont=\toks23
+\thm@headfont=\toks24
+\thm@notefont=\toks25
+\thm@headpunct=\toks26
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks27
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2001/10/25 v2.2f
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2002/01/22 v2.2d
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\ltxmisc\shadow.sty"
+Package: shadow 2003/02/19 v1.3 shadow boxes (M.O.)
+\txtwdth=\dimen113
+\sht=\dimen114
+\shw=\dimen115
+\shbox=\box28
+\sboxsep=\dimen116
+\sboxrule=\dimen117
+\sdim=\dimen118
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\tools\indentfirst.sty"
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks28
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\graphics\graphics.sty"
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 90.
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\graphics\pdftex.def"
+File: pdftex.def 2007/06/12 v0.04h Graphics/color for pdfTeX
+\Gread@gobject=\count102
+))
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\appendix\appendix.sty"
+Package: appendix 2002/08/06 v1.2 extra appendix facilities
+\c@@pps=\count103
+\c@@ppsavesec=\count104
+\c@@ppsaveapp=\count105
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\anysize\anysize.sty"
+Package: anysize 1994/08/13 setting margin sizes
+
+document style option `anysize' loaded
+Michael Salzenberg, Thomas Esser, Dirk Hillbrecht
+Version 1.0, Aug 13, 1994
+\@Leftmargin=\dimen121
+\@Rightmargin=\dimen122
+\@Topmargin=\dimen123
+\@Bottommargin=\dimen124
+) ("C:\Archivos de programa\MiKTeX 2.7\tex\latex\tools\theorem.sty"
+Package: theorem 1995/11/23 v2.2c Theorem extension package (FMi)
+\theorem@style=\toks29
+\theorem@bodyfont=\toks30
+\theorempreskipamount=\skip49
+\theorempostskipamount=\skip50
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\tools\thp.sty"
+File: thp.sty 1995/11/23 v2.2c Theorem extension package (FMi)
+))
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count106
+\float@exts=\toks31
+\float@box=\box29
+\@float@everytoks=\toks32
+\@floatcapt=\box30
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\fncychap\fncychap.sty"
+Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
+\RW=\skip51
+\mylen=\skip52
+\myhi=\skip53
+\px=\skip54
+\py=\skip55
+\pyy=\skip56
+\pxx=\skip57
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+))
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\eurofont\eurofont.sty"
+Package: eurofont 1999/01/30 v1.1.3 A package for using euro symbols
+\EF@tokb=\toks33
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\eurofont\eurofont.cfg"
+File: eurofont.cfg 1998/11/03 v1.0 Default config file for the eurofont package
+
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\textcomp.sty"
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
+\EF@pmbshift=\skip58
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\fancyhdr\fancyhdr.sty"
+\fancy@headwidth=\skip59
+\f@ncyO@elh=\skip60
+\f@ncyO@erh=\skip61
+\f@ncyO@olh=\skip62
+\f@ncyO@orh=\skip63
+\f@ncyO@elf=\skip64
+\f@ncyO@erf=\skip65
+\f@ncyO@olf=\skip66
+\f@ncyO@orf=\skip67
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\fancyhdr\extramarks.sty"
+\@temptokenb=\toks34
+)
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\tocbibind\tocbibind.sty"
+Package: tocbibind 2003/03/13 v1.5g extra ToC listings
+
+
+Package tocbibind Note: The document has chapter divisions.
+
+
+Package tocbibind Note: Using chapter style headings, unless overridden.
+
+) (Memoria.aux (Especificación/Especificación.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 35.
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\context\base\supp-pdf.tex"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count107
+\scratchdimen=\dimen125
+\scratchbox=\box31
+\nofMPsegments=\count108
+\nofMParguments=\count109
+\MPscratchCnt=\count110
+\MPscratchDim=\dimen126
+\MPnumerator=\count111
+\everyMPtoPDFconversion=\toks35
+) (Portada/Portada.tex <Imágenes/udc.png, id=1, 301.125pt x 142.5325pt>
+File: Imágenes/udc.png Graphic file (type png)
+
+<use Imágenes/udc.png>
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+) [1
+
+
+{C:/Documents and Settings/All Users/Datos de programa/MiKTeX/2.7/pdftex/config
+/pdftex.map} <Imágenes/udc.png (PNG copy)>]) [2
+
+] (Especificación/Especificación.tex
+Overfull \hbox (2.43138pt too wide) in paragraph at lines 14--14
+[]\T1/cmr/m/sc/12 Tribunal:| 
+ []
+
+
+Overfull \hbox (23.60258pt too wide) in paragraph at lines 18--19
+[]\T1/cmr/m/sc/12 Calificación:| 
+ []
+
+) [1
+
+
+] [2
+
+
+] (Autorización/Autorización.tex) [3] [4
+
+]
+(Agradecimientos/Agradecimientos.tex) [5] [6
+
+] (Resumen/Resumen.tex) [7]
+[8
+
+] (PalabrasClave/PalabrasClave.tex) [9] [10
+
+]
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 102.
+
+
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\t1cmss.fd"
+File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+) (Memoria.toc
+[11
+
+] [12] [13])
+\tf@toc=\write3
+ [14] (Memoria.lof [15
+
+
+] [16])
+\tf@lof=\write4
+ [17] [18
+
+]
+(Introducción/Introducción.tex
+Apartado 1.
+LaTeX Font Info:    Try loading font information for OT1+pzc on input line 1.
+("C:\Archivos de programa\MiKTeX 2.7\tex\latex\psnfss\ot1pzc.fd"
+File: ot1pzc.fd 2001/06/04 font definitions for OT1/pzc.
+)
+LaTeX Font Info:    Font shape `OT1/pzc/m/n' in size <76> not available
+(Font)              Font shape `OT1/pzc/mb/it' tried instead on input line 1.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
+
+
+]
+[2])
+Underfull \hbox (badness 10000) in paragraph at lines 19--140
+
+ []
+
+[3] [4] (Tecnologías/Tecnologías.tex
+Apartado 2.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+[5
+
+
+] [6] [7] [8] [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+[11]
+Underfull \vbox (badness 4859) has occurred while \output is active []
+
+ [12]
+[13] <Imágenes/Comparativa.png, id=124, 301.125pt x 309.155pt>
+File: Imágenes/Comparativa.png Graphic file (type png)
+
+<use Imágenes/Comparativa.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14])
+[15 <Imágenes/Comparativa.png (PNG copy)>] [16
+
+] (Análisis/Análisis.tex
+Apartado 3.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+<Imágenes/CasosUso.png, id=134, 435.6275pt x 1067.99pt>
+File: Imágenes/CasosUso.png Graphic file (type png)
+
+<use Imágenes/CasosUso.png>) [17
+
+] [18 <Imágenes/CasosUso.png>]
+(Diseño/Diseño.tex
+Apartado 4.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+
+Underfull \vbox (badness 3168) has occurred while \output is active []
+
+ [19
+
+
+]
+<Imágenes/EstructuraGlobal.png, id=146, 158.5925pt x 121.45375pt>
+File: Imágenes/EstructuraGlobal.png Graphic file (type png)
+
+<use Imágenes/EstructuraGlobal.png>
+<Imágenes/HTMLView.PNG, id=147, 151.56625pt x 167.62625pt>
+File: Imágenes/HTMLView.PNG Graphic file (type png)
+
+<use Imágenes/HTMLView.PNG> [20] [21 <Imágenes/EstructuraGlobal.png (PNG copy)>
+ <Imágenes/HTMLView.PNG (PNG copy)>]
+<Imágenes/DiagramaActions.png, id=154, 577.15625pt x 5022.765pt>
+File: Imágenes/DiagramaActions.png Graphic file (type png)
+
+<use Imágenes/DiagramaActions.png> [22] [23 <Imágenes/DiagramaActions.png>]
+[24] [25] [26] [27] [28]
+<Imágenes/DiagramaFrontController.png, id=178, 788.9475pt x 2081.7775pt>
+File: Imágenes/DiagramaFrontController.png Graphic file (type png)
+
+<use Imágenes/DiagramaFrontController.png> [29] [30 <Imágenes/DiagramaFrontCont
+roller.png (PNG copy)>] <Imágenes/Modelo.png, id=186, 157.58875pt x 509.905pt>
+File: Imágenes/Modelo.png Graphic file (type png)
+
+<use Imágenes/Modelo.png>
+<Imágenes/DiagramaTOs.png, id=187, 1251.67625pt x 2221.29875pt>
+File: Imágenes/DiagramaTOs.png Graphic file (type png)
+
+<use Imágenes/DiagramaTOs.png> [31] [32 <Imágenes/Modelo.png (PNG copy)>]
+<Imágenes/DiagramaEntities.png, id=194, 1125.20375pt x 3999.94376pt>
+File: Imágenes/DiagramaEntities.png Graphic file (type png)
+
+<use Imágenes/DiagramaEntities.png> [33] [34 <Imágenes/DiagramaTOs.png (PNG cop
+y)>] [35 <Imágenes/DiagramaEntities.png (PNG copy)>] [36] [37]
+<Imágenes/DiagramaUserFacade.png, id=211, 1188.44pt x 1364.09625pt>
+File: Imágenes/DiagramaUserFacade.png Graphic file (type png)
+
+<use Imágenes/DiagramaUserFacade.png>
+<Imágenes/DiagramaUserFacade2.png, id=212, 897.3525pt x 2044.63875pt>
+File: Imágenes/DiagramaUserFacade2.png Graphic file (type png)
+
+<use Imágenes/DiagramaUserFacade2.png> [38] [39 <Imágenes/DiagramaUserFacade.pn
+g (PNG copy)>] [40 <Imágenes/DiagramaUserFacade2.png (PNG copy)>]
+<Imágenes/DiagramaSearchFacade.png, id=222, 1265.72874pt x 2094.82625pt>
+File: Imágenes/DiagramaSearchFacade.png Graphic file (type png)
+
+<use Imágenes/DiagramaSearchFacade.png>
+<Imágenes/DiagramaSearchFacade2.png, id=223, 1432.35126pt x 2976.11874pt>
+File: Imágenes/DiagramaSearchFacade2.png Graphic file (type png)
+
+<use Imágenes/DiagramaSearchFacade2.png>
+<Imágenes/DiagramaSearchFacade3.png, id=224, 1051.93pt x 2959.055pt>
+File: Imágenes/DiagramaSearchFacade3.png Graphic file (type png)
+
+<use Imágenes/DiagramaSearchFacade3.png>) [41] [42 <Imágenes/DiagramaSearchFaca
+de.png (PNG copy)>] [43 <Imágenes/DiagramaSearchFacade2.png (PNG copy)>]
+[44 <Imágenes/DiagramaSearchFacade3.png (PNG copy)>] (Patrones/Patrones.tex
+Apartado 5.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+[45
+
+
+]
+Underfull \vbox (badness 6608) has occurred while \output is active []
+
+ [46]
+<Imágenes/BusinessDelegate.png, id=244, 301.125pt x 121.45375pt>
+File: Imágenes/BusinessDelegate.png Graphic file (type png)
+
+<use Imágenes/BusinessDelegate.png> [47]
+Underfull \vbox (badness 3780) has occurred while \output is active []
+
+ [48 <Imágenes/BusinessDelegate.png (PNG copy)>]
+Underfull \vbox (badness 1303) has occurred while \output is active []
+
+ [49]
+[50] <Imágenes/FrontController.png, id=258, 301.125pt x 129.48375pt>
+File: Imágenes/FrontController.png Graphic file (type png)
+
+<use Imágenes/FrontController.png>) [51 <Imágenes/FrontController.png (PNG copy
+)>] [52
+
+] (ManualUsuario/ManualUsuario.tex
+Apartado 6.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+<Imágenes/PantallaPrincipalNoAutenticado.png, id=265, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaPrincipalNoAutenticado.png Graphic file (type png)
+
+<use Imágenes/PantallaPrincipalNoAutenticado.png>
+<Imágenes/PantallaAutenticar.png, id=266, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaAutenticar.png Graphic file (type png)
+
+<use Imágenes/PantallaAutenticar.png> [53
+
+] [54 <Imágenes/PantallaPrincipalNoAutenticado.png>] [55 <Imágenes/PantallaAute
+nticar.png>]
+<Imágenes/PantallaRegistrar.png, id=279, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaRegistrar.png Graphic file (type png)
+
+<use Imágenes/PantallaRegistrar.png>
+<Imágenes/PantallaPrincipalAutenticado.png, id=280, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaPrincipalAutenticado.png Graphic file (type png)
+
+<use Imágenes/PantallaPrincipalAutenticado.png>
+<Imágenes/PantallaActualizarPerfil.png, id=281, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaActualizarPerfil.png Graphic file (type png)
+
+<use Imágenes/PantallaActualizarPerfil.png>
+<Imágenes/PantallaCambiarContrasena.png, id=282, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaCambiarContrasena.png Graphic file (type png)
+
+<use Imágenes/PantallaCambiarContrasena.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [56]
+[57 <Imágenes/PantallaRegistrar.png>] [58 <Imágenes/PantallaPrincipalAutenticad
+o.png>] [59 <Imágenes/PantallaActualizarPerfil.png>] [60 <Imágenes/PantallaCamb
+iarContrasena.png>]
+<Imágenes/PantallaPrincipalWMSs.png, id=303, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaPrincipalWMSs.png Graphic file (type png)
+
+<use Imágenes/PantallaPrincipalWMSs.png>
+<Imágenes/PantallaMostrarWMSs.png, id=304, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaMostrarWMSs.png Graphic file (type png)
+
+<use Imágenes/PantallaMostrarWMSs.png>
+<Imágenes/PantallaBuscarWMSsPorNombre.png, id=305, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaBuscarWMSsPorNombre.png Graphic file (type png)
+
+<use Imágenes/PantallaBuscarWMSsPorNombre.png>
+<Imágenes/PantallaMisWMSs.png, id=306, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaMisWMSs.png Graphic file (type png)
+
+<use Imágenes/PantallaMisWMSs.png> [61] [62 <Imágenes/PantallaPrincipalWMSs.png
+>] [63 <Imágenes/PantallaMostrarWMSs.png>] [64 <Imágenes/PantallaBuscarWMSsPorN
+ombre.png>] [65 <Imágenes/PantallaMisWMSs.png>]
+<Imágenes/PantallaActualizarWMS.png, id=327, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaActualizarWMS.png Graphic file (type png)
+
+<use Imágenes/PantallaActualizarWMS.png>
+<Imágenes/PantallaDetallesWMS.png, id=328, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaDetallesWMS.png Graphic file (type png)
+
+<use Imágenes/PantallaDetallesWMS.png>
+<Imágenes/PantallaAnadirWMS.png, id=329, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaAnadirWMS.png Graphic file (type png)
+
+<use Imágenes/PantallaAnadirWMS.png>
+<Imágenes/PantallaAnadirMapa.png, id=330, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaAnadirMapa.png Graphic file (type png)
+
+<use Imágenes/PantallaAnadirMapa.png>
+<Imágenes/PantallaSelectorZona.png, id=331, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaSelectorZona.png Graphic file (type png)
+
+<use Imágenes/PantallaSelectorZona.png>
+Underfull \vbox (badness 6910) has occurred while \output is active []
+
+ [66]
+[67 <Imágenes/PantallaActualizarWMS.png>] [68 <Imágenes/PantallaDetallesWMS.png
+>] [69 <Imágenes/PantallaAnadirWMS.png>] [70 <Imágenes/PantallaAnadirMapa.png>]
+<Imágenes/PantallaSeleccionarWMS.png, id=351, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaSeleccionarWMS.png Graphic file (type png)
+
+<use Imágenes/PantallaSeleccionarWMS.png>
+<Imágenes/PantallaSeleccionarCapas.png, id=352, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaSeleccionarCapas.png Graphic file (type png)
+
+<use Imágenes/PantallaSeleccionarCapas.png> [71] [72 <Imágenes/PantallaSelector
+Zona.png>] [73 <Imágenes/PantallaSeleccionarWMS.png>] [74 <Imágenes/PantallaSel
+eccionarCapas.png>]
+<Imágenes/PantallaMostrarMapas.png, id=369, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaMostrarMapas.png Graphic file (type png)
+
+<use Imágenes/PantallaMostrarMapas.png>
+<Imágenes/PantallaBuscarMapasPorNombre.png, id=370, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaBuscarMapasPorNombre.png Graphic file (type png)
+
+<use Imágenes/PantallaBuscarMapasPorNombre.png>
+<Imágenes/PantallaBuscarMapasPorTags.png, id=371, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaBuscarMapasPorTags.png Graphic file (type png)
+
+<use Imágenes/PantallaBuscarMapasPorTags.png>
+<Imágenes/PantallaBuscarMapasPorZona.png, id=372, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaBuscarMapasPorZona.png Graphic file (type png)
+
+<use Imágenes/PantallaBuscarMapasPorZona.png>
+<Imágenes/PantallaMisMapas.png, id=373, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaMisMapas.png Graphic file (type png)
+
+<use Imágenes/PantallaMisMapas.png> [75] [76 <Imágenes/PantallaMostrarMapas.png
+>] [77 <Imágenes/PantallaBuscarMapasPorNombre.png>] [78 <Imágenes/PantallaBusca
+rMapasPorTags.png>] [79 <Imágenes/PantallaBuscarMapasPorZona.png>] [80 <Imágene
+s/PantallaMisMapas.png>]
+<Imágenes/PantallaDetallesMapa.png, id=398, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaDetallesMapa.png Graphic file (type png)
+
+<use Imágenes/PantallaDetallesMapa.png>
+<Imágenes/PantallaActualizarMapa.png, id=399, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaActualizarMapa.png Graphic file (type png)
+
+<use Imágenes/PantallaActualizarMapa.png>
+<Imágenes/PantallaVerMapa.png, id=400, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaVerMapa.png Graphic file (type png)
+
+<use Imágenes/PantallaVerMapa.png>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [81]
+[82 <Imágenes/PantallaDetallesMapa.png>] [83 <Imágenes/PantallaActualizarMapa.p
+ng>] [84 <Imágenes/PantallaVerMapa.png>]
+<Imágenes/PantallaAnadirPOI.png, id=417, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaAnadirPOI.png Graphic file (type png)
+
+<use Imágenes/PantallaAnadirPOI.png>
+<Imágenes/PantallaPrincipalPOIs.png, id=418, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaPrincipalPOIs.png Graphic file (type png)
+
+<use Imágenes/PantallaPrincipalPOIs.png> [85] [86 <Imágenes/PantallaAnadirPOI.p
+ng>] [87 <Imágenes/PantallaPrincipalPOIs.png>]
+<Imágenes/PantallaMostrarPOIs.png, id=430, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaMostrarPOIs.png Graphic file (type png)
+
+<use Imágenes/PantallaMostrarPOIs.png>
+<Imágenes/PantallaBuscarPOIsPorNombre.png, id=431, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaBuscarPOIsPorNombre.png Graphic file (type png)
+
+<use Imágenes/PantallaBuscarPOIsPorNombre.png>
+<Imágenes/PantallaBuscarPOIsPorTags.png, id=432, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaBuscarPOIsPorTags.png Graphic file (type png)
+
+<use Imágenes/PantallaBuscarPOIsPorTags.png>
+<Imágenes/PantallaBuscarPOIsPorZona.png, id=433, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaBuscarPOIsPorZona.png Graphic file (type png)
+
+<use Imágenes/PantallaBuscarPOIsPorZona.png>
+<Imágenes/PantallaMisPOIs.png, id=434, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaMisPOIs.png Graphic file (type png)
+
+<use Imágenes/PantallaMisPOIs.png>
+<Imágenes/PantallaActualizarPOI.png, id=435, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaActualizarPOI.png Graphic file (type png)
+
+<use Imágenes/PantallaActualizarPOI.png> [88] [89 <Imágenes/PantallaMostrarPOIs
+.png>] [90 <Imágenes/PantallaBuscarPOIsPorNombre.png>] [91 <Imágenes/PantallaBu
+scarPOIsPorTags.png>] [92 <Imágenes/PantallaBuscarPOIsPorZona.png>] [93 <Imágen
+es/PantallaMisPOIs.png>] [94 <Imágenes/PantallaActualizarPOI.png>]
+<Imágenes/PantallaDetallesPOI.png, id=464, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaDetallesPOI.png Graphic file (type png)
+
+<use Imágenes/PantallaDetallesPOI.png>
+<Imágenes/PantallaPrincipalUsuarios.png, id=465, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaPrincipalUsuarios.png Graphic file (type png)
+
+<use Imágenes/PantallaPrincipalUsuarios.png>
+<Imágenes/PantallaMostrarUsuarios.png, id=466, 627.34375pt x 1284.8pt>
+File: Imágenes/PantallaMostrarUsuarios.png Graphic file (type png)
+
+<use Imágenes/PantallaMostrarUsuarios.png>
+<Imágenes/PantallaBuscarUsuariosPorIdentificador.png, id=467, 627.34375pt x 128
+4.8pt>
+File: Imágenes/PantallaBuscarUsuariosPorIdentificador.png Graphic file (type pn
+g)
+ <use Imágenes/PantallaBuscarUsuariosPorIdentificador.png>) [95] [96 <Imágenes/
+PantallaDetallesPOI.png>] [97 <Imágenes/PantallaPrincipalUsuarios.png>]
+[98 <Imágenes/PantallaMostrarUsuarios.png>] [99 <Imágenes/PantallaBuscarUsuario
+sPorIdentificador.png>] [100
+
+] (Conclusiones/Conclusiones.tex
+Apartado 7.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+[101
+
+]) [102] (ManualInstalación/ManualInstalación.tex
+Ap\'endice A.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+
+Underfull \vbox (badness 1354) has occurred while \output is active []
+
+ [103
+
+
+]
+Underfull \vbox (badness 1546) has occurred while \output is active []
+
+ [104])
+[105] [106] (ContenidoCD/ContenidoCD.tex
+Ap\'endice B.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+) [107
+
+
+] [108
+
+] (CódigoLicenciado/CódigoLicenciado.tex
+Ap\'endice C.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Overfull \hbox (2.73999pt too wide) in paragraph at lines 5--6
+\T1/cmr/m/it/14.4 SE-QUEN-TIAL DA-MA-GES (IN-CLU-DING, BUT NOT LI-MI-TED TO, PR
+O-
+ []
+
+
+Overfull \hbox (10.65149pt too wide) in paragraph at lines 5--6
+\T1/cmr/m/it/14.4 DA-TA, OR PRO-FITS; OR BU-SI-NESS IN-TE-RRUP-TION) HO-WE-VER 
+CAU-
+ []
+
+[109
+
+]
+Underfull \vbox (badness 2150) has occurred while \output is active []
+
+ [110])
+[111] [112
+
+] (GlosarioAcrónimos/GlosarioAcrónimos.tex
+Ap\'endice D.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 3--186
+
+ []
+
+
+Underfull \vbox (badness 1354) has occurred while \output is active []
+
+ [113
+
+]
+[114] (GlosarioTérminos/GlosarioTérminos.tex
+Ap\'endice E.
+
+Overfull \hbox (10.0pt too wide) in paragraph at lines 1--1
+[][][][][][][][][]  
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 3--190
+
+ []
+
+
+Underfull \vbox (badness 3168) has occurred while \output is active []
+
+ [115
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [116]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [117]
+[118] (Memoria.bbl
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
+ ("C:\Archivos de programa\MiKTeX 2.7\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+Overfull \hbox (38.30319pt too wide) in paragraph at lines 28--33
+\T1/cmtt/m/n/14.4 code / javascript-[]image-[]cropper-[]ui-[]using-[]prototype-
+[]scriptaculous/$\T1/cmr/m/n/14.4 . 
+ []
+
+[119
+
+
+
+]) [120] (Memoria.aux (Especificación/Especificación.aux)) ) 
+Here is how much of TeX's memory you used:
+ 4400 strings out of 95332
+ 60368 string characters out of 1184032
+ 105705 words of memory out of 1500000
+ 7358 multiletter control sequences out of 110000
+ 24723 words of font info for 65 fonts, out of 1200000 for 2000
+ 28 hyphenation exceptions out of 8191
+ 35i,12n,43p,1539b,458s stack positions out of 5000i,500n,10000p,200000b,5000s
+ <C:\Documents and 
+Settings\All Users\Datos de programa\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi
+600\ectt1440.pk> <C:\Documents and Settings\All Users\Datos de programa\MiKTeX\
+2.7\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1440.pk> <C:\Documents and Settings\
+All Users\Datos de programa\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0
+700.pk> <C:\Documents and Settings\All Users\Datos de programa\MiKTeX\2.7\fonts
+\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Documents and Settings\All Users
+\Datos de programa\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1440.pk>{C
+:/Archivos de programa/MiKTeX 2.7/fonts/enc/dvips/fontname/8r.enc} <C:\Document
+s and Settings\All Users\Datos de programa\MiKTeX\2.7\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecsl1000.pk> <C:\Documents and Settings\All Users\Datos de programa\M
+iKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecsx1440.pk> <C:\Documents and Set
+tings\All Users\Datos de programa\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecbx1440.pk> <C:\Documents and Settings\All Users\Datos de programa\MiKTeX\2.7
+\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Documents and Settings\All
+ Users\Datos de programa\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1000
+.pk> <C:\Documents and Settings\All Users\Datos de programa\MiKTeX\2.7\fonts\pk
+\ljfour\jknappen\ec\dpi600\eccc1200.pk> <C:\Documents and Settings\All Users\Da
+tos de programa\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1440.pk> <C:\
+Documents and Settings\All Users\Datos de programa\MiKTeX\2.7\fonts\pk\ljfour\j
+knappen\ec\dpi600\ecbx1000.pk> <C:\Documents and Settings\All Users\Datos de pr
+ograma\MiKTeX\2.7\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Documents
+ and Settings\All Users\Datos de programa\MiKTeX\2.7\fonts\pk\ljfour\jknappen\e
+c\dpi600\ecbx1200.pk><C:/Archivos de programa/MiKTeX 2.7/fonts/type1/bluesky/cm
+/cmsy10.pfb><C:/Archivos de programa/MiKTeX 2.7/fonts/type1/urw/zapfchan/uzcmi8
+a.pfb>
+Output written on Memoria.pdf (140 pages, 5808466 bytes).
+PDF statistics:
+ 1244 PDF objects out of 1440 (max. 8388607)
+ 0 named destinations out of 1000 (max. 131072)
+ 271 words of extra memory for PDF output out of 10000 (max. 10000000)
+

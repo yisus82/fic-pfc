@@ -1,0 +1,14 @@
+<div class="field"><span class="label"> <fmt:message
+	key="UserProfile.userID" /> </span> <span class="entry"> <html:text
+	property="userID" size="30" maxlength="30" /> <html:errors property="userID" />
+</span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="UserProfile.password" /> </span> <span class="entry"> <html:password
+	property="password" size="30" maxlength="30" /> <html:errors
+	property="password" /> </span></div>
+
+<div class="field"><span class="label"> <fmt:message
+	key="RegisterUserContent.retypePassword" /> </span> <span class="entry"> <html:password
+	property="retypePassword" size="30" maxlength="30" /> <html:errors
+	property="retypePassword" /> </span></div>

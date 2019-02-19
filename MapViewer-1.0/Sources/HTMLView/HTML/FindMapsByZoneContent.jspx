@@ -1,0 +1,219 @@
+<html:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:html="http://struts.apache.org/tags-html" action="FindMapsByZone.do"
+	focus="minLongitude">
+
+	<div id="mapDiv"
+		style="background: #4aafe0; border: 3px blue solid; visibility: hidden; position: absolute; left: 160px; top: 40px; z-index: 10;">
+	<p class="itemsTitle"><fmt:message key="FindMapsByZoneContent.selectZone" /></p>
+	<img src="img/map.png" alt="Mapa" id="mapImage" width="1000" height="400" />
+	<p />
+	<div><label for="x1"><fmt:message key="FindByZone.minLongitude" /></label>
+	<![CDATA[ &nbsp; ]]> <input type="text" name="x1" id="x1" disabled="disabled" /><![CDATA[ &nbsp; ]]>
+	<label for="y1"><fmt:message key="FindByZone.minLatitude" /></label> <![CDATA[ &nbsp; ]]>
+	<input type="text" name="y1" id="y1" disabled="disabled" /><![CDATA[ &nbsp; ]]>
+	<label for="x2"><fmt:message key="FindByZone.maxLongitude" /></label> <![CDATA[ &nbsp; ]]>
+	<input type="text" name="x2" id="x2" disabled="disabled" /><![CDATA[ &nbsp; ]]>
+	<label for="y2"><fmt:message key="FindByZone.maxLatitude" /></label> <![CDATA[ &nbsp; ]]>
+	<input type="text" name="y2" id="y2" disabled="disabled" /></div>
+	<p />
+	<div><html:button onclick="hideMap(true)" property="close">
+		<fmt:message key="Buttons.OK" />
+	</html:button> <![CDATA[ &nbsp; ]]> <html:button onclick="hideMap(false)" property="cancel">
+		<fmt:message key="Buttons.cancel" />
+	</html:button></div>
+	</div>
+
+	<p><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></p>
+
+	<p />
+	<p />
+	<p class="itemsTitle"><fmt:message key="FindMapsByZoneContent.maps" /></p>
+
+	<c:choose>
+
+		<c:when test="${empty requestScope.maps}">
+			<p><fmt:message key="FindMapsByZoneContent.noMaps" /></p>
+		</c:when>
+
+		<!-- Print current map chunk. -->
+
+		<c:otherwise>
+			<div class="center">
+			<table rules="all">
+
+				<tr>
+					<th id="tableHeader"><fmt:message key="mapAttributes.name" /></th>
+					<th id="tableHeader"><fmt:message key="mapAttributes.description" />
+					</th>
+				</tr>
+
+				<c:set var="counter" value="${0}" />
+
+				<c:forEach var="map" items="${requestScope.maps}">
+					<c:if test="${counter &lt; requestScope.count}">
+						<tr>
+
+							<td id="itemTable"><c:out value="${map.name}" /></td>
+
+							<td id="itemTable"><c:out value="${map.description}" /></td>
+
+							<td id="itemTable"><c:url var="mapDetailsURL"
+								value="ShowMapDetails.do">
+								<c:param name="mapID" value="${map.mapID}" />
+							</c:url> <a href="${mapDetailsURL}"><fmt:message
+								key="mapAttributes.mapDetails" /></a></td>
+
+							<td id="itemTable"><c:url var="mapURL" value="ShowMap.do">
+								<c:param name="mapID" value="${map.mapID}" />
+							</c:url> <a href="${mapURL}"><fmt:message key="mapAttributes.showMap" /></a></td>
+
+							<c:choose>
+								<c:when test="${sessionScope.userID eq 'admin'}">
+									<td id="itemTable"><c:url var="deleteMapURL" value="DeleteMap.do">
+										<c:param name="mapID" value="${map.mapID}" />
+									</c:url> <a href="${deleteMapURL}"><fmt:message
+										key="mapAttributes.deleteMap" /></a></td>
+									<c:if test="${map.userID eq sessionScope.userID}">
+										<td id="itemTable"><c:url var="updateMapURL" value="EditMap.do">
+											<c:param name="action" value="UPDATE" />
+											<c:param name="mapID" value="${map.mapID}" />
+										</c:url> <a href="${updateMapURL}"><fmt:message
+											key="mapAttributes.updateMap" /></a></td>
+										<td id="itemTable"><c:url var="addLayersURL"
+											value="ShowSelectWMS.do">
+											<c:param name="mapID" value="${map.mapID}" />
+										</c:url> <a href="${addLayersURL}"><fmt:message
+											key="mapAttributes.addLayers" /></a></td>
+									</c:if>
+									<c:set var="isInteresting" value="false" />
+									<c:forEach var="interestingMap" items="${requestScope.interestingMaps}">
+										<c:if test="${map.mapID eq interestingMap}">
+											<c:set var="isInteresting" value="true" />
+										</c:if>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${isInteresting eq true}">
+											<td id="itemTable"><c:url var="deleteInterestingMapURL"
+												value="DeleteInterestingMap.do">
+												<c:param name="mapID" value="${map.mapID}" />
+											</c:url> <a href="${deleteInterestingMapURL}"><fmt:message
+												key="mapAttributes.deleteInterestingMap" /></a></td>
+										</c:when>
+										<c:otherwise>
+											<td id="itemTable"><c:url var="addInterestingMapURL"
+												value="AddInterestingMap.do">
+												<c:param name="mapID" value="${map.mapID}" />
+											</c:url> <a href="${addInterestingMapURL}"><fmt:message
+												key="mapAttributes.addInterestingMap" /></a></td>
+										</c:otherwise>
+									</c:choose>
+								</c:when>
+								<c:otherwise>
+									<c:choose>
+										<c:when test="${map.userID eq sessionScope.userID}">
+											<td id="itemTable"><c:url var="deleteMapURL"
+												value="DeleteMap.do">
+												<c:param name="mapID" value="${map.mapID}" />
+											</c:url> <a href="${deleteMapURL}"><fmt:message
+												key="mapAttributes.deleteMap" /></a></td>
+											<td id="itemTable"><c:url var="updateMapURL" value="EditMap.do">
+												<c:param name="action" value="UPDATE" />
+												<c:param name="mapID" value="${map.mapID}" />
+											</c:url> <a href="${updateMapURL}"><fmt:message
+												key="mapAttributes.updateMap" /></a></td>
+											<td id="itemTable"><c:url var="addLayersURL"
+												value="ShowSelectWMS.do">
+												<c:param name="mapID" value="${map.mapID}" />
+											</c:url> <a href="${addLayersURL}"><fmt:message
+												key="mapAttributes.addLayers" /></a></td>
+										</c:when>
+										<c:otherwise>
+											<c:set var="isInteresting" value="false" />
+											<c:forEach var="interestingMap"
+												items="${requestScope.interestingMaps}">
+												<c:if test="${map.mapID eq interestingMap}">
+													<c:set var="isInteresting" value="true" />
+												</c:if>
+											</c:forEach>
+											<c:choose>
+												<c:when test="${isInteresting eq true}">
+													<td id="itemTable"><c:url var="deleteInterestingMapURL"
+														value="DeleteInterestingMap.do">
+														<c:param name="mapID" value="${map.mapID}" />
+													</c:url> <a href="${deleteInterestingMapURL}"><fmt:message
+														key="mapAttributes.deleteInterestingMap" /></a></td>
+												</c:when>
+												<c:otherwise>
+													<td id="itemTable"><c:url var="addInterestingMapURL"
+														value="AddInterestingMap.do">
+														<c:param name="mapID" value="${map.mapID}" />
+													</c:url> <a href="${addInterestingMapURL}"><fmt:message
+														key="mapAttributes.addInterestingMap" /></a></td>
+												</c:otherwise>
+											</c:choose>
+										</c:otherwise>
+									</c:choose>
+								</c:otherwise>
+							</c:choose>
+
+						</tr>
+					</c:if>
+					<c:set var="counter" value="${counter + 1}" />
+
+				</c:forEach>
+
+			</table>
+			</div>
+		</c:otherwise>
+
+	</c:choose>
+
+	<!-- "Previous" and "Next" links. -->
+
+	<div class="previousNextLinks"><span class="previousLink"> <c:if
+		test="${!empty requestScope.previous}">
+		<c:url var="mapsURL" value="FindMapsByZone.do">
+			<c:param name="minLatitude" value="${param.minLatitude}" />
+			<c:param name="minLongitude" value="${param.minLongitude}" />
+			<c:param name="maxLatitude" value="${param.maxLatitude}" />
+			<c:param name="maxLongitude" value="${param.maxLongitude}" />
+			<c:param name="startIndex" value="${requestScope.previous}" />
+			<c:param name="count" value="${requestScope.count}" />
+		</c:url>
+		<a href="${mapsURL}"> <fmt:message key="Links.previous" /> </a>
+	</c:if> </span> <![CDATA[ &nbsp; ]]> <![CDATA[ &nbsp; ]]> <span class="nextLink"> <c:if
+		test="${!empty requestScope.next}">
+		<c:url var="mapsURL" value="FindMapsByZone.do">
+			<c:param name="minLatitude" value="${param.minLatitude}" />
+			<c:param name="minLongitude" value="${param.minLongitude}" />
+			<c:param name="maxLatitude" value="${param.maxLatitude}" />
+			<c:param name="maxLongitude" value="${param.maxLongitude}" />
+			<c:param name="startIndex" value="${requestScope.next}" />
+			<c:param name="count" value="${requestScope.count}" />
+		</c:url>
+		<a href="${mapsURL}"> <fmt:message key="Links.next" /> </a>
+	</c:if></span></div>
+
+	<p /><a href="#" onclick="showMap()"><fmt:message
+		key="FindByZone.zoneSelector" /></a>
+	<p />
+	<div><span class="label"> <fmt:message
+		key="FindByZone.minLongitude" /> </span> <![CDATA[ &nbsp; ]]> <span class="entry">
+	<input type="text" name="minLongitude" id="minLongitude" size="10"
+		maxlength="20" /> </span> <![CDATA[ &nbsp; ]]> <span class="label"> <fmt:message
+		key="FindByZone.minLatitude" /> </span> <![CDATA[ &nbsp; ]]> <span class="entry">
+	<input type="text" name="minLatitude" id="minLatitude" size="10" maxlength="20" />
+	</span> <![CDATA[ &nbsp; ]]> <span class="label"> <fmt:message
+		key="FindByZone.maxLongitude" /> </span> <![CDATA[ &nbsp; ]]> <span class="entry">
+	<input type="text" name="maxLongitude" id="maxLongitude" size="10"
+		maxlength="20" /> </span> <![CDATA[ &nbsp; ]]> <span class="label"> <fmt:message
+		key="FindByZone.maxLatitude" /> </span> <![CDATA[ &nbsp; ]]> <span class="entry">
+	<input type="text" name="maxLatitude" id="maxLatitude" size="10" maxlength="20" />
+	</span> <![CDATA[ &nbsp; ]]> <html:submit>
+		<fmt:message key="Buttons.search" />
+	</html:submit></div>
+
+</html:form>

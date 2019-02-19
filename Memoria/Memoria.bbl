@@ -1,0 +1,76 @@
+\begin{thebibliography}{10}
+
+\bibitem{HRV:Bellas}
+Fernando Bellas~Permuy.
+\newblock Apuntes de la asignatura integración de sistemas, 2006.
+\newblock \url{http://www.tic.udc.es/~fbellas/teaching/is/index.html}.
+
+\bibitem{HRV:Luaces}
+Miguel~Ángel Rodríguez~Luaces.
+\newblock Apuntes de la asignatura bases de datos 3, 2006.
+
+\bibitem{HRV:Patrones}
+E.~Gamma, R.~Helm, R.~Johnson, and J.~Vlissides.
+\newblock {\em Patrones de Diseño}.
+\newblock Addison-Wesley, 2003.
+
+\bibitem{HRV:JSP}
+J.~Falkner, K.~Jones, and et~al.
+\newblock {\em JavaServer Pages: The J2EE Technology Web Tier}.
+\newblock Addison-Wesley, 2003.
+
+\bibitem{HRV:UML}
+J.~Rumbaugh, I.~Jacobson, and G.~Booch.
+\newblock {\em The Unified Modeling Language}.
+\newblock Addison-Wesley, 1999.
+
+\bibitem{HRV:Cropper}
+Javascript image cropper.
+\newblock Página web.
+\newblock
+  \url{http://www.defusion.org.uk/code/javascript-image-cropper-ui-using-proto%
+type-scriptaculous/}.
+
+\bibitem{HRV:WMSMap}
+Wms javascript library.
+\newblock Página web.
+\newblock \url{http://wms-map.sourceforge.net/}.
+
+\bibitem{HRV:TinyMCE}
+Tinymce.
+\newblock Página web.
+\newblock \url{http://tinymce.moxiecode.com/}.
+
+\bibitem{HRV:AJAX}
+Ajax.
+\newblock Página web.
+\newblock
+  \url{http://www.uberbin.net/archivos/internet/ajax-un-nuevo-acercamiento-a-a%
+plicaciones-web.php}.
+
+\bibitem{HRV:Javascript}
+Programación en javascript. desarrollo web.
+\newblock Página web.
+\newblock \url{http://www.desarrolloweb.com/manuales/26/}.
+
+\bibitem{HRV:Struts}
+Apache software foundation.
+\newblock Página web.
+\newblock \url{http://struts.apache.org/}.
+
+\bibitem{HRV:JavaSun}
+Java technology. sun microsystems.
+\newblock Página web.
+\newblock \url{http://www.java.sun.com/}.
+
+\bibitem{HRV:JBoss}
+Jboss.
+\newblock Página web.
+\newblock \url{http://www.jboss.org/}.
+
+\bibitem{HRV:JUnit}
+Junit.
+\newblock Página web.
+\newblock \url{http://www.junit.org/}.
+
+\end{thebibliography}

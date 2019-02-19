@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE project [
+<!ENTITY CommonProperties SYSTEM "CommonProperties.xml">
+<!ENTITY CommonPathReferences SYSTEM "CommonPathReferences.xml">
+]>
+
+<!-- ======================================================================= -->
+<!--			     "MapViewer" build file 			                     -->
+<!-- ======================================================================= -->
+
+<project name="MapViewer" default="compile" basedir=".">
+
+	<!-- ============================  Properties ============================== -->
+
+	<property name="MapViewer.home" value="${basedir}/.." />
+	<property name="MapViewer.sources" value="${MapViewer.home}/Sources" />
+	    &CommonProperties;
+	    &CommonPathReferences;
+		    
+	<property name="MapViewer.build" value="${MapViewer.home}/Build" />
+	<property name="MapViewer.classes" value="${MapViewer.build}/Classes" />
+	<property name="MapViewer.ears" value="${MapViewer.build}/Ears" />
+	<property name="MapViewer.ejbconfiguration"
+	          value="${MapViewer.sources}/EJBConfiguration" />
+	<property name="MapViewer.ejbear" value="${MapViewer.ears}/MapViewer.ear" />
+	<property name="MapViewer.jars" value="${MapViewer.build}/Jars" />
+	<property name="MapViewer.ejbmodeljar"
+	          value="${MapViewer.jars}/EJBModel.jar" />
+	<property name="MapViewer.wars" value="${MapViewer.build}/Wars" />
+	<property name="MapViewer.entitiesjar"
+	          value="${MapViewer.jars}/Entities.jar" />
+	<property name="MapViewer.htmlview" value="${MapViewer.sources}/HTMLView" />
+	<property name="MapViewer.javadoc" value="${MapViewer.build}/JavaDoc" />
+	<property name="MapViewer.projectname" value="MapViewer" />
+	<property name="MapViewer.scripts" value="${MapViewer.home}/Scripts" />
+	<property name="MapViewer.sourcedist"
+	          value="${MapViewer.build}/${MapViewer.sourcedistname}" />
+	<property name="MapViewer.sourcedistname"
+	          value="${MapViewer.name}-src-${MapViewer.version}" />
+	<property name="MapViewer.webappname" value="MapViewer" />
+	<property name="MapViewer.war"
+	          value="${MapViewer.wars}/${MapViewer.webappname}.war" />
+
+	<!-- ============================ "init" target ============================ -->
+
+	<target name="init">
+		<echo>
+		--------------------------------------------------------------------------------
+		Running build file for the entire project ...
+		--------------------------------------------------------------------------------
+		    </echo>
+	</target>
+
+	<!-- ============================ "all" target ============================= -->
+
+	<target name="all" depends="rebuild, jars, wars, ears, javadoc" />
+
+	<!-- ========================== "compile" target =========================== -->
+
+	<target name="compile" depends="init">
+		<mkdir dir="${MapViewer.classes}" />
+		<javac srcdir="${MapViewer.sources}"
+		       destdir="${MapViewer.classes}"
+		       classpathref="MapViewer.classpath"
+		       debug="${javac.debug}"
+		       optimize="${javac.optimize}"
+		       deprecation="${javac.deprecation}" />
+	</target>
+
+	<!-- ========================= "cleanclasses" target ======================== -->
+
+	<target name="cleanclasses" depends="init">
+		<delete dir="${MapViewer.classes}" />
+	</target>
+
+	<!-- ========================== "rebuild" target =========================== -->
+
+	<target name="rebuild" depends="cleanclasses, compile" />
+
+	<!-- ============================ "jars" target ============================ -->
+
+	<target name="jars" depends="entitiesjar, ejbmodeljar" />
+
+	<!-- ======================== "entitiesjar" target ====================== -->
+
+	<target name="entitiesjar" depends="compile">
+		<mkdir dir="${MapViewer.jars}" />
+		<mkdir dir="${MapViewer.classes}/META-INF" />
+		<copy todir="${MapViewer.classes}/META-INF">
+			<fileset dir="${MapViewer.ejbconfiguration}"
+			         includes="persistence.xml" />
+		</copy>
+		<jar jarfile="${MapViewer.entitiesjar}"
+		     basedir="${MapViewer.classes}"
+		     includes="META-INF/*.xml, **/entity/*" />
+		<delete dir="${MapViewer.classes}/META-INF" />
+	</target>
+
+	<!-- ========================== "ejbmodeljar" target ======================= -->
+
+	<target name="ejbmodeljar" depends="compile">
+		<mkdir dir="${MapViewer.jars}" />
+		<jar jarfile="${MapViewer.ejbmodeljar}"
+		     basedir="${MapViewer.classes}"
+		     includes="mapviewer/model/**"
+		     excludes="**/entity/**, **/delegate/**"
+		     manifest="${MapViewer.ejbconfiguration}/MANIFEST.MF" />
+	</target>
+
+	<!-- ========================== "ejbwar" target ============================ -->
+
+	<target name="ejbwar" depends="compile">
+		<mkdir dir="${MapViewer.wars}" />
+		<war warfile="${MapViewer.war}"
+		     webxml="${MapViewer.htmlview}/WEB-INF/web.xml"
+		     manifest="${MapViewer.ejbconfiguration}/MANIFEST.MF">
+			<fileset dir="${MapViewer.htmlview}/HTML"
+			         excludes="**/*${MapViewer.backupextension}" />
+			<webinf dir="${MapViewer.htmlview}/WEB-INF"
+			        excludes="*web.xml, **/*${MapViewer.backupextension}" />
+			<webinf dir="${MapViewer.scripts}"
+			        includes="Database/**"
+			        excludes="**/*${MapViewer.backupextension}" />
+			<lib dir="${stdtaglibs.lib}" includes="${stdtaglibs.jars}" />
+			<lib dir="${struts.lib}" includes="${struts.jars}" />
+			<lib dir="${jdom.lib}" includes="${jdom.jars}" />
+			<!-- 
+				IMPORTANT: ${utilJars.standardjar} library must not be included since it is
+				referenced from MANIFEST.MF.
+		            <lib dir="${utilJars.jars}" includes="${utilJars.standardjar}"/>
+			-->
+			<lib dir="${utilJars.jars}" includes="${utilJars.webjar}" />
+			<classes dir="${MapViewer.classes}"
+			         includes="
+				mapviewer/model/userfacade/delegate/*,
+				mapviewer/model/userfacade/ejb/EJBUserFacadeDelegate.class,
+				mapviewer/model/searchfacade/delegate/*,
+				mapviewer/model/searchfacade/ejb/EJBSearchFacadeDelegate.class,
+				mapviewer/http/**" />
+			<classes dir="${MapViewer.sources}"
+			         includes="mapviewer/http/view/messages/**"
+			         excludes="**/*${MapViewer.backupextension}" />
+		</war>
+	</target>
+
+	<!-- ============================ "wars" target ============================ -->
+
+	<target name="wars" depends="deployejbear" />
+
+	<!-- ========================== "ejbear" target ============================ -->
+
+	<target name="ejbear" depends="entitiesjar, ejbmodeljar, ejbwar">
+		<mkdir dir="${MapViewer.ears}" />
+		<ear destfile="${MapViewer.ejbear}"
+		     appxml="${MapViewer.ejbconfiguration}/application.xml">
+			<metainf dir="${MapViewer.ejbconfiguration}" includes="jboss-app.xml" />
+			<fileset file="${utilJars.jars}/${utilJars.standardjar}" />
+			<fileset file="${MapViewer.entitiesjar}" />
+			<fileset file="${MapViewer.ejbmodeljar}" />
+			<fileset file="${MapViewer.war}" />
+		</ear>
+	</target>
+
+	<!-- ======================= "deployejbear" target ======================== -->
+
+	<target name="deployejbear" depends="ejbear">
+		<copy file="${MapViewer.ejbear}" todir="${jboss.deploy}" />
+	</target>
+
+	<!-- =========================== "ears" target ============================= -->
+
+	<target name="ears" depends="ejbear" />
+
+	<!-- ========================= "javadoc" target ============================ -->
+
+	<target name="javadoc" depends="compile">
+		<delete dir="${MapViewer.javadoc}" />
+		<mkdir dir="${MapViewer.javadoc}" />
+		<javadoc packagenames="*"
+		         sourcepath="${MapViewer.sources}"
+		         classpathref="MapViewer.classpath"
+		         destdir="${MapViewer.javadoc}"
+		         private="yes"
+		         windowtitle="Map Viewer"
+		         doctitle="Map Viewer"
+		         header="Map Viewer"
+		         bottom="${MapViewer.author}">
+			<link href="${j2se.javadocurl}" />
+			<link href="${j2ee.javadocurl}" />
+			<link href="${struts.javadocurl}" />
+		</javadoc>
+	</target>
+
+	<!-- =========================== "clean" target =========================== -->
+
+	<target name="clean" depends="init">
+		<delete dir="${MapViewer.build}" />
+	</target>
+
+	<!-- ============================ "cleardb" target ========================== -->
+
+	<!-- IMPORTANT: 
+				    
+		- All "java" tasks set "fork" to "true". Otherwise, problems occur 
+		in the creation of the SAX parser. Furthermore, it is required if
+		the "dir" attribute is used.
+				           
+		- All "sql" tasks specify onerror="continue" since SQL scripts
+		try to drop tables before creating them (which causes errors if
+		such tables do not exist yet).
+				           
+		- All "sql" tasks specify autocommit="true" since some drivers (e.g 
+		the PostgreSQL JDBC 2 driver) do not commit changes if some error 
+		ocurrs.
+				           
+	-->
+
+	<target name="cleardb" depends="init">
+
+		<sql driver="${jdbcdriver.className}"
+			     url="${jdbcdriver.url}"
+			     userid="${jdbcdriver.user}"
+			     password="${jdbcdriver.password}"
+			     classpathref="MapViewer.classpath"
+			     onerror="continue"
+			     autocommit="true">
+			<fileset dir="${MapViewer.home}"
+				         includes="**/${jdbcdriver.databaseName}DeleteTables.sql" />
+		</sql>
+
+	</target>
+
+	<!-- ============================ "initdb" target ========================== -->
+
+	<target name="initdb" depends="init, cleardb">
+
+		<sql driver="${jdbcdriver.className}"
+			     url="${jdbcdriver.url}"
+			     userid="${jdbcdriver.user}"
+			     password="${jdbcdriver.password}"
+			     classpathref="MapViewer.classpath"
+			     onerror="continue"
+			     autocommit="true">
+			<fileset dir="${MapViewer.home}"
+				         includes="**/${jdbcdriver.databaseName}CreateTables.sql" />
+		</sql>
+
+	</target>
+
+	<!-- ========================= "sourcedist" target ========================= -->
+
+	<target name="sourcedist" depends="init">
+
+		<!-- Common files for all distributions -->
+		<patternset id="MapViewer.sourcedist.commonfiles" includes="${MapViewer.sourcedistname}/**" excludes="**/Build/**, **/*${MapViewer.backupextension},
+		                      **/*.sh, **/*.bat, ${MapViewer.home}/${MapViewer.sourcedistname}.zip, ${MapViewer.home}/${MapViewer.sourcedistname}.tar.gz" />
+
+		<!-- Create Build directory (if necessary) -->
+		<mkdir dir="${MapViewer.build}" />
+		
+		<!-- .zip distribution -->
+		<delete file="${MapViewer.home}/${MapViewer.sourcedistname}.zip" />
+		<zip destfile="${MapViewer.home}/${MapViewer.sourcedistname}.zip">
+			<fileset dir="${MapViewer.home}/..">
+				<patternset refid="MapViewer.sourcedist.commonfiles" />
+			</fileset>
+			<fileset dir="${MapViewer.home}/.." includes="${MapViewer.sourcedistname}/**/*.bat" />
+		</zip>
+
+		<!-- .tar.gz distribution (with execution permissions for .sh files) -->
+		<delete file="${MapViewer.home}/${MapViewer.sourcedistname}.tar.gz" />
+		<tar tarfile="${MapViewer.home}/${MapViewer.sourcedistname}.tar.gz" longfile="gnu" compression="gzip">
+			<tarfileset dir="${MapViewer.home}/..">
+				<patternset refid="MapViewer.sourcedist.commonfiles" />
+			</tarfileset>
+			<tarfileset dir="${MapViewer.home}/.." mode="755" includes="${MapViewer.sourcedistname}/**/*.sh" />
+		</tar>
+
+	</target>
+
+</project>

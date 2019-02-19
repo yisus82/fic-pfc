@@ -1,0 +1,64 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:html="http://struts.apache.org/tags-html" version="2.0">
+
+	<p><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></p>
+
+	<p />
+	<p />
+	<p class="itemsTitle"><fmt:message
+		key="ShowLayerDetailsContent.layerDetails" /></p>
+
+	<c:choose>
+
+		<c:when test="${empty requestScope.layer}">
+			<p><fmt:message key="ShowLayerDetailsContent.noLayer" /></p>
+		</c:when>
+
+		<!-- Print current layer. -->
+
+		<c:otherwise>
+			<div class="center">
+			<table rules="all">
+
+				<tr>
+					<th id="tableHeader"><fmt:message key="layerAttributes.title" /></th>
+					<th id="tableHeader"><fmt:message key="layerAttributes.name" /></th>
+					<th id="tableHeader"><fmt:message key="layerAttributes.styleTitle" /></th>
+					<th id="tableHeader"><fmt:message key="layerAttributes.styleName" /></th>
+					<th id="tableHeader"><fmt:message key="layerAttributes.minLongitude" /></th>
+					<th id="tableHeader"><fmt:message key="layerAttributes.minLatitude" /></th>
+					<th id="tableHeader"><fmt:message key="layerAttributes.maxLongitude" /></th>
+					<th id="tableHeader"><fmt:message key="layerAttributes.maxLatitude" /></th>
+				</tr>
+
+				<c:set var="layer" value="${requestScope.layer}" />
+
+				<tr>
+
+					<td id="itemTable"><c:out value="${layer.title}" /></td>
+
+					<td id="itemTable"><c:out value="${layer.name}" /></td>
+
+					<td id="itemTable"><c:out value="${layer.styleTitle}" /></td>
+
+					<td id="itemTable"><c:out value="${layer.styleName}" /></td>
+
+					<td id="itemTable"><c:out value="${layer.minLongitude}" /></td>
+					
+					<td id="itemTable"><c:out value="${layer.minLatitude}" /></td>
+					
+					<td id="itemTable"><c:out value="${layer.maxLongitude}" /></td>
+
+					<td id="itemTable"><c:out value="${layer.maxLatitude}" /></td>
+
+				</tr>
+			</table>
+			</div>
+		</c:otherwise>
+
+	</c:choose>
+
+</jsp:root>

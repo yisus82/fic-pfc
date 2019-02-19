@@ -1,0 +1,142 @@
+               	 	*************** Map Viewer v1.0 ***************
+
+                 Jesús Ángel Pérez-Roca Fernández (djalma_fd@yahoo.es)
+	              
+Contents
+--------
+
+1. Software requirements
+2. Basic installation and configuration of software packages
+3. Building and initialization of the database
+4. Bug reports and suggestions for improvement
+
+1. Software requirements
+   ---------------------
+
+   This software has been developed and tested with:
+   
+   * Operating system. It should be possible to compile and execute this
+     distribution in Unix-like operating systems and any version of
+     MS-Windows. In particular, I have tested the following combination:
+
+     - MS Windows XP + PostgreSQL.
+     
+     All scripts are provided both in ".sh" and ".bat" files.
+     
+   * An implementation of J2SE 6.0. 
+
+     I have used Sun's JDK 1.6.0 on MS-Windows.
+     
+   * JDOM 1.0
+   	
+   	 An XML Parser to manage de XML returned by the GetCapabilities request.
+   
+   * ant 1.6.5. 
+   
+     To manage the project (compile, generate JavaDoc, jars, and so on).
+     
+   * PostgreSQL 8.2. 
+     
+     I have used the following driver:
+     
+     - postgresql-8.3dev-600.jdbc4.jar (JDBC 3 driver) with PostgreSQL 8.2.
+        
+     The use of another relational database, assuming that provides a decent
+     SQL, should be very easy. Probably it should only require to port SQL
+     scripts for table creation and modify the configuration. Otherwise, 
+     some interfaces should be implemented.
+     
+   * An application server conforming to Servlet 2.4, JSP 2.0 and EJB 3.0.
+
+     I have used JBoss 4.2.1 GA.
+     
+   * An implementation of the JSP Standard Tag Library (JSTL) 1.1.
+
+     I have used Jakarta Standard TagLibs 1.1.2.
+
+   * Jakarta Struts 1.3.5.
+   
+   	 A Model-View-Controller framework for JSP.
+
+   * To read the sources, you should use a text editor configured with
+     *tab size* to *four* blanks.
+     
+2. Basic installation and configuration of software packages
+   ---------------------------------------------------------
+   
+   Most software packages needed by Map Viewer are very easy to install
+   and configure for development. However, some of them must be installed with
+   care. In this section it is commented how to do a basic installation and
+   configuration of such packages. Check section 3 for environment variables
+   when needed.
+   
+   2.4 Basic installation and configuration of JBoss
+   	   ---------------------------------------------
+
+   - You must have write permissions on the directory (and the
+     files/subdirectories it contain) server/default.
+     
+   - Configure JBoss for it to be able to connect to PostgreSQL server.
+   
+     * Copy docs/examples/jca/postgres-ds.xml server/default/deploy
+     * Modify server/default/deploy/postgres-ds.xml as follows:
+       
+<datasources>
+  <local-tx-datasource>
+    <jndi-name>PostgreSQLDS</jndi-name>
+    <connection-url>jdbc:postgresql://localhost/postgres</connection-url>
+    <driver-class>org.postgresql.Driver</driver-class>
+    <user-name>postgres</user-name>
+    <password>postgreSQL</password>
+        <!-- sql to call when connection is created.  Can be anything, select 1 is valid for PostgreSQL -->
+        <new-connection-sql>select 1</new-connection-sql>
+
+        <!-- sql to call on an existing pooled connection when it is obtained from pool.  Can be anything, select 1 is valid for PostgreSQL -->
+        <check-valid-connection-sql>select 1</check-valid-connection-sql>
+
+      <!-- corresponding type-mapping in the standardjbosscmp-jdbc.xml (optional) -->
+      <metadata>
+         <type-mapping>PostgreSQL 8.2</type-mapping>
+      </metadata>
+  </local-tx-datasource>
+
+</datasources>
+
+      * Copy PosgreSQL JDBC driver to server/default/lib.
+
+
+3. Building and initialization of the database
+   ------------------------------------------------------
+
+   You may need to adapt some of the below files. You need to adapt
+   CommonProperties.xml and ../Scripts/CommonEnvironmentVariables.{sh, bat}.
+      
+   - CommonProperties.xml. Go to "Development environment" and "Development
+     environment options" sections and follow instructions.
+     
+   - ../Scripts/CommonEnvironmentVariables.{sh, bat}. Go to "Run-time 
+   	 system" section and follow instructions.
+   	 
+   - ../PropertiesConfiguration/ConfigurationParameters.properties
+   
+   - ../PropertiesConfiguration/ServiceLocatorJNDIInitialContext.properties
+
+   - MapViewer/Sources/HTMLView/WEB-INF/web.xml
+   
+   - MapViewer/Sources/EJBConfiguration/persistence.xml
+   
+   Finally, start the database and execute:
+   
+   ant all initdb
+   
+   During execution of target "initdb" you will see a number of SQL errors 
+   reported by ant whenever a DROP sentence is executed. This is normal 
+   since MapViewer SQL scripts drop tables and sequences before creating 
+   them, which causes errors when such tables or sequences don't exist yet. 
+   
+4.  Bug reports and suggestions for improvement
+    -------------------------------------------
+   
+    Send bug reports and suggestions for improvement to "djalma_fd@yahoo.es",
+    including in the subject "MapViewer 1.0".
+    

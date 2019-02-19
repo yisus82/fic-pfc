@@ -1,0 +1,220 @@
+\documentclass[a4paper,spanish]{book} %%%Un libro (book). Tamaño A4. Lengua: castellano%%%
+\usepackage[spanish]{babel} %%%El paquete Babel sirve para separar correctamente las palabras de multitud de idiomas%%%
+\usepackage[latin1]{inputenc} %%%Este paquete permite poner acentos directamente%%%
+\usepackage[T1]{fontenc}
+\usepackage{amsmath} %%%Macros AMS%%%
+\usepackage{amsthm} %%%Macros AMS para teoremas%%%
+\usepackage{amsfonts} %%%Permite usar fuentes AMS%%%
+\usepackage{amssymb} %%%Para usar símbolos AMS%%%
+\usepackage{shadow}
+\usepackage{indentfirst} %%%Espaciado de primera línea de cada párrafo%%%
+\linespread{1.5}
+\usepackage{graphicx}
+\usepackage{appendix} %%%Permite un manejo sencillo de los apéndices. Permite también introducir subapéndices%%%
+\usepackage{graphics}
+\usepackage{anysize} %%%Soporte para el comando \marginsize%%%
+\usepackage{theorem}
+\usepackage{float}
+\marginsize{3cm}{2cm}{2.5cm}{2.5cm} %%%Permite manejar los márgenes de forma sencilla%%%
+\usepackage[Bjornstrup]{fncychap}
+\usepackage{url}
+\usepackage{eurofont} %%%Permite usar el símbolo de euro%%%
+\usepackage{fancyhdr} %%%Para un encabezado especial más visual%%%
+\pagestyle{fancy}
+\usepackage{extramarks}
+\usepackage[nottoc,notlof]{tocbibind}
+\setlength{\headheight}{15pt}
+\DeclareGraphicsExtensions{.jpg,.pdf,.png,.gif,.bmp} %%%Declaración de extensiones de figuras para el paquete graphicx%%%
+
+%==============================================================
+%==============================================================
+
+\author{Jesús Ángel Pérez-Roca Fernández}
+\title{\textbf{Desarrollo de un sistema de información geográfica participativo basado en AJAX y el estándar Web Map Service (WMS)}}
+
+\begin{document} %%%Aquí empieza el documento%%%
+
+\input{Portada/Portada.tex} %%%Portada Gráfica%%%
+
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\chaptername}{Apartado}
+\renewcommand{\appendixname}{Apéndice}
+\renewcommand{\bibname}{Bibliografía}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\listfigurename}{Índice de figuras}
+
+\thispagestyle{empty}
+\cleardoublepage %%%Se deja sin numeración la página siguiente%%%
+
+%==============================================================
+% Especificación
+%==============================================================
+\frontmatter
+
+\thispagestyle{plain}
+\include{Especificación/Especificación}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+%==============================================================
+%Autorización
+%==============================================================
+\thispagestyle{plain}
+\input{Autorización/Autorización}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+%==============================================================
+%Agradecimientos
+%==============================================================
+\thispagestyle{plain}
+\input{Agradecimientos/Agradecimientos}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+%==============================================================
+%Resumen
+%==============================================================
+
+\thispagestyle{plain}
+\input{Resumen/Resumen}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+%==============================================================
+%Palabras clave
+%==============================================================
+
+\thispagestyle{plain}
+\input{PalabrasClave/PalabrasClave}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+%==============================================================
+%Índices
+%==============================================================
+\thispagestyle{plain}
+\tableofcontents
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+\thispagestyle{plain}
+\listoffigures
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+%==============================================================
+%Para el encabezado que se va a utilizar en todo el proyecto
+%==============================================================
+\pagestyle{fancy}
+
+\fancyhf{}
+\fancyhead[LO]{\leftmark} % En las páginas impares, parte izquierda del encabezado, aparecerá el nombre de capítulo
+\fancyhead[RE]{\rightmark} % En las páginas pares, parte derecha del encabezado, aparecerá el nombre de sección
+\fancyhead[RO,LE]{\thepage} % Números de página en las esquinas de los encabezados
+
+\fancyfoot[c]{}
+\fancyfoot[LE,RO]{}
+\fancyfoot[LO,RE]{\scriptsize{Desarrollo de un sistema de información geográfica participativo basado en AJAX y el estándar Web Map Service (WMS)}} 
+
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{\thechapter. #1}}{}} % Formato para el capítulo: N. Nombre
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}} % Formato para la sección: N.M. Nombre
+
+\renewcommand{\headrulewidth}{0.6pt} % Ancho de la línea horizontal bajo el encabezado
+\renewcommand{\footrulewidth}{0.6pt} % Ancho de la línea horizontal sobre el pie
+\setlength{\headheight}{1.5\headheight} % Aumenta la altura del encabezado en una vez y media
+
+%==============================================================
+%Apartados
+%==============================================================
+\mainmatter
+
+\input{Introducción/Introducción}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{Tecnologías/Tecnologías}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{Análisis/Análisis}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{Diseño/Diseño}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{Patrones/Patrones}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{ManualUsuario/ManualUsuario}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{Conclusiones/Conclusiones}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+%==============================================================
+%   Apéndices
+%==============================================================
+\appendix
+
+\input{ManualInstalación/ManualInstalación}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{ContenidoCD/ContenidoCD}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{CódigoLicenciado/CódigoLicenciado}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{GlosarioAcrónimos/GlosarioAcrónimos}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+\input{GlosarioTérminos/GlosarioTérminos}
+\newpage
+\thispagestyle{empty}
+\cleardoublepage
+
+%==============================================================
+%          Bibliografia
+%==============================================================
+\backmatter
+
+\nocite{HRV:Bellas}
+\nocite{HRV:Luaces}
+\nocite{HRV:Patrones}
+\nocite{HRV:JSP}
+\nocite{HRV:UML}
+\nocite{HRV:Cropper}
+\nocite{HRV:WMSMap}
+\nocite{HRV:TinyMCE}
+\nocite{HRV:AJAX}
+\nocite{HRV:Javascript}
+\nocite{HRV:Struts}
+\nocite{HRV:JavaSun}
+\nocite{HRV:JBoss}
+\nocite{HRV:JUnit}
+
+\bibliographystyle{unsrt}
+\bibliography{Bibliografía}
+
+\end{document} %%%Aquí termina el documento%%%
+
+%==============================================================
+%==============================================================

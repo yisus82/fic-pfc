@@ -1,0 +1,108 @@
+<!-- ======================================================================= -->
+<!--                              Common properties                          -->
+<!-- ======================================================================= -->
+
+<!-- ====================== Development environment ======================== -->
+
+<!--
+	The following properties must be adapted to your environment:
+	
+	- jdbcdriver.home
+	- jdbcdriver.jars
+	- jdbcdriver.className
+	- jdbcdriver.url
+	- jdbcdriver.databaseName
+	- jdbcdriver.user
+	- jdbcdriver.password
+	- jdom.home
+	- stdtaglibs.home
+	- struts.home
+	- jboss.home
+	- tomcat.home
+	- j2se.javadocurl
+	- struts.javadocurl
+	- j2ee.javadocurl
+-->
+
+<!-- JDBC driver -->
+<!-- PostgreSQL  -->
+
+<property name="jdbcdriver.home" value="C:\Archivos de programa\PostgreSQL"/>
+<property name="jdbcdriver.jars" value="postgresql-8.3dev-600.jdbc4.jar"/>
+<property name="jdbcdriver.className" value="org.postgresql.Driver"/>
+<property name="jdbcdriver.url" value="jdbc:postgresql://localhost/postgres"/>
+<property name="jdbcdriver.databaseName" value="PostgreSQL"/>
+
+<!-- User and password -->
+<property name="jdbcdriver.user" value="postgres" />
+<property name="jdbcdriver.password" value="postgreSQL" />
+
+<!-- JDOM -->
+<property name="jdom.home"
+	value="C:\Archivos de programa\jdom-1.0" />
+<property name="jdom.lib" value="${jdom.home}/build" />
+<property name="jdom.jars" value="*.jar" />
+
+<!-- Standard TagLibs -->
+<property name="stdtaglibs.home"
+	value="C:\Archivos de programa\jakarta-taglibs-standard-1.1.2" />
+<property name="stdtaglibs.lib" value="${stdtaglibs.home}/lib" />
+<property name="stdtaglibs.jars" value="*.jar" />
+
+<!-- Struts -->
+<property name="struts.home"
+	value="C:\Archivos de programa\struts-1.3.5" />
+<property name="struts.lib" value="${struts.home}/lib" />
+<property name="struts.jars" value="*.jar" />
+
+<!-- Tomcat -->
+<property name="tomcat.home"
+	value="C:\Archivos de programa\apache-tomcat-6.0.10" />
+<property name="tomcat.lib" value="${tomcat.home}/lib" />
+<property name="tomcat.jars" value="*.jar" />
+
+<!-- JBoss -->
+<property name="jboss.home"
+	value="C:\Archivos de programa\jboss-4.2.1.GA" />
+<property name="jboss.client" value="${jboss.home}/client" />
+<property name="jboss.client.jars" value="*.jar" />
+<property name="jboss.deploy"
+	value="${jboss.home}/server/default/deploy" />
+<property name="jboss.deploylib"
+	value="${jboss.home}/server/default/lib" />
+
+<!-- J2SE JavaDoc -->
+<property name="j2se.javadocurl"
+	value="file:///C:/Archivos%20de%20programa/Java/Java%201.6%20API/docs/api/" />
+
+<!-- Struts JavaDoc -->
+<property name="struts.javadocurl"
+	value="file:///C:/Archivos%20de%20programa/struts-1.3.5/docs/" />
+
+<!-- J2EE JavaDoc -->
+<property name="j2ee.javadocurl"
+	value="file:///C:/Archivos%20de%20programa/Java/Java%20EE%205%20API/api/" />
+
+<!-- ==================== Development environment options ================== -->
+
+<!-- Java compiler -->
+<property name="build.compiler" value="modern" />
+<property name="javac.debug" value="on" />
+<property name="javac.optimize" value="off" />
+<property name="javac.deprecation" value="on" />
+
+<!-- =========================== Distribution ============================== -->
+
+<!-- Util Jars of MapViewer -->
+<property name="utilJars.jars" value="${MapViewer.home}/Jars/Util" />
+<property name="utilJars.standardjar" value="StandardUtil.jar" />
+<property name="utilJars.webjar" value="WebUtil.jar" />
+
+<!-- MapViewer properties -->
+<property name="MapViewer.name" value="MapViewer" />
+<property name="MapViewer.version" value="1.0" />
+<property name="MapViewer.author"
+	value='&lt;a href="http://yi-sus.blogspot.com"&gt; 
+    Jesús Ángel Pérez-Roca Fernández&lt;/a&gt; 
+    (&lt;a href="mailto:djalma_fd@yahoo.es"&gt;djalma_fd@yahoo.es&lt;/a&gt;)' />
+<property name="MapViewer.backupextension" value=".bck" />

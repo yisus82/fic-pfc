@@ -1,0 +1,350 @@
+\chapter{Manual de usuario}
+En este apartado se mostrarán las distintas acciones que puede realizar un usuario por medio de una serie de pantallas que facilitarán la explicación.\\
+Al acceder a la aplicación por medio de un navegador web nos aparece la pantalla principal de la misma.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaPrincipalNoAutenticado.png}
+	\caption{Pantalla principal usuario no autenticado}
+	\label{fig:PantallaPrincipalNoAutenticado}
+\end{figure}
+
+
+Podemos observar una parte superior o encabezado, en el que aparece el nombre de la aplicación y más abajo un mensaje de bienvenida a la aplicación y una serie de botones por los que podremos acceder a las distintos grupos de acciones disponibles.\\
+En la parte inferior de la página vemos un pie de página en el que se muestra información de contacto del creador de la aplicación por si se quieren hacer sugerencias para mejorar dicha aplicación.\\
+Por último, en la parte central se muestra por una parte las distintas opciones del grupo de acciones seleccionado en este momento y a la derecha el contenido en si de la página. Por defecto, si no hay contenido que mostrar se muestra el logotipo de la aplicación.\\
+Para poder sacarle el máximo partido a la aplicación vamos a crear un usuario. Para ello pulsamos sobre el botón ``Entrar''.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaAutenticar.png}
+	\caption{Pantalla de autenticación}
+	\label{fig:PantallaAutenticar}
+\end{figure}
+
+En esta pantalla podríamos autenticarnos en la aplicación si tuviésemos un usuario creado, introduciendo para ello el identificador de usuario (login) y contraseña. También podríamos marcar la opción de que el navegador recuerde nuestros datos si dejamos la sesión abierta. Estos datos se guardan durante un máximo de 30 días, siempre y cuando las cookies estén habilitadas y la sesión no se cierre.\\
+Como no tenemos aún ningún usuario creado, pulsamos sobre el enlace para registrarnos.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaRegistrar.png}
+	\caption{Pantalla de registro}
+	\label{fig:PantallaRegistrar}
+\end{figure}
+
+En esta pantalla introduciremos nuestros datos personales, así como nuestro identificador de usuario deseado (login) y nuestra contraseña (mínimo 6 caracteres) por duplicado para evitar errores de escritura. Tras introducir todos los datos y pulsar el botón ``Aceptar'' volvemos a la pantalla de inicio de la aplicación, pero ya como usuario autenticado.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaPrincipalAutenticado.png}
+	\caption{Pantalla principal usuario autenticado}
+	\label{fig:PantallaPrincipalAutenticado}
+\end{figure}
+
+Observamos que el mensaje genérico de bienvenida a la aplicación ha sido sustituido por otro personalizado con nuestro identificador de usuario (login) y observamos también cambios en la barra de botones: el botón ``Entrar'' ha sido sustituido por otro que nos permite salir de la aplicación (``Salir'') y apareció un nuevo botón a la izquierda de la barra de botones que nos permite modificar nuestros datos personales (``Actualizar perfil''). Si pulsamos sobre dicho botón nos aparecerá una pantalla parecida a la que aparecía al registrarse.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaActualizarPerfil.png}
+	\caption{Pantalla de actualización de perfil}
+	\label{fig:PantallaActualizarPerfil}
+\end{figure}
+
+Aquí podríamos hacer cambios en los datos y, tras darle al botón ``Aceptar'', dichos cambios quedarían registrados en la base de datos. Si quisiéramos cambiar nuestra contraseña, deberíamos pulsar sobre el enlace que aparece.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaCambiarContrasena.png}
+	\caption{Pantalla de cambio de contraseña}
+	\label{fig:PantallaCambiarContrasena}
+\end{figure}
+
+Aquí deberemos introducir tanto la contraseña antigua como la nueva por duplicado, para evitar por una parte que alguien que se haya encontrado con nuestra sesión abierta pueda cambiar nuestra contraseña y por otro lado para evitar que cometamos un error.\\
+Una vez estamos conformes con nuestros datos podremos proceder a crear nuestro primer mapa. Para ello, primero deberíamos crear primero un servidor WMS que nos va a proporcionar las capas que se mostrarán en el mapa. Pulsamos primero sobre el botón ``WMSs'' de la barra de botones. Notamos como las opciones de la barra lateral cambian para ofrecernos las opciones relacionadas con los servidores WMS.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaPrincipalWMSs.png}
+	\caption{Pantalla principal (opciones WMSs)}
+	\label{fig:PantallaPrincipalWMSs}
+\end{figure}
+
+Antes de crear nuestro WMS podríamos comprobar que no existe un WMS que nos pueda valer para nuestro mapa. Para ello existen tres formas de búsqueda:
+
+\begin{itemize}
+	\item ``Mostrar WMSs'', que nos muestra todos los WMSs existentes en la base de datos (en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios).
+	\item ``Buscar por nombre'', que nos permite filtrar los WMSs existentes por medio de un cuadro de búsqueda, en el que introduciremos el nombre a buscar. También nos muestra los WMSs en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios.
+	\item ``Mis WMSs'', que nos muestra los WMSs que hemos creado.
+	\item ``WMSs interesantes'', que nos muestra los WMSs que hemos añadido a nuestra lista de favoritos.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaMostrarWMSs.png}
+	\caption{Búsqueda de WMSs}
+	\label{fig:PantallaMostrarWMSs}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaBuscarWMSsPorNombre.png}
+	\caption{Búsqueda de WMSs por nombre}
+	\label{fig:PantallaBuscarWMSsPorNombre}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaMisWMSs.png}
+	\caption{Pantalla de ``Mis WMSs''}
+	\label{fig:PantallaMisWMSs}
+\end{figure}
+
+La información obtenida con cualquiera de los métodos es análoga y nos mostrará una serie de enlaces adicionales, dependiendo de si el WMS lo hemos creado nosotros o no y de si lo tenemos en nuestra lista de WMSs preferidos o no: si somos los creadores del WMS nos dejará actualizarlo o borrarlo (en este caso nos devuelve a la página principal) y si no lo tenemos en nuestra lista de WMSs preferidos nos dejará añadirlo (y nos dejará quitarlo si ya lo tenemos en la lista), tras lo cual nos devuelve a la página principal.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaActualizarWMS.png}
+	\caption{Pantalla de actualización de WMS}
+	\label{fig:PantallaActualizarWMS}
+\end{figure}
+
+En cualquier caso, siempre nos mostrará un enlace en el que podremos ver más detalladamente el WMS en cuestión.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaDetallesWMS.png}
+	\caption{Pantalla de detalles de WMS}
+	\label{fig:PantallaDetallesWMS}
+\end{figure}
+
+Supongamos que el WMS que necesitamos no está en la base de datos. En ese caso, deberíamos pulsar sobre el enlace de ``Añadir WMS''.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaAnadirWMS.png}
+	\caption{Pantalla de añadir WMS}
+	\label{fig:PantallaAnadirWMS}
+\end{figure}
+
+En esta pantalla introduciremos un nombre y una descripción para el WMS, así como su URL. Ésta debe terminar en \emph{?}. Tras introducir los datos pulsaremos sobre el botón ``Aceptar'' y regresaremos a la pantalla principal. \\
+El siguiente paso sería crear el mapa. Para ello pulsamos primero sobre el botón ``Mapas'' de la barra de botones para que nos aparezcan las opciones relativas a los mapas y luego pulsamos el enlace ``Añadir mapa''.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaAnadirMapa.png}
+	\caption{Pantalla de añadir mapa}
+	\label{fig:PantallaAnadirMapa}
+\end{figure}
+
+En esta pantalla deberemos introducir un nombre y una descripción para el mapa. También deberemos introducir una serie de etiquetas (tags) para facilitar la posterior búsqueda del mapa. Por último deberemos especificar las coordenadas del mapa. Para facilitar esta acción existe un selector de zona geográfica que nos permite dibujar una superficie rectangular sobre un mapa del mundo que será la zona en la que estará definido el mapa. Este ``popup'' se puede mover por si es demasiado grande y no cabe en la pantalla del navegador o por si nos tapa una parte de la pantalla que queremos ver.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaSelectorZona.png}
+	\caption{Pantalla selector zona geográfica}
+	\label{fig:PantallaSelectorZona}
+\end{figure}
+
+Tras darle al botón ``Aceptar'' en el selector de zona nos aparecen introducidos los valores seleccionados en su lugar correspondiente. Si le damos al botón ``Aceptar'' de la pantalla de ``Añadir mapa'' pasaremos a la siguiente pantalla.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaSeleccionarWMS.png}
+	\caption{Pantalla de selección de WMS}
+	\label{fig:PantallaSeleccionarWMS}
+\end{figure}
+
+En esta pantalla nos aparecerán en un desplegable todos nuestros WMSs, así como los WMSs que tengamos en nuestra lista de WMSs preferidos, para que podamos escoger de qué WMS vamos a seleccionar las capas. Una vez escogido el deseado le daremos al botón ``Aceptar'' para pasar a la pantalla de selección de capas.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaSeleccionarCapas.png}
+	\caption{Pantalla de selección de capas}
+	\label{fig:PantallaSeleccionarCapas}
+\end{figure}
+
+Aquí veremos una lista con todas las capas y estilos de ese WMS disponibles en la base de datos. Por medio de los enlaces ``Añadir capa'' y ``Eliminar capa'' podremos ir escogiendo las capas que va a tener el mapa, sabiendo en todo momento cuales ya están añadidas para no seleccionarlas por duplicado. Como normalmente serán bastantes capas, éstas se muestran en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios. Una vez hayamos escogido todas las capas que queramos que tenga el mapa, pulsaremos el botón ``Aceptar'', momento en el cual todos los datos serán transferidos a la base de datos con lo que ya tendremos nuestro mapa creado.\\
+Ahora podríamos pasar a visualizarlo. Para ello lo podemos buscar por distintos métodos:
+
+\begin{itemize}
+	\item ``Mostrar mapas'', que nos muestra todos los mapas existentes en la base de datos (en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios).
+	\item ``Buscar por nombre'', que nos permite filtrar los mapas existentes por medio de un cuadro de búsqueda, en el que introduciremos el nombre a buscar. También nos muestra los mapas en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios.
+	\item ``Buscar por tags'', que nos permite filtrar los mapas existentes por medio de un cuadro de búsqueda, en el que introduciremos las etiquetas (tags) a buscar. También nos muestra los mapas en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios.
+	\item ``Buscar por zona'', que nos permite filtrar los mapas existentes por medio de un cuadro de búsqueda, en el que introduciremos las coordenadas de la zona a buscar. Para facilitar esta acción podemos usar de nuevo el selector de zona (figura~\ref{fig:PantallaSelectorZona}) que nos permite dibujar una superficie rectangular sobre un mapa del mundo. Este método también nos muestra los mapas en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios.
+	\item ``Mis Mapas'', que nos muestra los mapas que hemos creado.
+	\item ``Mapas interesantes'', que nos muestra los mapas que hemos añadido a nuestra lista de favoritos.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaMostrarMapas.png}
+	\caption{Búsqueda de mapas}
+	\label{fig:PantallaMostrarMapas}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaBuscarMapasPorNombre.png}
+	\caption{Búsqueda de mapas por nombre}
+	\label{fig:PantallaBuscarMapasPorNombre}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaBuscarMapasPorTags.png}
+	\caption{Búsqueda de mapas por etiquetas (tags)}
+	\label{fig:PantallaBuscarMapasPorTags}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaBuscarMapasPorZona.png}
+	\caption{Búsqueda de mapas por zona geográfica}
+	\label{fig:PantallaBuscarMapasPorZona}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaMisMapas.png}
+	\caption{Pantalla de ``Mis mapas''}
+	\label{fig:PantallaMisMapas}
+\end{figure}
+
+La información obtenida con cualquiera de los métodos es análoga y nos mostrará una serie de enlaces adicionales, dependiendo de si el mapa lo hemos creado nosotros o no y de si lo tenemos en nuestra lista de mapas preferidos o no: si somos los creadores del mapa nos dejará añadir capas (nos redirige a la pantalla de selección de WMS) o borrarlo (en este caso nos devuelve a la página principal) y si no lo tenemos en nuestra lista de mapas preferidos nos dejará añadirlo (y nos dejará quitarlo si ya lo tenemos en la lista), tras lo cual nos devuelve a la página principal.\\
+En cualquier caso, siempre nos mostrará un enlace en el que podremos ver más detalladamente el mapa en cuestión. Desde esta pantalla podremos acceder a la opción de ``Actualizar mapa'' en caso de ser el creador del mapa. Hay que mencionar también que las etiquetas que se muestran en esta pantalla son enlaces que nos permitiría ver una lista de mapas con esa etiqueta si pulsásemos sobre ella.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaDetallesMapa.png}
+	\caption{Pantalla de detalles de mapa}
+	\label{fig:PantallaDetallesMapa}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaActualizarMapa.png}
+	\caption{Pantalla de actualización de mapa}
+	\label{fig:PantallaActualizarMapa}
+\end{figure}
+
+Una vez localizado el mapa deseado pulsamos sobre el enlace ``Ver mapa'' y nos aparecerá la pantalla de visualización de mapa (figura~\ref{fig:PantallaVerMapa}).
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaVerMapa.png}
+	\caption{Pantalla de visualización de mapa}
+	\label{fig:PantallaVerMapa}
+\end{figure}
+
+Esta pantalla difiere un poco de las demás pantallas de la aplicación. La barra lateral desaparece para dejar más espacio para la visualización del mapa. Además, en la parte inferior aparecen una serie de botones que nos permiten mover por el mapa (cosa que también podemos hacer pinchando y arrastrando con el ratón), manejar el zoom (cosa que también podemos realizar con la rueda del ratón) y activar/desactivar el ``Modo Insertar POI''. Si el modo está desactivado podremos movernos por el mapa libremente con el ratón y pulsar sobre los POIs (puntos de interés) que se vean en ese momento. Si pulsamos sobre un POI (punto de interés) saldrá un ``popup'' con la información de ese POI (punto de interés). Dicho ``popup'' puede moverse en caso de querer seguir viendo el mapa sin cerrarlo.\\
+Si activamos el ``Modo Insertar POI'' pulsando sobre el botón correspondiente vemos que el icono del ratón cambia al entrar en la zona del mapa. Ahora si pulsamos sobre el mapa podremos añadir en esas coordenadas un POI (punto de interés). Antes de llevarnos a la pantalla de ``Añadir POI'' nos sale un ``popup'' que nos permite cancelar la acción en caso de haber pulsado en unas coordenadas incorrectas.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaAnadirPOI.png}
+	\caption{Pantalla de añadir POI (punto de interés)}
+	\label{fig:PantallaAnadirPOI}
+\end{figure}
+
+Si pulsamos en el botón ``Aceptar'' nos aparece la pantalla de ``Añadir POI'' con los campos de coordenadas ya cubiertos, por lo que sólo deberemos ponerle un nombre, una descripción, una serie de etiquetas (tags) para facilitar la posterior búsqueda del POI (punto de interés) y el código HTML que queremos mostrar en el ``popup'' que saldrá al pulsar sobre el POI (punto de interés) al visualizarlo en un mapa. Para facilitar la creación del código HTML, se ha incluido un sencillo editor HTML, que permite insertar fácilmente imágenes o enlaces, así como varias opciones de edición de texto y otras opciones no tan habituales en una descripción normal de un punto de interés. Una vez introducidos todos los datos pulsaremos el botón ``Aceptar'' y volveremos a la página principal, pero con las opciones relativas a los POIs (puntos de interés).
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaPrincipalPOIs.png}
+	\caption{Pantalla principal (opciones POIs)}
+	\label{fig:PantallaPrincipalPOIs}
+\end{figure}
+
+Desde ahí podremos comprobar que nuestro POI (punto de interés) se creó correctamente. Para ello existen varios métodos de búsqueda:
+
+\begin{itemize}
+	\item ``Mostrar POIs'', que nos muestra todos los POIs existentes en la base de datos (en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios).
+	\item ``Buscar por nombre'', que nos permite filtrar los POIs existentes por medio de un cuadro de búsqueda, en el que introduciremos el nombre a buscar. También nos muestra los POIs en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios.
+	\item ``Buscar por tags'', que nos permite filtrar los POIs existentes por medio de un cuadro de búsqueda, en el que introduciremos las etiquetas (tags) a buscar. También nos muestra los POIs en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios.
+	\item ``Buscar por zona'', que nos permite filtrar los POIs existentes por medio de un cuadro de búsqueda, en el que introduciremos las coordenadas de la zona a buscar. Para facilitar esta acción podemos usar de nuevo el selector de zona que nos permite dibujar una superficie rectangular sobre un mapa del mundo. Este método también nos muestra los POIs en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios.
+	\item ``Mis POIs'', que nos muestra los POIs que hemos creado.
+	\item ``POIs interesantes'', que nos muestra los POIs que hemos añadido a nuestra lista de favoritos.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaMostrarPOIs.png}
+	\caption{Búsqueda de POIs (puntos de interés)}
+	\label{fig:PantallaMostrarPOIs}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaBuscarPOIsPorNombre.png}
+	\caption{Búsqueda de POIs (puntos de interés) por nombre}
+	\label{fig:PantallaBuscarPOIsPorNombre}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaBuscarPOIsPorTags.png}
+	\caption{Búsqueda de POIs (puntos de interés) por etiquetas (tags)}
+	\label{fig:PantallaBuscarPOIsPorTags}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaBuscarPOIsPorZona.png}
+	\caption{Búsqueda de POIs (puntos de interés) por zona geográfica}
+	\label{fig:PantallaBuscarPOIsPorZona}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaMisPOIs.png}
+	\caption{Pantalla de ``Mis POIs''}
+	\label{fig:PantallaMisPOIs}
+\end{figure}
+
+La información obtenida con cualquiera de los métodos es análoga y nos mostrará una serie de enlaces adicionales, dependiendo de si el POI lo hemos creado nosotros o no y de si lo tenemos en nuestra lista de POIs preferidos o no: si somos los creadores del POI nos dejará actualizarlo o borrarlo (en este caso nos devuelve a la página principal) y si no lo tenemos en nuestra lista de POIs preferidos nos dejará añadirlo (y nos dejará quitarlo si ya lo tenemos en la lista), tras lo cual nos devuelve a la página principal.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaActualizarPOI.png}
+	\caption{Pantalla de actualización de POI (punto de interés)}
+	\label{fig:PantallaActualizarPOI}
+\end{figure}
+
+En cualquier caso, siempre nos mostrará un enlace en el que podremos ver más detalladamente el POI en cuestión. Las etiquetas que se muestran en esta pantalla son enlaces que nos permitiría ver una lista de POIs con esa etiqueta si pulsásemos sobre ella.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaDetallesPOI.png}
+	\caption{Pantalla de detalles de POI (punto de interés)}
+	\label{fig:PantallaDetallesPOI}
+\end{figure}
+
+Por último, podemos ver una lista de los usuarios registrados en la aplicación para poder acceder fácilmente a los mapas, WMSs y POIs que crearon. Para ello primero deberemos pulsar sobre el botón ``Usuarios'' de la barra de botones, para que nos muestre las opciones relativas a los usuarios.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaPrincipalUsuarios.png}
+	\caption{Pantalla principal (opciones usuarios)}
+	\label{fig:PantallaPrincipalUsuarios}
+\end{figure}
+
+Existen dos métodos para buscar usuarios:
+
+\begin{itemize}
+	\item ``Mostrar usuarios'', que nos muestra todos los usuarios existentes en la base de datos (en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios).
+	\item ``Buscar por identificador de usuario'', que nos permite filtrar los usuarios existentes por medio de un cuadro de búsqueda, en el que introduciremos el identificador de usuario (login) a buscar. También nos muestra los usuarios en grupos de 5 con enlaces ``Siguiente'' y ``Anterior'', en caso de ser necesarios.
+\end{itemize}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaMostrarUsuarios.png}
+	\caption{Búsqueda de usuarios}
+	\label{fig:PantallaMostrarUsuarios}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[height=0.9\textheight,width=0.9\textwidth]{Imágenes/PantallaBuscarUsuariosPorIdentificador.png}
+	\caption{Búsqueda de usuarios por login (identificador de usuario)}
+	\label{fig:PantallaBuscarUsuariosPorIdentificador}
+\end{figure}

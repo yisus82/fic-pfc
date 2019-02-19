@@ -1,0 +1,27 @@
+\chapter{Manual de instalación}
+
+A continuación se enumerará el software necesario para la ejecución de la aplicación y se proporcionará una breve explicación de cómo instalar el mismo. El desarrollo del software se ha llevado a cabo en el sistema operativo Microsoft Windows XP, aunque las instrucciones necesarias para realizar la instalación en sistemas operativos basados en Unix no difieren demasiado y bastaría con utilizar las versiones Unix de los programas utilizados. \\
+Las instrucciones para Microsoft Windows XP funcionan también en las ediciones 95, 98 y ME, pero hay que tener en cuenta que ciertos programas pueden no funcionar correctamente si se instalan bajo directorios que contengan espacios en el nombre o nombres demasiado largos. \\
+Además se recomienda que tras instalar un programa, se creen las variables de entorno necesarias para acceder al directorio de instalación del mismo y para incluir el programa en la variable de entorno PATH. Esto ayudará al usuario a realizar las operaciones de forma más sencilla. Las variables de entorno se han de crear de forma persistente, es decir, en el archivo \emph{~/.bash\_profile} para los sistemas operativos basados en UNIX, en el archivo \emph{autoexec.bat} en Microsoft Windows 95/98/ME o en el menú de variables de entorno que se puede encontrar en el menú \emph{Sistema} del Panel De Control de Microsoft Windows XP.
+
+\section{Instalación de Java Runtime Environment}
+Es necesario disponer de una máquina virtual Java para el correcto funcionamiento de la aplicación, así como de parte del software necesario para la compilación e instalación de la misma. En el CD adjunto se incluye el Java JDK 1.6.0, aunque llegaría con tener instalada la versión 1.5.0 o superior de la misma para poder compilar y ejecutar el proyecto.
+
+\section{Instalación de PostgreSQL}
+En el CD adjunto se incluye un instalador de fácil manejo, así como el driver JDBC de PostgreSQL. Además, si no se quieren modificar los archivos del código fuente más de lo estrictamente necesario, habría que crear un usuario llamado ``postgres'' con contraseña ``postgreSQL''.
+
+\section{Instalación de ant}
+En el CD adjunto se incluye un archivo comprimido con la versión  de Ant. Sólo hay que descomprimirlo en una carpeta y luego añadir el directorio donde se encuentra el archivo ejecutable al Path para poder ejecutarlo desde línea de comando.
+
+\section{Instalación de Struts, JSTL y JDOM}
+En el CD adjunto se incluyen unos ficheros comprimidos que sólo necesitan de ser descomprimidos para instalarse.
+
+\section{Instalación de JBoss}
+En el CD adjunto se incluye un instalador de fácil manejo.
+
+\section{Instalación de la aplicación}
+Una vez instalados todos los programas necesarios para la correcta ejecución de la aplicación web, se procederá a la instalación de la misma. \\
+Para ello primero ejecutaremos el script instalador de la base de datos que se incluye en el CD adjunto (\emph{PostgreSQLCreateTables.sql}) en una consola de PostgreSQL. La ejecucución de este script puede llevar varios minutos. \\
+Se procederá a continuación a copiar dentro del directorio de JBoss \emph{server/default/deploy/} los siguientes archivos que se incluyen en el CD adjunto: postgres-ds.xml y EJBMapViewer.ear. \\
+Finalmente sólo restaría arrancar el servidor JBoss para hacer funcionar la aplicación, que estaría en \emph{http://localhost:8080/MapViewer}. \\
+Si se quisiera ejecutar desde Eclipse, tendríamos que añadirlo como proyecto Java, modificar los ficheros CommonProperties.xml y ConfigurationParameters.properties con los paths de los directorios donde se encuentran los recursos utilizados en el desarrollo de la aplicación (tales como JBoss, Struts, etc.) y lanzar la tarea Ant \emph{deployejbear} para compilar el proyecto y la tarea Ant \emph{initdb} para inicializar la base de datos.

@@ -1,0 +1,92 @@
+<ul xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:html="http://struts.apache.org/tags-html">
+
+	<jsp:output omit-xml-declaration="true" />
+
+	<c:set var="mode" value="${requestScope.mode}" />
+	<c:choose>
+		<c:when test="${mode eq 'maps'}">
+			<li><html:link href="FindMaps.do">
+				<fmt:message key="DefaultSidebar.findMaps" />
+			</html:link></li>
+			<li><html:link href="FindMapsByName.do">
+				<fmt:message key="DefaultSidebar.findByName" />
+			</html:link></li>
+			<li><html:link href="FindMapsByTags.do">
+				<fmt:message key="DefaultSidebar.findByTags" />
+			</html:link></li>
+			<li><html:link href="FindMapsByZone.do">
+				<fmt:message key="DefaultSidebar.findByZone" />
+			</html:link></li>
+			<c:if test="${!empty sessionScope.userID}">
+				<li><html:link href="EditMap.do">
+					<fmt:message key="DefaultSidebar.addMap" />
+				</html:link></li>
+				<li><html:link href="ShowMyMaps.do">
+					<fmt:message key="DefaultSidebar.myMaps" />
+				</html:link></li>
+				<li><html:link href="FindInterestingMaps.do">
+					<fmt:message key="DefaultSidebar.interestingMaps" />
+				</html:link></li>
+			</c:if>
+		</c:when>
+		<c:when test="${mode eq 'POIs'}">
+			<li><html:link href="FindPOIs.do">
+				<fmt:message key="DefaultSidebar.findPOIs" />
+			</html:link></li>
+			<li><html:link href="FindPOIsByName.do">
+				<fmt:message key="DefaultSidebar.findByName" />
+			</html:link></li>
+			<li><html:link href="FindPOIsByTags.do">
+				<fmt:message key="DefaultSidebar.findByTags" />
+			</html:link></li>
+			<li><html:link href="FindPOIsByZone.do">
+				<fmt:message key="DefaultSidebar.findByZone" />
+			</html:link></li>
+			<c:if test="${!empty sessionScope.userID}">
+				<li><html:link href="EditPOI.do">
+					<fmt:message key="DefaultSidebar.addPOI" />
+				</html:link></li>
+				<li><html:link href="ShowMyPOIs.do">
+					<fmt:message key="DefaultSidebar.myPOIs" />
+				</html:link></li>
+				<li><html:link href="FindInterestingPOIs.do">
+					<fmt:message key="DefaultSidebar.interestingPOIs" />
+				</html:link></li>
+			</c:if>
+		</c:when>
+		<c:when test="${mode eq 'WMSs'}">
+			<li><html:link href="FindWMSs.do">
+				<fmt:message key="DefaultSidebar.findWMSs" />
+			</html:link></li>
+			<li><html:link href="FindWMSsByName.do">
+				<fmt:message key="DefaultSidebar.findByName" />
+			</html:link></li>
+			<c:if test="${!empty sessionScope.userID}">
+				<li><html:link href="EditWMS.do">
+					<fmt:message key="DefaultSidebar.addWMS" />
+				</html:link></li>
+				<li><html:link href="ShowMyWMSs.do">
+					<fmt:message key="DefaultSidebar.myWMSs" />
+				</html:link></li>
+				<li><html:link href="FindInterestingWMSs.do">
+					<fmt:message key="DefaultSidebar.interestingWMSs" />
+				</html:link></li>
+			</c:if>
+		</c:when>
+		<c:when test="${mode eq 'users'}">
+			<li><html:link href="FindUsers.do">
+				<fmt:message key="DefaultSidebar.findUsers" />
+			</html:link></li>
+			<li><html:link href="FindUsersByUserID.do">
+				<fmt:message key="DefaultSidebar.findByUserID" />
+			</html:link></li>
+		</c:when>
+		<c:otherwise>
+		</c:otherwise>
+	</c:choose>
+
+</ul>

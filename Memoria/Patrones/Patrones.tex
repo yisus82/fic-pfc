@@ -1,0 +1,85 @@
+\chapter{Patrones utilizados}
+
+En este apartado se hará una breve descripción de los patrones que han sido utilizados en este proyecto.
+
+\section{Model View Controller}
+Permite una separación clara entre el modelo (que constituye la lógica de negocio) y la vista (interfaz gráfica), gracias a un controlador que los mantiene desacoplados. \\
+Las ventajas que aporta su utilización son numerosas:
+
+\begin{itemize}
+	\item Un modelo independiente, que puede ser distribuido.
+  \item Un modelo que puede ser reusable con distintas vistas (por ejemplo una vista web
+y una con interfaz de ventanas).
+  \item Permite una separación clara del trabajo a realizar entre los miembros de un equipo de desarrollo, formado por personas con distintos grados de especialización a través de la definición de roles (así podríamos tener un diseñador web encargado de la vista y un programador para los casos de uso soportados por el modelo).
+\end{itemize}
+
+\section{Layers}
+Proporciona una estructuración del ``software'' en capas, permitiendo la ocultación de las tecnologías empleadas por el sistema y favoreciendo la división clara de trabajo entre los miembros de un equipo. \\
+Suele combinarse con el anterior patrón mencionado para lograr, por ejemplo, que tanto la vista como el controlador nunca conozcan las tecnologías usadas en la implementación del modelo.
+
+\section{Tiles}
+Proporcionado por Struts, puede ser considerado como una evolución del antiguo sistema de plantillas Template y un caso particular del patrón Composite View. Cada pantalla es la composición de varias páginas JSP de modo que podamos clasificar las pantallas en grupo según su estructura aislando las partes comunes en páginas JSP. \\
+Se deberá definir cada pantalla en un fichero XML de manera que:
+
+\begin{itemize}
+	\item Por cada grupo se defina una pantalla base, que especifica la página JSP que contiene la estructura y da valor a las partes comunes.
+  \item Cada pantalla de un grupo se defina como extensión de la pantalla base, dando valor a las partes específicas (e incluso sobreescribiendo alguna heredada).
+\end{itemize}
+
+\section{Transfer Object}
+Este patrón pretende agrupar un conjunto de atributos procedentes de uno o varios objetos del dominio. En cuanto a la estructura general del patrón es la de implementar la interfaz \emph{java.oi.Serializable} y poseer métodos \emph{get} para el acceso a los atributos y métodos \emph{set} para aquellos atributos que sean modificables.
+
+\section{Business Delegate}
+El Business Delegate se utiliza para reducir el acoplamiento entre los clientes de la capa de presentación y los servicios de negocio. Oculta tanto los detalles de la implementación del servicio de negocio, como los detalles de búsqueda y acceso de la arquitectura EJB. \\
+El Business Delegate actúa como una abstracción de negocio del lado del cliente y, por lo tanto, oculta la implementación de los servicios del negocio. Mediante su utilización se reduce el acoplamiento entre los clientes de la capa de presentación y los servicios de negocio del sistema. \\
+Dependiendo de la estrategia de implementación, podría aislar a los clientes de la posible volatilidad en la implementación del API de los servicios de negocio. Potencialmente, esto reduce el número de cambios que se deben hacer en el código del cliente de la capa de presentación cuando cambie el API del servicio de negocio o su implementación subyacente.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{Imágenes/BusinessDelegate.png}
+	\caption{Patrón Business Delegate}
+	\label{fig:BusinessDelegate}
+\end{figure}
+
+Cuando el Business Delegate se utiliza con un Session Facade, normalmente hay una relación uno a uno entre los dos. Esta relación existe porque la lógica, que podría haber sido encapsulada en un Business Delegate en relación a su interacción con varios servicios de negocio (creando una relación uno a uno), normalmente se construye de vuelta en un Session Facade.
+
+\section{Page-by-Page Iterator}
+Permite acceder a una lista grande de Transfer Objects de una manera eficiente. Es especialmente útil cuando el usuario está interesado en visualizar la lista de Transfer Objects en trozos, pudiendo ir hacia adelante o atrás, cuando la lista completa no cabría en la pantalla o bien cuando la lista completa no cabría en memoria.
+
+\section{Service Locator}
+Permite abstraer la lógica de localización/creación de servicios. Comúnmente un Business Delegate que proxifica a un Session Bean utiliza este patrón para localizar/crear la instancia del Session Bean al que proxifica.
+
+\section{Facade}
+Proporciona una interfaz unificada para un conjunto de interfaces de un subsistema, lo que evita la comunicación y dependencias entre las mismas haciendo que se comuniquen entre sí únicamente a través de sus fachadas. \\
+Su aplicación se lleva a cabo cuando se quiere dotar a un subsistema complejo de una única interfaz de más alto nivel, de un único punto de entrada en el que aparece un método por cada caso de uso implementado. Mediante su aplicación se evita el acoplamiento entre el cliente y las clases del sistema.
+
+\section{Factory method}
+Permite definir una interfaz para crear un objeto, pero deja que sean las subclases quienes decidan qué clase instanciar. Su uso es de utilidad cuando:
+
+\begin{itemize}
+	\item Una clase no puede prever la clase de objetos que debe crear.
+  \item Una clase quiere que sean sus subclases quienes especifiquen los objetos que ésta crea.
+	\item Las clases delegan la responsabilidad en una de entre varias clases auxiliares, y queremos localizar qué subclase auxiliar concreta es en la que se delega.
+\end{itemize}
+
+En el proyecto se usa principalmente para obtener una instancia de cada una de las fachadas implementadas.
+
+\section{Composite}
+Patrón estructural que tiene como objetivo permitir componer objetos en estructuras árbol para representar jerarquías parte-todo para, de esta forma, permitir a los clientes tratar de forma uniforme a los objetos y a las composiciones. \\
+Existen variedad de implementaciones pero la utilizada en el proyecto es la de mantener referencias de los componentes hijos a sus padres, para intentar simplificar el recorrido y la gestión de la estructura compuesta, manteniendo el invariante de que todos los hijos de un compuesto tienen como padre al compuesto que a su vez los contiene a todos ellos como hijos.
+
+\section{Singleton}
+También conocido como instancia única. Asegura que una clase sólo tiene una instancia y proporciona un punto gobal de acceso a ella. Debe existir una única instancia de una clase, y ésta debe ser accesible a los clientes desde un punto de acceso bien conocido. La única instancia puede ser extendida sin modificar su código.
+
+\section{Chain of Responsability}
+El objetivo de este patrón de comportamiento es el de evitar acoplar el emisor de una petición a un receptor, dando a más de un objeto la posibilidad de responder a la petición. Para lograrlo, encadena los objetos receptores y pasa la petición a través de una cadena hasta que es procesada por algún objeto. Utilizado en este proyecto en la cadena de filtros del \emph{front controller} del controlador de la aplicación web.
+
+\section{Front Controller}
+Este patrón proporciona un punto de entrada centralizado que controla y maneja las peticiones del Cliente, que están relacionadas con el procesamiento de negocio y el control de flujo. El ServletFront proporciona una implementación del controlador como un servlet. Claramente esta visión está orientada a Web, puesto que un servlet es una clase Java que puede recibir peticiones, generalmente HTTP, generando una salida.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{Imágenes/FrontController.png}
+	\caption{Patrón Front Controller}
+	\label{fig:FrontController}
+\end{figure}

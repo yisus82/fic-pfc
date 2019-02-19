@@ -1,0 +1,20 @@
+<html:form xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:html="http://struts.apache.org/tags-html" action="UpdatePOI.do"
+	focus="name">
+
+	<jsp:output omit-xml-declaration="true" />
+	<html:xhtml />
+
+	<p><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></p>
+
+	<p />
+	<p /><html:hidden property="action" value="UPDATE" /> <html:hidden
+		property="POIID" value="${param.POIID}" /> <jsp:directive.include
+		file="POI.jspf" />
+	<div class="button"><html:submit>
+		<fmt:message key="Buttons.OK" />
+	</html:submit></div>
+
+</html:form>

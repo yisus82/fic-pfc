@@ -1,0 +1,137 @@
+\chapter{Estándares y tecnologías utilizadas}
+
+En este capítulo se realiza un breve resumen de los principales estándares y tecnologías que se han utilizado en el desarrollo de la aplicación.
+
+\section{Web Map Service}
+El Web Map Service (WMS) define un servicio web que genera cartografía a partir de información geográfica. A través de una petición HTTP se puede indicar las capas a visualizar, los estilos a utilizar, el formato y la resolución de la imagen. \\
+Para llevar a cabo esta funcionalidad, cualquier WMS debe soportar las siguientes operaciones:
+
+\begin{itemize}
+	\item \textbf{GetCapabilities:} devuelve información del servicio ofrecido.
+	\item \textbf{GetMap:} encargado de construir y devolver un mapa como una imagen.
+  \item \textbf{GetFeatureInfo:} esta operación devuelve información acerca de los objetos representados en un píxel de la imagen.
+\end{itemize}
+
+De acuerdo con estas operaciones básicas se definen dos tipos de servicios:
+
+\begin{itemize}
+	\item \textbf{WMS Básico:} los estilos están predefinidos y no se pueden cambiar, lo que implica que de los estilos sólo se conozca el nombre pero no su definición y los clientes del servicio no puedan definir sus propios estilos para la información geográfica.
+	\item \textbf{WMS con SLD:} soluciona los problemas del tipo anterior gracias a la definición
+del lenguaje SLD lo que le permite:
+		\begin{itemize}
+			\item Utilizar este lenguaje como una biblioteca.
+  		\item Utilizar el lenguaje para definir nuevos estilos.
+			\item Implementar un servicio WMS en cascada.
+			\item Ampliar las funcionalidades de las operaciones básicas:
+				\begin{itemize}
+					\item \emph{GetCapabilities:} proporciona información adicional referente a la funcionalidad SLD soportada.
+  				\item \emph{GetMap:} posibilita indicar los estilos que un usuario define.
+				\end{itemize}
+			\item Permite definir operaciones nuevas:
+				\begin{itemize}
+					\item \emph{DescribeLayer:} devuelve información acerca de las capas definidas en el WMS.
+					\item \emph{GetLeyendGraphic:} devuelve el icono que representa el estilo.
+					\item \emph{GetStyles:} para consultar los estilos.
+					\item \emph{UpdateStyles:} permite modificar los estilos definidos.
+				\end{itemize}
+		\end{itemize}
+\end{itemize}
+
+\section{J2EE}
+El estándar J2EE proporciona un conjunto de especificaciones de APIs Java para la construcción de aplicaciones empresariales. Por tanto, y dado que sólo se trata de un conjunto de especificaciones, una aplicación costruida en J2EE no depende de una implementación particular, por lo que se favorece la posibilidad de utilizar tecnologías de distintos
+fabricantes para la ejecución de la misma, lo que proporciona una, más que deseable, independencia del fabricante de la tecnología de soporte. \\
+Debido a la utilización de la plataforma J2EE, para la codificación de la aplicación se ha utilizado el lenguaje de programación Java. El uso de Java y J2EE simplifica el software a través del uso de componentes modulares y estándar, sobradamente probados, proveyendo un conjunto de servicios a los mismos. \\
+El uso de estos componentes permite crear aplicaciones escalables, confiables e integradas con los sistemas existentes en tiempos cada vez más cortos.
+
+\section{EJB3}
+EJB, Enterprise JavaBean, es una tecnología J2EE para la implementación de la capa modelo de una aplicación proporcionando:
+
+\begin{itemize}
+	\item soporte para persistencia
+	\item soporte para implementación de fachadas (ocultación de APIs de transacciones y seguridad)
+\end{itemize}
+
+Las versiones anteriores (EJB 1.x y 2.x) fuero criticadas debido a que eran difíciles de usar y que a pesar de que el soporte para persistencia permitía programar de manera independiente del tipo de BD (relacional, objetual\ldots) era poco potente debido a que no se permitía realizar muchos tipos de consultas usuales (join, group by\ldots), borrados
+o actualizaciones en masa, etc. \\
+A consecuencia de estas complejidades y deficiencias surgieron diversos proyectos encaminados a resolverlos: Hibernate, TopLink, JDO o Spring son ejemplos de ello, con mayor o menor grado de éxito y aceptación. \\
+Precisamente inspirado en alguno de estos proyectos anteriores (concretamente en Hibernate, ToLink y JDO) surge EJB 3.0, que puede ser visto como un mapeador objeto/relacional (en consecuencia no oculta que el tipo de base de datos es relacional), incluye el nuevo API de persistencia de JAVA, proporciona un modelo más sencillo para la implementación de fachadas y puede usarse en entornos J2SE (fuera de un contenedor J2EE) y sin el resto de componentes de EJB, lo que permite que sea válido para aplicaciones \emph{standalone}. \\
+Consta de:
+
+\begin{itemize}
+	\item \textbf{Anotaciones:} el desarrollador puede anotar las clases persistentes (entidades) para que la implementación del API de persistencia sepa cómo mapear las instancias a la base de datos (por ejemplo, indicando el nombre de la tabla, los nombres de las columnas a las que mapear los atributos, etc.).
+	\item El API propiamente dicho: correspondiente a \emph{javax.persistence} cuyos objetos principales son:
+		\begin{itemize}
+			\item \emph{EntityManager:} que permite crear, encontrar por clave primaria y eliminar objetos persistentes, y crear objetos Query.
+			\item \emph{Query:} permite lanzar las consultas en EJB-QL.
+		\end{itemize}
+	Internamente las implementaciones usan el API de JDBC (transparente al programador).
+	\item \textbf{EJB-QL:} acrónimo de EJB Query Language. Es un lenguaje de consultas de búsqueda y borrados/actualizaciones en masa, siendo la implementación la que traduce al SQL de la base de datos que se esté usando.
+\end{itemize}
+
+Finalmente comentar que las fachadas podrán ser locales o remotas, ocultando los APIs de transacciones y seguridad al programador, pudiéndose distinguir dos tipos de fachadas:
+
+\begin{itemize}
+	\item \textbf{SessionBeans:} que constituyen las fachadas ``normales''(operaciones síncronas), teniendo que definir una interfaz y una implementación. Dentro de estas fachadas tendremos:
+		\begin{itemize}
+			\item \emph{Stateless Session Beans (SLSB):} fachadas sin estado.
+			\item \emph{Stateful Session Beans (SFSB):} fachadas con estado.
+		\end{itemize}
+	\item \textbf{Message-Driven Beans (MDB):} son fachadas del modelo que implementan casos de uso por los que el cliente no puede esperar a que terminen, funcionando bajo el paradigma del envío de mensajes (operaciones asíncronas).
+\end{itemize}
+
+\section{Struts}
+Struts es un ``framework open source'', facilitado por Apache, para construir aplicaciones web en el mundo Java. Se basa en tecnologías estándar Java y su arquitectura se ajusta al patrón arquitectónico ``Model-View-Controller''. La separación estricta de las capas del patrón permite la integración de diferentes tipos de tecnologías en cada una de ellas. \\
+Este ``framework'' ofrece cierta funcionalidad para implementar aplicaciones multilenguaje, permitiendo definir las páginas de una aplicación, además de sus correspondientes acciones asociadas, de una manera abstracta y externalizada, lo que permite separar la lógica de control de la lógica de la vista. \\
+Toda esta información se mantiene a través de XML, en un fichero de configuración, lo que permite un eficiente y fácil mantenimiento del nivel de presentación de las aplicaciones. Además, posibilita el ser complementado por medio de ``plug-ins'' para poder incrementar su funcionalidad, como por ejemplo, en el caso del manejo de peticiones bajo el protocolo HTTPS, para permitir el envío seguro de información entre el cliente y el servidor. \\
+A nivel de la vista de la aplicación, proporciona un conjunto muy completo de librerías de etiquetas, con lo que las JSPs quedan bastante limpias de código Java. \\
+Por otra parte, el controlador se puede implementar siguiendo un mapeo abstracto de los elementos de presentación de la aplicación (formularios de datos, acciones\ldots) según el patrón Front Controller. De esta forma el controlador estará totalmente desacoplado de la lógica de negocio. \\
+En lo referente al modelo, Struts no ofrece ninguna funcionalidad en la capa de acceso a datos, por lo que es posible el empleo de cualquier tecnología, haciéndose uso en este caso de EJB3, mucho más sencillo que JDBC.
+
+\section{XML}
+Es una tecnología estandarizada por el ``World Wide Web Consortium'' (W3C), que se basa en documentos de texto plano en los que se utilizan etiquetas para delimitar los elementos de un documento. Estas etiquetas son definidas en función del tipo de datos que está describiendo y no de la apariencia final que tendrán en pantalla o en la copia impresa, como ocurría en HTML. XML permite, además, definir nuevas etiquetas y ampliar las existentes.
+
+\section{CSS (Cascade Style Sheet)}
+Es una especificación, estandarizada por el W3C, sobre los estilos físicos aplicables a un documento HTML, que fue concebida tratando de proporcionar la separación definitiva entre la estructura y la presentación del documento. Entre las muchas ventajas del uso de CSS, conviene destacar las siguientes:
+
+\begin{itemize}
+	\item \textbf{Flexibilidad:} Si se hace uso de hojas de estilo externas, todo el diseño gráfico de la web se encuentra centralizado en un único punto, por lo que realizar cambios en la vista de la aplicación es relativamente sencillo.
+	\item \textbf{Rapidez:} Al existir menos código en las páginas, éstas son descargadas más rápidamente por los usuarios, con lo que se gana eficiencia.
+	\item \textbf{Dinamismo:} Aunque CSS presenta algunas características que dotan de cierto dinamismo a algunos objetos, es fácilmente combinable con JavaScript, lo que permite realizar un diseño con cualquier grado de dinamismo deseado.
+\end{itemize}
+
+\section{JSP (Java Server Pages)}
+Una página JSP es un tipo especial de ``servlet'' orientado a generar el texto de la interfaz gráfica. Este tipo de páginas necesitan de un programa que las contenga, envíe efectivamente páginas web al servidor, y reciba las peticiones, las distribuya entre los ``servlets'' y lleve a cabo todas las tareas de gestión propias de un servidor
+web. Este programa es el denominado servidor de aplicaciones o contenedor web. \\
+La primera vez que se accede a una página JSP el servidor de aplicaciones genera un servlet a partir de la página JSP, lo compila y lo carga en memoria. Si no es la primera vez, le pasa la petición al ``servlet'' anteriormente generado. \\
+Una página JSP es también una página web por lo que permite la inclusión de código HTML, pero además también permite añadir código Java, aunque no es una buena práctica porque no permite una separación clara de roles, es decir, el
+diseñador gráfico debería conocer entonces Java y saber programar para diseñar la página, lo cual no es una buena opción. Para solucionarlo se hace uso de librerías de tags JSP que permiten realizar diversas acciones sobre los elementos de una página web, tales como iteración sobre colecciones, internacionalización de mensajes, acceso a documentos XML\ldots. \\
+Además de la librería de tags anteriormente mencionada proporcionada por Struts, se hace uso en esta aplicación de JSTL (JSP Standard Tag Library).
+
+\section{AJAX}
+Acrónimo de Asynchronous JavaScript And XML (JavaScript y XML asíncronos, donde XML es un acrónimo de eXtensible Markup Language). \\
+Es una técnica de desarrollo web para crear aplicaciones interactivas. Éstas se ejecutan en el cliente, es decir, en el navegador del usuario, y mantiene comunicación asíncrona con el servidor en segundo plano. De esta forma es posible realizar cambios sobre la misma página sin necesidad de recargarla. Esto significa aumentar la interactividad, velocidad y usabilidad en la misma. \\
+AJAX es una combinación de tecnologías ya existentes:
+
+\begin{itemize}
+	\item \textbf{XHTML (o HTML)} y \textbf{hojas de estilos en cascada}(CSS) para el diseño que acompaña a la información.
+	\item \textbf{Document Object Model} (DOM) accedido con un lenguaje de scripting por parte del usuario, especialmente implementaciones ECMAScript como JavaScript y JScript, para mostrar e interactuar dinámicamente con la información presentada.
+	\item El objeto \textbf{XMLHttpRequest} para intercambiar datos asíncronamente con el servidor web. En algunos frameworks y en algunas situaciones concretas, se usa un objeto iframe en lugar del XMLHttpRequest para realizar dichos intercambios.
+	\item \textbf{XML} es el formato usado comúnmente para la transferencia de vuelta al servidor, aunque cualquier formato puede funcionar, incluyendo HTML preformateado, texto plano, JSON y hasta EBML.
+	\item JavaScript para unir todo lo anterior.
+\end{itemize}
+
+AJAX no constituye una tecnología en sí, sino que es un término que engloba a un grupo de éstas que trabajan conjuntamente. \\
+El modelo clásico de aplicaciones web funciona de esta forma: la mayoría de las acciones del usuario en la interfaz disparan un requerimiento HTTP al servidor web. El servidor efectúa un proceso (recopila información, procesa números, hablando con varios sistemas propietarios), y le devuelve una pagina HTML al cliente. Este es un modelo adaptado del uso original de la Web como un medio hipertextual. \\
+Una aplicación AJAX elimina la naturaleza de ``arrancar-frenar-arrancar-frenar'' de la interacción en la Web introduciendo un intermediario -un motor AJAX- entre el usuario y el servidor. Este motor AJAX permite que la interacción del usuario con la aplicación suceda asíncronamente (independientemente de la comunicación con el
+servidor). Así el usuario nunca estará mirando una ventana en blanco del navegador y un icono de reloj de arena esperando a que el servidor haga algo. \\
+Se observa como el concepto de AJAX es el de cargar y renderizar una página, luego mantenerse en esa página mientras scripts y rutinas van al servidor buscando, en background, los datos que son usados para actualizar la página, lo que permite mostrar u ocultar porciones de la misma. \\
+Ejemplos de compañías que están usando AJAX son el motor de búsqueda de Amazon, que aplica tecnologías similares, o Google, que está haciendo una significativa inversión en su acercamiento a AJAX: todos los grandes productos que Google
+ha introducido últimamente (Orkut, Gmail, Google Groups, Google Suggest o Google Maps) son aplicaciones AJAX. \\
+En la figura~\ref{fig:Comparativa} se observa una comparativa entre ambos modelos.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{Imágenes/Comparativa.png}
+	\caption{Comparativa entre modelo web clásico y modelo AJAX}
+	\label{fig:Comparativa}
+\end{figure}

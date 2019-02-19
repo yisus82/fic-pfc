@@ -1,0 +1,131 @@
+<jsp:root xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:html="http://struts.apache.org/tags-html" version="2.0">
+
+	<p><html:errors property="org.apache.struts.action.GLOBAL_MESSAGE" /></p>
+
+	<p />
+	<p />
+	<p class="itemsTitle"><fmt:message key="ShowWMSDetailsContent.WMSDetails" /></p>
+
+	<c:choose>
+
+		<c:when test="${empty requestScope.WMS}">
+			<p><fmt:message key="ShowWMSDetailsContent.noWMS" /></p>
+		</c:when>
+
+		<!-- Print current WMS. -->
+
+		<c:otherwise>
+			<div class="center">
+			<table rules="all">
+
+				<tr>
+					<th id="tableHeader"><fmt:message key="WMSAttributes.name" /></th>
+					<th id="tableHeader"><fmt:message key="WMSAttributes.description" />
+					</th>
+					<th id="tableHeader"><fmt:message key="WMSAttributes.URL" /></th>
+					<th id="tableHeader"><fmt:message key="WMSAttributes.user" /></th>
+				</tr>
+
+				<c:set var="WMS" value="${requestScope.WMS}" />
+
+				<tr>
+
+					<td id="itemTable"><c:out value="${WMS.name}" /></td>
+
+					<td id="itemTable"><c:out value="${WMS.description}" /></td>
+
+					<td id="itemTable"><a href="${WMS.URL}"><c:out value="${WMS.URL}" /></a></td>
+
+					<td id="itemTable"><c:url var="userDetailsURL"
+						value="ShowUserDetails.do">
+						<c:param name="userID" value="${WMS.userID}" />
+					</c:url> <a href="${userDetailsURL}"><c:out value="${WMS.userID}" /></a></td>
+
+					<c:choose>
+						<c:when test="${sessionScope.userID eq 'admin'}">
+							<td id="itemTable"><c:url var="deleteWMSURL" value="DeleteWMS.do">
+								<c:param name="WMSID" value="${WMS.WMSID}" />
+							</c:url> <a href="${deleteWMSURL}"><fmt:message key="WMSAttributes.deleteWMS" /></a></td>
+							<c:if test="${WMS.userID eq sessionScope.userID}">
+								<td id="itemTable"><c:url var="updateWMSURL" value="EditWMS.do">
+									<c:param name="action" value="UPDATE" />
+									<c:param name="WMSID" value="${WMS.WMSID}" />
+								</c:url> <a href="${updateWMSURL}"><fmt:message
+									key="WMSAttributes.updateWMS" /></a></td>
+							</c:if>
+							<c:set var="isInteresting" value="false" />
+							<c:forEach var="interestingWMS" items="${requestScope.interestingWMSs}">
+								<c:if test="${WMS.WMSID eq interestingWMS}">
+									<c:set var="isInteresting" value="true" />
+								</c:if>
+							</c:forEach>
+							<c:choose>
+								<c:when test="${isInteresting eq true}">
+									<td id="itemTable"><c:url var="deleteInterestingWMSURL"
+										value="DeleteInterestingWMS.do">
+										<c:param name="WMSID" value="${WMS.WMSID}" />
+									</c:url> <a href="${deleteInterestingWMSURL}"><fmt:message
+										key="WMSAttributes.deleteInterestingWMS" /></a></td>
+								</c:when>
+								<c:otherwise>
+									<td id="itemTable"><c:url var="addInterestingWMSURL"
+										value="AddInterestingWMS.do">
+										<c:param name="WMSID" value="${WMS.WMSID}" />
+									</c:url> <a href="${addInterestingWMSURL}"><fmt:message
+										key="WMSAttributes.addInterestingWMS" /></a></td>
+								</c:otherwise>
+							</c:choose>
+						</c:when>
+						<c:otherwise>
+							<c:choose>
+								<c:when test="${WMS.userID eq sessionScope.userID}">
+									<td id="itemTable"><c:url var="deleteWMSURL" value="DeleteWMS.do">
+										<c:param name="WMSID" value="${WMS.WMSID}" />
+									</c:url> <a href="${deleteWMSURL}"><fmt:message
+										key="WMSAttributes.deleteWMS" /></a></td>
+									<td id="itemTable"><c:url var="updateWMSURL" value="EditWMS.do">
+										<c:param name="action" value="UPDATE" />
+										<c:param name="WMSID" value="${WMS.WMSID}" />
+									</c:url> <a href="${updateWMSURL}"><fmt:message
+										key="WMSAttributes.updateWMS" /></a></td>
+								</c:when>
+								<c:otherwise>
+									<c:set var="isInteresting" value="false" />
+									<c:forEach var="interestingWMS" items="${requestScope.interestingWMSs}">
+										<c:if test="${WMS.WMSID eq interestingWMS}">
+											<c:set var="isInteresting" value="true" />
+										</c:if>
+									</c:forEach>
+									<c:choose>
+										<c:when test="${isInteresting eq true}">
+											<td id="itemTable"><c:url var="deleteInterestingWMSURL"
+												value="DeleteInterestingWMS.do">
+												<c:param name="WMSID" value="${WMS.WMSID}" />
+											</c:url> <a href="${deleteInterestingWMSURL}"><fmt:message
+												key="WMSAttributes.deleteInterestingWMS" /></a></td>
+										</c:when>
+										<c:otherwise>
+											<td id="itemTable"><c:url var="addInterestingWMSURL"
+												value="AddInterestingWMS.do">
+												<c:param name="WMSID" value="${WMS.WMSID}" />
+											</c:url> <a href="${addInterestingWMSURL}"><fmt:message
+												key="WMSAttributes.addInterestingWMS" /></a></td>
+										</c:otherwise>
+									</c:choose>
+								</c:otherwise>
+							</c:choose>
+						</c:otherwise>
+					</c:choose>
+
+				</tr>
+			</table>
+			</div>
+		</c:otherwise>
+
+	</c:choose>
+
+</jsp:root>

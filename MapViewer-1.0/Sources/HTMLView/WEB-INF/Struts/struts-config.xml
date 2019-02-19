@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- ============ Form Bean Definitions =================================== -->
+	<form-beans>
+		<form-bean name="changePasswordForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="oldPassword" type="java.lang.String" />
+			<form-property name="newPassword" type="java.lang.String" />
+			<form-property name="retypeNewPassword"
+				type="java.lang.String" />
+		</form-bean>
+		<form-bean name="findByNameForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="startIndex" type="java.lang.String" />
+			<form-property name="count" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="findByTagsForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="tags" type="java.lang.String" />
+			<form-property name="startIndex" type="java.lang.String" />
+			<form-property name="count" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="findByUserIDForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="userID" type="java.lang.String" />
+			<form-property name="startIndex" type="java.lang.String" />
+			<form-property name="count" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="findByZoneForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="minLatitude" type="java.lang.String" />
+			<form-property name="minLongitude" type="java.lang.String" />
+			<form-property name="maxLatitude" type="java.lang.String" />
+			<form-property name="maxLongitude" type="java.lang.String" />
+			<form-property name="startIndex" type="java.lang.String" />
+			<form-property name="count" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="loginForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="userID" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+			<form-property name="rememberMyPassword"
+				type="java.lang.Boolean" />
+		</form-bean>
+		<form-bean name="mapForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="action" type="java.lang.String" />
+			<form-property name="mapID" type="java.lang.String" />
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="description" type="java.lang.String" />
+			<form-property name="minLongitude" type="java.lang.String" />
+			<form-property name="minLatitude" type="java.lang.String" />
+			<form-property name="maxLongitude" type="java.lang.String" />
+			<form-property name="maxLatitude" type="java.lang.String" />
+			<form-property name="tags" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="POIForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="action" type="java.lang.String" />
+			<form-property name="POIID" type="java.lang.String" />
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="description" type="java.lang.String" />
+			<form-property name="HTML" type="java.lang.String" />
+			<form-property name="latitude" type="java.lang.String" />
+			<form-property name="longitude" type="java.lang.String" />
+			<form-property name="tags" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="selectLayersForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="mapID" type="java.lang.String" />
+			<form-property name="WMSID" type="java.lang.String" />
+			<form-property name="startIndex" type="java.lang.String" />
+			<form-property name="count" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="selectWMSForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property name="mapID" type="java.lang.String" />
+			<form-property name="WMSID" type="java.lang.String" />
+		</form-bean>
+		<!--
+			"userProfileForm" is defined as "DynaValidatorActionForm" because we want
+			to validate it in "/RegisterUser" and "/UpdateUserProfileDetails" using
+			different validation rules.
+		-->
+		<form-bean name="userProfileForm"
+			type="org.apache.struts.validator.DynaValidatorActionForm">
+			<form-property name="action" type="java.lang.String" />
+			<form-property name="userID" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+			<form-property name="retypePassword"
+				type="java.lang.String" />
+			<form-property name="firstName" type="java.lang.String" />
+			<form-property name="surname" type="java.lang.String" />
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="localeID" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="WMSForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="action" type="java.lang.String" />
+			<form-property name="WMSID" type="java.lang.String" />
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="description" type="java.lang.String" />
+			<form-property name="URL" type="java.lang.String" />
+		</form-bean>
+	</form-beans>
+	<!-- ============ Global Forward Definitions ============================== -->
+	<global-forwards>
+		<forward name="MainPage" path=".MainPage" />
+		<forward name="Home" path="/MainPage.do" redirect="true" />
+		<forward name="AuthenticationPage" path="/ShowAuthentication.do"
+			redirect="true" />
+		<forward name="InternalError" path="/InternalError.do"
+			redirect="true" />
+		<forward name="ErrorPage" path=".ErrorPage" />
+	</global-forwards>
+	<!-- ============ Action Mapping Definitions ============================== -->
+	<action-mappings
+		type="mapviewer.http.controller.frontcontroller.MapViewerActionMapping">
+		<action path="/MainPage"
+			type="mapviewer.http.controller.actions.MainPageAction"
+			scope="request" input=".MainPage" />
+		<action path="/InternalError"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter=".InternalError" />
+		<action path="/ShowAuthentication"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter=".Authentication" />
+		<action path="/AddInterestingMap"
+			type="mapviewer.http.controller.actions.AddInterestingMapAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/AddInterestingPOI"
+			type="mapviewer.http.controller.actions.AddInterestingPOIAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/AddInterestingWMS"
+			type="mapviewer.http.controller.actions.AddInterestingWMSAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/AddMap"
+			type="mapviewer.http.controller.actions.AddMapAction" name="mapForm"
+			scope="request" input="/EditMap.do" validate="true">
+			<set-property property="authenticationRequired"
+				value="true" />
+			<forward name="ShowSelectWMS" path="/ShowSelectWMS.do" />
+		</action>
+		<action path="/AddPOI"
+			type="mapviewer.http.controller.actions.AddPOIAction" name="POIForm"
+			scope="request" input="/EditPOI.do" validate="true">
+			<set-property property="authenticationRequired"
+				value="true" />
+		</action>
+		<action path="/AddWMS"
+			type="mapviewer.http.controller.actions.AddWMSAction" name="WMSForm"
+			scope="request" input="/EditWMS.do" validate="true">
+			<set-property property="authenticationRequired"
+				value="true" />
+		</action>
+		<action path="/ChangePassword"
+			type="mapviewer.http.controller.actions.ChangePasswordAction"
+			name="changePasswordForm" scope="request" input=".ChangePassword"
+			validate="true">
+			<set-property property="authenticationRequired"
+				value="true" />
+		</action>
+		<action path="/DeleteInterestingMap"
+			type="mapviewer.http.controller.actions.DeleteInterestingMapAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/DeleteInterestingPOI"
+			type="mapviewer.http.controller.actions.DeleteInterestingPOIAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/DeleteInterestingWMS"
+			type="mapviewer.http.controller.actions.DeleteInterestingWMSAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/DeleteMap"
+			type="mapviewer.http.controller.actions.DeleteMapAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/DeletePOI"
+			type="mapviewer.http.controller.actions.DeletePOIAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/DeleteWMS"
+			type="mapviewer.http.controller.actions.DeleteWMSAction"
+			scope="request" input=".ErrorPage">
+			<set-property property="authenticationRequired" value="true" />
+		</action>
+		<action path="/EditMap"
+			type="mapviewer.http.controller.actions.EditMapAction" name="mapForm"
+			scope="request" validate="false">
+			<set-property property="authenticationRequired"
+				value="true" />
+			<forward name="AddMapForm" path=".AddMap" />
+			<forward name="UpdateMapForm" path=".UpdateMap" />
+		</action>
+		<action path="/EditPOI"
+			type="mapviewer.http.controller.actions.EditPOIAction" name="POIForm"
+			scope="request" validate="false">
+			<set-property property="authenticationRequired"
+				value="true" />
+			<forward name="AddPOIForm" path=".AddPOI" />
+			<forward name="UpdatePOIForm" path=".UpdatePOI" />
+		</action>
+		<action path="/EditUserProfile"
+			type="mapviewer.http.controller.actions.EditUserProfileAction"
+			name="userProfileForm" scope="request" validate="false">
+			<forward name="RegisterUserForm" path=".RegisterUser" />
+			<forward name="UpdateUserProfileDetailsForm"
+				path=".UpdateUserProfileDetails" />
+		</action>
+		<action path="/EditWMS"
+			type="mapviewer.http.controller.actions.EditWMSAction" name="WMSForm"
+			scope="request" validate="false">
+			<set-property property="authenticationRequired"
+				value="true" />
+			<forward name="AddWMSForm" path=".AddWMS" />
+			<forward name="UpdateWMSForm" path=".UpdateWMS" />
+		</action>
+		<action path="/FindInterestingMaps"
+			type="mapviewer.http.controller.actions.FindInterestingMapsAction"
+			scope="request" input=".FindInterestingMaps" validate="false">
+			<forward name="FindInterestingMapsContent"
+				path=".FindInterestingMaps" />
+		</action>
+		<action path="/FindInterestingPOIs"
+			type="mapviewer.http.controller.actions.FindInterestingPOIsAction"
+			scope="request" input=".FindInterestingPOIs" validate="false">
+			<forward name="FindInterestingPOIsContent"
+				path=".FindInterestingPOIs" />
+		</action>
+		<action path="/FindInterestingWMSs"
+			type="mapviewer.http.controller.actions.FindInterestingWMSsAction"
+			scope="request" input=".FindInterestingWMSs" validate="false">
+			<forward name="FindInterestingWMSsContent"
+				path=".FindInterestingWMSs" />
+		</action>
+		<action path="/FindMaps"
+			type="mapviewer.http.controller.actions.FindMapsAction"
+			parameter=".FindMaps">
+			<forward name="FindMapsContent" path=".FindMaps" />
+		</action>
+		<action path="/FindMapsByName"
+			type="mapviewer.http.controller.actions.FindMapsByNameAction"
+			name="findByNameForm" scope="request" input=".FindMapsByName">
+			<forward name="FindMapsByNameContent"
+				path=".FindMapsByName" />
+		</action>
+		<action path="/FindMapsByTag"
+			type="mapviewer.http.controller.actions.FindMapsByTagAction"
+			parameter=".FindMapsByTag">
+			<forward name="FindMapsByTagContent" path=".FindMapsByTag" />
+		</action>
+		<action path="/FindMapsByTags"
+			type="mapviewer.http.controller.actions.FindMapsByTagsAction"
+			name="findByTagsForm" scope="request" input=".FindMapsByTags">
+			<forward name="FindMapsByTagsContent"
+				path=".FindMapsByTags" />
+		</action>
+		<action path="/FindMapsByUser"
+			type="mapviewer.http.controller.actions.FindMapsByUserAction"
+			parameter=".FindMapsByUser">
+			<forward name="FindMapsByUserContent"
+				path=".FindMapsByUser" />
+		</action>
+		<action path="/FindMapsByZone"
+			type="mapviewer.http.controller.actions.FindMapsByZoneAction"
+			name="findByZoneForm" scope="request" input=".FindMapsByZone">
+			<forward name="FindMapsByZoneContent"
+				path=".FindMapsByZone" />
+		</action>
+		<action path="/FindPOIs"
+			type="mapviewer.http.controller.actions.FindPOIsAction"
+			parameter=".FindPOIs">
+			<forward name="FindPOIsContent" path=".FindPOIs" />
+		</action>
+		<action path="/FindPOIsByName"
+			type="mapviewer.http.controller.actions.FindPOIsByNameAction"
+			name="findByNameForm" scope="request" input=".FindPOIsByName">
+			<forward name="FindPOIsByNameContent"
+				path=".FindPOIsByName" />
+		</action>
+		<action path="/FindPOIsByTag"
+			type="mapviewer.http.controller.actions.FindPOIsByTagAction"
+			parameter=".FindPOIsByTag">
+			<forward name="FindPOIsByTagContent" path=".FindPOIsByTag" />
+		</action>
+		<action path="/FindPOIsByTags"
+			type="mapviewer.http.controller.actions.FindPOIsByTagsAction"
+			name="findByTagsForm" scope="request" input=".FindPOIsByTags">
+			<forward name="FindPOIsByTagsContent"
+				path=".FindPOIsByTags" />
+		</action>
+		<action path="/FindPOIsByUser"
+			type="mapviewer.http.controller.actions.FindPOIsByUserAction"
+			parameter=".FindPOIsByUser">
+			<forward name="FindPOIsByUserContent"
+				path=".FindPOIsByUser" />
+		</action>
+		<action path="/FindPOIsByZone"
+			type="mapviewer.http.controller.actions.FindPOIsByZoneAction"
+			name="findByZoneForm" scope="request" input=".FindPOIsByZone">
+			<forward name="FindPOIsByZoneContent"
+				path=".FindPOIsByZone" />
+		</action>
+		<action path="/FindUsers"
+			type="mapviewer.http.controller.actions.FindUsersAction"
+			parameter=".FindUsers">
+			<forward name="FindUsersContent" path=".FindUsers" />
+		</action>
+		<action path="/FindUsersByUserID"
+			type="mapviewer.http.controller.actions.FindUsersByUserIDAction"
+			name="findByUserIDForm" scope="request" input=".FindUsersByUserID">
+			<forward name="FindUsersByUserIDContent"
+				path=".FindUsersByUserID" />
+		</action>
+		<action path="/FindWMSs"
+			type="mapviewer.http.controller.actions.FindWMSsAction"
+			parameter=".FindWMSs">
+			<forward name="FindWMSsContent"
+				path=".FindWMSs" />
+		</action>
+		<action path="/FindWMSsByName"
+			type="mapviewer.http.controller.actions.FindWMSsByNameAction"
+			name="findByNameForm" scope="request" input=".FindWMSsByName">
+			<forward name="FindWMSsByNameContent"
+				path=".FindWMSsByName" />
+		</action>
+		<action path="/FindWMSsByUser"
+			type="mapviewer.http.controller.actions.FindWMSsByUserAction"
+			parameter=".FindWMSsByUser">
+			<forward name="FindWMSsByUserContent"
+				path=".FindWMSsByUser" />
+		</action>
+		<action path="/Login"
+			type="mapviewer.http.controller.actions.LoginAction" name="loginForm"
+			scope="request" input=".Authentication" validate="true" />
+		<action path="/Logout"
+			type="mapviewer.http.controller.actions.LogoutAction" />
+		<action path="/RegisterUser"
+			type="mapviewer.http.controller.actions.RegisterUserAction"
+			name="userProfileForm" scope="request" input="/EditUserProfile.do"
+			validate="true" />
+		<action path="/SelectWMS"
+			type="mapviewer.http.controller.actions.SelectWMSAction"
+			name="selectWMSForm" scope="request" input=".SelectWMS">
+			<set-property property="authenticationRequired" value="true" />
+			<forward name="SelectLayersContent" path=".SelectLayers" />
+		</action>
+		<action path="/SelectLayers"
+			type="mapviewer.http.controller.actions.SelectLayersAction"
+			name="selectLayersForm" scope="request" input=".SelectLayers">
+			<set-property property="authenticationRequired" value="true" />
+			<forward name="SelectLayersContent" path=".SelectLayers" />
+		</action>
+		<action path="/ShowChangePassword"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter=".ChangePassword">
+			<set-property property="authenticationRequired"
+				value="true" />
+		</action>
+		<action path="/ShowLayerDetails"
+			type="mapviewer.http.controller.actions.ShowLayerDetailsAction"
+			parameter=".ShowLayerDetails">
+			<forward name="ShowLayerDetailsContent"
+				path=".ShowLayerDetails" />
+		</action>
+		<action path="/ShowMap"
+			type="mapviewer.http.controller.actions.ShowMapAction"
+			scope="request" input=".ErrorPage" />
+		<action path="/ShowMapDetails"
+			type="mapviewer.http.controller.actions.ShowMapDetailsAction"
+			parameter=".ShowMapDetails">
+			<forward name="ShowMapDetailsContent"
+				path=".ShowMapDetails" />
+		</action>
+		<action path="/ShowMyMaps"
+			type="mapviewer.http.controller.actions.ShowMyMapsAction"
+			scope="request" input=".ShowMyMaps" validate="false">
+			<forward name="ShowMyMapsContent"
+				path=".ShowMyMaps" />
+		</action>
+		<action path="/ShowMyPOIs"
+			type="mapviewer.http.controller.actions.ShowMyPOIsAction"
+			scope="request" input=".ShowMyPOIs" validate="false">
+			<forward name="ShowMyPOIsContent"
+				path=".ShowMyPOIs" />
+		</action>
+		<action path="/ShowMyWMSs"
+			type="mapviewer.http.controller.actions.ShowMyWMSsAction"
+			scope="request" input=".ShowMyWMSs" validate="false">
+			<forward name="ShowMyWMSsContent"
+				path=".ShowMyWMSs" />
+		</action>
+		<action path="/ShowPOIDetails"
+			type="mapviewer.http.controller.actions.ShowPOIDetailsAction"
+			parameter=".ShowPOIDetails">
+			<forward name="ShowPOIDetailsContent"
+				path=".ShowPOIDetails" />
+		</action>
+		<action path="/ShowSelectWMS"
+			type="mapviewer.http.controller.actions.ShowSelectWMSAction"
+			parameter=".SelectWMS">
+			<set-property property="authenticationRequired"
+				value="true" />
+			<forward name="SelectWMSContent"
+				path=".SelectWMS" />
+		</action>
+		<action path="/ShowUserDetails"
+			type="mapviewer.http.controller.actions.ShowUserDetailsAction"
+			parameter=".ShowUserDetails">
+			<forward name="ShowUserDetailsContent"
+				path=".ShowUserDetails" />
+		</action>
+		<action path="/ShowWMSDetails"
+			type="mapviewer.http.controller.actions.ShowWMSDetailsAction"
+			parameter=".ShowWMSDetails">
+			<forward name="ShowWMSDetailsContent"
+				path=".ShowWMSDetails" />
+		</action>
+		<action path="/UpdateMap"
+			type="mapviewer.http.controller.actions.UpdateMapAction"
+			name="mapForm" scope="request" input="/EditMap.do"
+			validate="true">
+			<set-property property="authenticationRequired"
+				value="true" />
+		</action>
+		<action path="/UpdatePOI"
+			type="mapviewer.http.controller.actions.UpdatePOIAction"
+			name="POIForm" scope="request" input="/EditPOI.do"
+			validate="true">
+			<set-property property="authenticationRequired"
+				value="true" />
+		</action>
+		<action path="/UpdateUserProfileDetails"
+			type="mapviewer.http.controller.actions.UpdateUserProfileDetailsAction"
+			name="userProfileForm" scope="request" input="/EditUserProfile.do"
+			validate="true">
+			<set-property property="authenticationRequired"
+				value="true" />
+		</action>
+		<action path="/UpdateWMS"
+			type="mapviewer.http.controller.actions.UpdateWMSAction"
+			name="WMSForm" scope="request" input="/EditWMS.do"
+			validate="true">
+			<set-property property="authenticationRequired"
+				value="true" />
+		</action>
+	</action-mappings>
+	<!-- ============ Front Controller Configuration ========================== -->
+	<controller
+		processorClass="mapviewer.http.controller.frontcontroller.MapViewerRequestProcessor" />
+	<!-- ============ Message Resources Definitions =========================== -->
+	<message-resources
+		parameter="mapviewer.http.view.messages.Messages" />
+	<!-- ============================ Tiles Plugin ============================ -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config"
+			value="/WEB-INF/Struts/tiles-defs.xml" />
+	</plug-in>
+	<!-- ======================== Validator Plugin ============================ -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/Struts/validator-rules.xml, /WEB-INF/Struts/validation.xml" />
+	</plug-in>
+</struts-config>
